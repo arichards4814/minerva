@@ -17,8 +17,8 @@ import { fetchCurriculums } from '../actionCreators'
 const Explore = props => {
     const [search, setSearch] = useState("")
     let history = useHistory()
-    const tags = [{name: "Photoshop"},
-    {name: "Code"}, {name: "Drums"}]
+    const tags = [{name: "Adobe"},
+        { name: "Code" }, { name: "Drums" }, { name: "Brewing" }]
     let location = useLocation()
 
     console.log(location.search)

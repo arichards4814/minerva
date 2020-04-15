@@ -94,7 +94,7 @@ const useStyles = makeStyles({
     },
     cardFooter: {
         position: "absolute",
-        bottom: 5,
+        bottom: -5,
         right: 5,
         width: "10%",
         display: "inline-block"

@@ -27,7 +27,8 @@ const useStyles = makeStyles({
         position: "sticky",
         top: 0,
         backgroundColor: "white",
-        zIndex: 1
+        zIndex: 1,
+        paddingLeft: 20
     },
     expander: {
         position: "absolute",
