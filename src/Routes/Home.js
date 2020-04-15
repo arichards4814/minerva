@@ -91,7 +91,7 @@ const Home = props =>{
                 </Layout>
             </Row>
             <Row marginLeft="10%">
-                <TitleBox theme="secondary"><F4 font="secondary">Popular Right Now:</F4></TitleBox>
+                <TitleBox theme="secondary"><F4 font="secondary">Trending Now:</F4></TitleBox>
             </Row>
             <div className={classes.root}>
                 <div className={classes.leftChevron}>

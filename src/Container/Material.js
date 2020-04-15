@@ -41,7 +41,7 @@ const Material = props => {
                 Link to Material: {props.currentNotebook && <a href={props.currentNotebook.material_url}>Here</a>}
             </div>
             <div>
-                Description: {props.currentNotebook && props.currentNotebook.lessons && props.currentNotebook.lessons[0].description}
+                        Description: {props.currentNotebook && props.currentNotebook.lessons && props.currentNotebook.lessons[0] && props.currentNotebook.lessons[0].description}
                 </div></React.Fragment>
                 :
                 <div>
