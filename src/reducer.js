@@ -155,7 +155,9 @@ export const reducer = (prevState = initialState, action) => {
                     lesson.notebooks.push(action.payload.data.body)
                 }
             }))
-            return {...prevState, subscriptions: subCopy }
+
+            // just edited this....
+            return { ...prevState, subscriptions: subCopy, currentNotebook: action.payload.data.body }
         case 'PATCH_NOTEBOOKS':
             return {...prevState, currentNotebook: action.payload.notebook}
         case 'PIN_NOTEBOOK':

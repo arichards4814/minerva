@@ -5,6 +5,7 @@ import F4 from '../Typing/F4'
 import F5 from '../Typing/F5'
 import F6 from '../Typing/F6'
 import SearchCircle from '../Icons/SearchCircle'
+import LoadingAnimation from './LoadingAnimation'
 
 import '../App.css';
 
@@ -108,6 +109,7 @@ export default function Card(props){
             </div>
             <div className={classes.cardImage}>
                 <img src={props.image_url} style={{height: "100%", width: "100%"}}></img>
+                {!props.image_url && <LoadingAnimation />}
             </div>
             <div className={classes.cardTitle}>
                 <F5>{props.title}</F5>

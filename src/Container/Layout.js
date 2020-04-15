@@ -22,6 +22,12 @@ const useStyles = makeStyles({
                 }
             } else {
                 return "left"
+            }},
+        marginLeft: props => {
+            if (props.marginLeft){
+                return props.marginLeft
+            } else {
+                return 0
             }
         },
         // backgroundColor: "blue" ,

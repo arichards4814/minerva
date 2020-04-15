@@ -16,11 +16,21 @@ import TagsList from '../Components/TagsList'
 // redux
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, postNotebooks, postSubscription, fetchUsersSubscriptions } from '../actionCreators'
+import TipBubbleLeft from '../Icons/Tiny/TipBubbleLeft'
 
 
 const useStyles = makeStyles({
     buttonPlacement: {
-        margin: 20
+        margin: 20,
+        position: "relative"
+    },
+    tipbubbleText:{
+        position: "absolute",
+        bottom: 12,
+        left: 228,
+        zIndex: 1,
+        color: "white",
+        cursor: "pointer"
     }
 })
 
@@ -59,6 +69,9 @@ const CurriculumShow = props => {
 
     const goToNotebook = () => {
         history.push(`/notebooks/${props.currentNotebook.id}`)
+    }
+    const goToNotebooks = () => {
+        history.push(`/notebooks`)
     }
 
     const subscribe = () => {
@@ -99,6 +112,8 @@ const CurriculumShow = props => {
                     <TitleBox style="rounded" theme="secondary" paddingLeft={3}><F3 font="secondary">{props.currentCurriculum.title}</F3></TitleBox>
                     <div className={classes.buttonPlacement}>
                         {subscribed ? <Button theme={"minerva"} onClick={subscribe}>Unsubscribe</Button> : <Button theme={"secondary"} onClick={subscribe}>Subscribe</Button>}
+                        {subscribed && <div className={classes.tipbubbleText} onClick={goToNotebooks}>View Your Notebooks</div>}
+                        {subscribed && <TipBubbleLeft onClick={goToNotebooks} theme="minerva" /> }
                     </div>
                     <TagsList tags={props.currentCurriculum.tags}/>
                 </Layout>
@@ -106,11 +121,11 @@ const CurriculumShow = props => {
                     <CreatorHeader />
                 </Layout>
             </Row>
-            <Row marginTop={30} marginLeft={3} >
+            <Row marginTop={30} marginLeft={50} >
                 <Layout width={6}>
                         <Display {...props.currentLesson} curriculum={props.currentCurriculum}imgHeight={400} imgWidth={"95%"} onClick={createNewNotebook}/>
                 </Layout>
-                <Layout width={6}>
+                <Layout width={6} marginLeft={5}>
                     <LongCardScroller info={props.currentCurriculum.lessons} style={"show"} placeholder="There are no lessons in this curriculum" headerTitle="Lessons:" />
                 </Layout>
 

@@ -11,6 +11,7 @@ import Pin from '../Icons/Pin'
 import { connect } from 'react-redux';
 import { postNotebooksWLessonJoiner, pinNotebook, unpinNotebook } from '../actionCreators'
 import DropdownTile from './DropdownTile'
+import TipBubble from '../Icons/Tiny/TipBubble'
 
 const useStyles = makeStyles({
     root: {
@@ -70,6 +71,12 @@ const useStyles = makeStyles({
     input:{
         width: "80%",
         display: "inline-block"
+    },
+    tipbubbleText: {
+        position: "absolute",
+        bottom: 53,
+        color: "white",
+        left: 80
     }
 })
 
@@ -137,6 +144,8 @@ const DropdownChild = props => {
                 </div>
             </div>
             {editing && <div className={classes.notebook}>
+                    <TipBubble theme="minerva" />
+                <div className={classes.tipbubbleText}>Name Your Notebook</div>
                     <input className={classes.input} value={notebookName} onChange={handleChange}></input>
                         <div className={classes.icon}>
                             <TinyPlus theme="minerva" onClick={createNotebook} cursor={"pointer"} />

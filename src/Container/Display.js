@@ -26,16 +26,20 @@ const useStyles = makeStyles({
         padding: 10
     },
     body: {
-        height: "80%"
+        height: "75%"
     }  ,
     footer: {
         textAlign: "center",
         height: 100
-    }    
+    },
+    zipText: {
+        color: "#ED3466"
+    }
 })
 
 const Display = props => {
     const classes = useStyles(props)
+
     return(
         <div className={props.debug ? classes.debug : classes.root}>
             <CustomImage src={props.image_url ? props.image_url : props.curriculum.image_url} height={props.imgHeight} width={props.imgWidth}/>
@@ -49,6 +53,7 @@ const Display = props => {
                 </div>
                 <div className={classes.footer} >
                     {/* {props.title && <Button theme={"third"}onClick={props.onClick}>Start Lesson</Button>} */}
+                    <span className={classes.zipText}> Created by: {props.curriculum.user && props.curriculum.user.username}</span>
                     <F6>Subscribe to this Curriculum to view this Lesson</F6>
                     {props.lesson_type && props.lesson_type === "video" || props.lesson_type === "Video" && <VideoIcon />}
                     {props.lesson_type && props.lesson_type === "blog" || props.lesson_type === "Blog" && <BlogIcon />}
