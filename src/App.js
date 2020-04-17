@@ -11,6 +11,7 @@ import NotebookShow from './Routes/NotebookShow';
 import Signup from './Routes/Signup';
 import Login from './Routes/Login';
 import Overlay from './Components/Overlay'
+import Learn from './Routes/Learn';
 
 import history from './history.js'
 
@@ -71,6 +72,9 @@ const App = props => {
             {props.currentUser && localStorage.user_id ?
               <CurriculumShow /> :
               <Redirect to="/signup" />}
+          </Route>
+          <Route path="/learn">
+            <Learn />
           </Route>
           <Route path="/signup">
             <Signup />
