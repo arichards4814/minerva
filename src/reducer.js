@@ -88,10 +88,17 @@ export const reducer = (prevState = initialState, action) => {
             updatedCurriculum2.lessons.splice(foundIndex2, 1)
             return { ...prevState, currentCurriculum: updatedCurriculum2 }
         case 'DELETE_CURRICULUM':
+            //remove from the curriculums stored
             let updatedCurriculums = [ ...prevState.curriculums ]
             let foundIndexCurriculum = updatedCurriculums.findIndex(curriculum => curriculum.id === action.payload.deletedCurriculum)
             updatedCurriculums.splice(foundIndexCurriculum, 1)
-            return { ...prevState, curriculums: updatedCurriculums, currentCurriculum: {} }
+
+            //remove from this users curriculums
+            let usersCurriculums = [...prevState.thisUsersCurriculums]
+            let foundIndexCurriculumTU = usersCurriculums.findIndex(curriculum => curriculum.id === action.payload.deletedCurriculum)
+            usersCurriculums.splice(foundIndexCurriculumTU, 1)
+
+            return { ...prevState, curriculums: updatedCurriculums, currentCurriculum: {}, thisUsersCurriculums: usersCurriculums }
         case 'FETCH_USERS_NOTEBOOKS':
             return { ...prevState, notebooks: action.payload.notebooks }
         case 'POST_NOTEBOOKS':
