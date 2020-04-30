@@ -29,12 +29,13 @@ const initialState = {
 export const reducer = (prevState = initialState, action) => {
     switch (action.type) {
         case 'POST_LOGIN':
+            console.log(action.payload)
             if (action.payload.user.errors) {
                 return { ...prevState, currentUser: {}, errors: action.payload.user.errors }
             } else {
                 localStorage.user_id = action.payload.user.id
                 localStorage.token = action.payload.token
-                return { ...prevState, currentUser: { id: action.payload.user.id, username: action.payload.user.username } }
+                return { ...prevState, currentUser: { id: action.payload.user.id, username: action.payload.user.username }, errors: [] }
             }
         case 'FETCH_CURRENT_USER':
             let userInfo = {}
