@@ -281,7 +281,7 @@ export const postUsers = (data) => dispatch => {
     requests.postUsers(data)
         .then(data => {
             history.push(`/`)
-            dispatch({ type: 'POST_USERS', payload: { user: data } })
+            dispatch({ type: 'POST_USERS', payload: { user: data.user, token: data.token } })
         })
 }
 
@@ -299,7 +299,7 @@ export const postLogin = (data) => dispatch => {
     //
     requests.postLogin(data)
         .then(data => {
-            dispatch({ type: 'POST_LOGIN', payload: { user: data } })
+            dispatch({ type: 'POST_LOGIN', payload: { user: data.user, token: data.token } })
             console.log(data)
             if (!data.errors){
                 history.push('/')

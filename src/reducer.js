@@ -33,6 +33,7 @@ export const reducer = (prevState = initialState, action) => {
                 return { ...prevState, currentUser: {}, errors: action.payload.user.errors }
             } else {
                 localStorage.user_id = action.payload.user.id
+                localStorage.token = action.payload.token
                 return { ...prevState, currentUser: { id: action.payload.user.id, username: action.payload.user.username } }
             }
         case 'FETCH_CURRENT_USER':
@@ -177,10 +178,12 @@ export const reducer = (prevState = initialState, action) => {
                 return { ...prevState, currentUser: {}, errors: action.payload.user.errors}
             } else {
                 localStorage.user_id = action.payload.user.id
+                localStorage.token = action.payload.token
                 return { ...prevState, currentUser: {id: action.payload.user.id, username: action.payload.user.username}}
             }
         case 'LOGOUT':
             localStorage.removeItem("user_id")
+            localStorage.removeItem("token")
             return { ...prevState, currentUser: {} }
         case 'TOGGLE_OVERLAY':
             return { ...prevState, overlay: !prevState.overlay }

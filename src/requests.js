@@ -117,7 +117,8 @@ export const postNotebooks = (data) => fetch(`${baseURL}/notebooks`, {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
-        'accept': 'application/json'
+        'accept': 'application/json',
+        'Authorization': localStorage.token
     },
     body: JSON.stringify(data)
 }).then(parseData)
