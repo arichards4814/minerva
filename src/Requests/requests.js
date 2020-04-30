@@ -25,14 +25,13 @@ export const fetchCurrentUser = (id) => fetch(`${baseURL}/users/${id}`)
 
 
 
-    
+
 //fetch all
 export const fetchUsersSubscriptions = (id) => fetch(`${baseURL}/userssubscriptions/${id}`)
     .then(parseData)
     .catch(catchError)
 
 //post to subscriptions
-
 export const postSubscription = (data) => fetch(`${baseURL}/subscriptions`, {
     method: "POST",
     headers: {

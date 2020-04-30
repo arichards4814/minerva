@@ -123,6 +123,8 @@ export const reducer = (prevState = initialState, action) => {
         case 'FETCH_USERS_SUBSCRIPTIONS':
 
             //here get rid of all notebooks that we don't need
+
+            console.log("subs")
             console.log(action.payload.subscriptions)
             let payloadCopy = [...action.payload.subscriptions]
             let reducedNotes = []
