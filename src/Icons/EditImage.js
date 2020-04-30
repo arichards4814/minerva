@@ -69,7 +69,7 @@ export default function EditImage(props) {
                     </g>
                 </g>
             </svg>
-            {props.tooltip === "bottom" && <Tooltip width={100} content={props.content} showing={hovered ? "visible" : "hidden"} />}
+            {props.tooltip === "bottom" && <Tooltip width={120} content={props.content} showing={hovered ? "visible" : "hidden"} />}
         </div>
     )
 }

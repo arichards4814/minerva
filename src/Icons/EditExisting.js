@@ -20,7 +20,8 @@ const useStyles = makeStyles({
             }
         },
 
-        display: "inline-block"
+        display: "inline-block",
+        verticalAlign: "top"
     },
     st0: {
         fill: "#ED2F65",

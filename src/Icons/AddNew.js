@@ -19,7 +19,8 @@ const useStyles = makeStyles({
                 return 50
             }
         },
-        display: "inline-block"
+        display: "inline-block",
+        verticalAlign: "top"
     },
     st0: {
         fill: "#00AA62",

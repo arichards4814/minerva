@@ -276,7 +276,7 @@ const CurriculumEdit = props => {
 
             {formState === 1 &&
             <Row marginTop={30} marginLeft={80}>
-                <img src={props.currentCurriculum.image_url} style={{width: 640, height: 480}}></img>
+                <img src={props.currentCurriculum.image_url} style={{ width: 640, height: 360}}></img>
                 <UploaderV2 />
                 {/* <MinervaInput type="text" theme="third" width={700} value={props.currentCurriculum.image_url} onChange={handleChangeImageUrl} placeholder="Enter image url..." /> */}
                 {/* <SearchButton theme="third" value="Save" onClick={handleSubmitImageChange} /> */}
