@@ -17,7 +17,6 @@ import AddNew from '../Icons/AddNew'
 import { makeStyles } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import TagsList from '../Components/TagsList'
-import { baseURL } from '../requests'
 
 // redux
 import { connect } from 'react-redux';

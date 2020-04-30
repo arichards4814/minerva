@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Button from './Button'
-import * as requests from '../requests.js'
 // import DropzoneComponent from 'react-dropzone-component';
 import { DirectUpload } from "@rails/activestorage"
 

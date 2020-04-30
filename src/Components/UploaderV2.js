@@ -3,8 +3,6 @@ import { DirectUpload } from "@rails/activestorage"
 import Uploader from "./Uploader"
 import React, { useState } from 'react'
 import ImageUploader from './ImageUploader'
-import * as request from '../requests'
-import { baseURL } from '../requests'
 import SearchButton from '../Components/Forms/SeachButton'
 
 import DropzoneComponent from 'react-dropzone-component';

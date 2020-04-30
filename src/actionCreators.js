@@ -1,4 +1,7 @@
-import * as requests from './requests'
+import * as requests from './Requests/requests'
+import * as requestsCur from './Requests/curriculumRequests'
+import * as requestsNot from './Requests/notebookRequests'
+import * as requestsLes from './Requests/lessonRequests'
 import history from './history.js'
 
 
@@ -6,7 +9,7 @@ import history from './history.js'
 // CURRICULUMS
 /////
 export const fetchCurriculums = () => dispatch => {
-    requests.fetchCurriculums()
+    requestsCur.fetchCurriculums()
     .then(data => {
         dispatch({type: 'FETCH_CURRICULUMS', payload: {curriculums: data}})
     })
@@ -14,7 +17,7 @@ export const fetchCurriculums = () => dispatch => {
 }
 
 export const fetchCurriculum = (id) => dispatch => {
-    requests.fetchCurriculum(id)
+    requestsCur.fetchCurriculum(id)
         .then(data => {
             console.log(data)
             dispatch({ type: 'FETCH_CURRICULUM', payload: { currentCurriculum: data } })
@@ -23,7 +26,7 @@ export const fetchCurriculum = (id) => dispatch => {
 
 export const fetchUsersCurriculums = (user_id) => dispatch => {
     //
-    requests.fetchUsersCurriculums(user_id)
+    requestsCur.fetchUsersCurriculums(user_id)
         .then(data => {
             console.log(data)
             dispatch({ type: 'FETCH_USERS_CURRICULUMS', payload: { thisUsersCurriculums: data } })
@@ -32,7 +35,7 @@ export const fetchUsersCurriculums = (user_id) => dispatch => {
 
 export const updateCurrentCurriculum = (data, curriculum_id) => dispatch => {
     // in this case I am changing the title and description of the curriculum
-    requests.patchCurriculum(data, curriculum_id)
+    requestsCur.patchCurriculum(data, curriculum_id)
         .then(data => {
             console.log(data)
         })
@@ -42,17 +45,17 @@ export const updateCurrentCurriculum = (data, curriculum_id) => dispatch => {
 
 export const postCurriculums = (data, tags) => dispatch => {
     if(tags){
-        requests.postCurriculums(data)
+        requestsCur.postCurriculums(data)
             .then(data => {
                 //cycle through each tag and post to back end
                 //then create the joiner between the twon
                 console.log('data', data)
                 tags.forEach(tag => {
-                    requests.postTag({name: tag.name})
+                    requestsCur.postTag({name: tag.name})
                     .then(body => {
                         console.log("body", body)
                         console.log('data inside', data)
-                        requests.postCurriculumsTag({tag_id: body.id, curriculum_id: data.id})})
+                        requestsCur.postCurriculumsTag({tag_id: body.id, curriculum_id: data.id})})
                 })
 
                 dispatch({ type: 'POST_CURRICULUMS', payload: { curriculum: data } })
@@ -61,7 +64,7 @@ export const postCurriculums = (data, tags) => dispatch => {
             })
 
     } else {
-        requests.postCurriculums(data)
+        requestsCur.postCurriculums(data)
             .then(data => {
                 dispatch({ type: 'POST_CURRICULUMS', payload: { curriculum: data } })
                 history.push(`/editcurriculums/${data.id}`)
@@ -73,17 +76,17 @@ export const postCurriculums = (data, tags) => dispatch => {
 
 export const postCurriculumsWImage = (data, tags) => dispatch => {
     if (tags) {
-        requests.postCurriculumsWImage(data)
+        requestsCur.postCurriculumsWImage(data)
             .then(data => {
                 //cycle through each tag and post to back end
                 //then create the joiner between the twon
                 console.log('data', data)
                 tags.forEach(tag => {
-                    requests.postTag({ name: tag.name })
+                    requestsCur.postTag({ name: tag.name })
                         .then(body => {
                             console.log("body", body)
                             console.log('data inside', data)
-                            requests.postCurriculumsTag({ tag_id: body.id, curriculum_id: data.id })
+                            requestsCur.postCurriculumsTag({ tag_id: body.id, curriculum_id: data.id })
                         })
                 })
 
@@ -93,7 +96,7 @@ export const postCurriculumsWImage = (data, tags) => dispatch => {
             })
 
     } else {
-        requests.postCurriculumsWImage(data)
+        requestsCur.postCurriculumsWImage(data)
             .then(data => {
                 dispatch({ type: 'POST_CURRICULUMS_W_IMAGE', payload: { curriculum: data } })
                 history.push(`/editcurriculums/${data.id}`)
@@ -106,7 +109,7 @@ export const postCurriculumsWImage = (data, tags) => dispatch => {
 
 export const deleteCurriculum = (id) => dispatch => {
     console.log("in action creator")
-    requests.deleteCurriculum(id)
+    requestsCur.deleteCurriculum(id)
         .then(data => {
             console.log(data)
         })
@@ -119,14 +122,14 @@ export const deleteCurriculum = (id) => dispatch => {
 /////
 
 export const postLessons = (data) => dispatch => {
-    requests.postLessons(data)
+    requestsLes.postLessons(data)
         
     dispatch({ type: 'POST_LESSONS', payload: { lesson: data } })
 }
 
 
 export const patchLesson = (data, id) => dispatch => {
-    requests.patchLesson(data, id)
+    requestsLes.patchLesson(data, id)
         .then(data => {
             console.log(data)
         })
@@ -135,7 +138,7 @@ export const patchLesson = (data, id) => dispatch => {
 
 
 export const deleteLesson = (id) => dispatch => {
-    requests.deleteLesson(id)
+    requestsLes.deleteLesson(id)
         .then(data => {
             console.log(data)
         })
@@ -152,7 +155,7 @@ export const setCurrentLesson = (lesson) => ({ type: 'SET_CURRENT_LESSON', paylo
 
 export const postNotebooks = (data) => dispatch => {
     //
-    requests.postNotebooks(data)
+    requestsNot.postNotebooks(data)
         .then(data => {
             console.log(data)
             dispatch({ type: 'POST_NOTEBOOKS', payload: { notebook: data } })
@@ -164,7 +167,7 @@ export const setCurrentNotebook = (notebook) => ({ type: 'SET_CURRENT_NOTEBOOK',
 
 export const fetchNotebook = (id) => dispatch => {
     //fetch and set it to the current notebook
-    requests.fetchNotebook(id)
+    requestsNot.fetchNotebook(id)
         .then(data => {
             console.log(data)
             dispatch({ type: 'FETCH_NOTEBOOK', payload: { currentNotebook: data } })
@@ -174,7 +177,7 @@ export const fetchNotebook = (id) => dispatch => {
 
 export const fetchUsersNotebooks = (id) => dispatch => {
     //
-    requests.fetchUsersNotebooks(id)
+    requestsNot.fetchUsersNotebooks(id)
         .then(data => {
             console.log(data)
             dispatch({ type: 'FETCH_USERS_NOTEBOOKS', payload: { notebooks: data } })
@@ -182,7 +185,7 @@ export const fetchUsersNotebooks = (id) => dispatch => {
 }
 
 export const patchNotebooks = (data, id) => dispatch => {
-    requests.patchNotebooks(data, id)
+    requestsNot.patchNotebooks(data, id)
         .then(data => {
             console.log(data)
         })
@@ -210,7 +213,7 @@ export const setSelectedNoteIndex = (index) => ({ type: 'SET_SELECTED_NOTE_INDEX
 
 export const postNotes = (data) => dispatch => {
     //
-    requests.postNotes(data)
+    requestsNot.postNotes(data)
         .then(data => {
             console.log(data)
             dispatch({ type: 'POST_NOTES', payload: { note: data } })
@@ -219,7 +222,7 @@ export const postNotes = (data) => dispatch => {
 
 //delete note
 export const deleteNote = (id) => dispatch => {
-    requests.deleteNote(id)
+    requestsNot.deleteNote(id)
         .then(data => {
             console.log(data)
         })
@@ -252,7 +255,7 @@ export const postSubscription = (data) => dispatch => {
 
 export const postNotebooksWLessonJoiner = (lesson_id, notebook_data) => dispatch => {
     //
-    requests.postNotebooksWLessonJoiner(lesson_id, notebook_data)
+    requestsNot.postNotebooksWLessonJoiner(lesson_id, notebook_data)
         .then(data => {
             console.log("data inside action creator", data)
             dispatch({ type: 'POST_NOTEBOOKS_W_LESSON_JOINER', payload: { data: data } })
@@ -260,7 +263,7 @@ export const postNotebooksWLessonJoiner = (lesson_id, notebook_data) => dispatch
 }
 
 export const pinNotebook = (id, data) => dispatch => {
-    requests.pinNotebook(id, data)
+    requestsNot.pinNotebook(id, data)
         .then(recieved => {
             console.log("data inside action creator", recieved)
             dispatch({ type: 'PIN_NOTEBOOK', payload: { notebook: recieved } })
@@ -268,7 +271,7 @@ export const pinNotebook = (id, data) => dispatch => {
 }
 
 export const unpinNotebook = (id, data) => dispatch => {
-    requests.unpinNotebook(id, data)
+    requestsNot.unpinNotebook(id, data)
         .then(recieved => {
             console.log("data inside action creator", recieved)
             dispatch({ type: 'UNPIN_NOTEBOOK', payload: { notebook: recieved } })
@@ -326,7 +329,7 @@ export const toggleOverlay = () => dispatch => {
 
 
 export const patchCurriculumWImage = (data, id) => dispatch => {
-    requests.patchImageWCurriculum(data, id)
+    requestsCur.patchImageWCurriculum(data, id)
     .then(data => {
         console.log("in action creator", data)
         dispatch({type: 'PATCH_CURRICULUM_W_IMAGE', payload: {curriculum: data}})

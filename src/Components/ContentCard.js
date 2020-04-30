@@ -4,7 +4,7 @@ import AxiosSearch from '../Youtube/AxiosSearch'
 import LoadingAnimation from './LoadingAnimation'
 import F5 from '../Typing/F5'
 import F6 from '../Typing/F6'
-import { getYoutubeIDFromURL } from '../requests'
+import { getYoutubeIDFromURL } from '../Requests/requests'
 
 //////This is only for previews. When it's actually in there it will
 ///the purpose of this content card is to load up information
