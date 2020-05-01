@@ -29,7 +29,6 @@ const initialState = {
 export const reducer = (prevState = initialState, action) => {
     switch (action.type) {
         case 'POST_LOGIN':
-            console.log(action.payload)
             if (action.payload.user.errors) {
                 return { ...prevState, currentUser: {}, errors: action.payload.user.errors }
             } else {
@@ -47,6 +46,7 @@ export const reducer = (prevState = initialState, action) => {
         case 'SET_CURRENT_LESSON':
             return { ...prevState, currentLesson: action.payload.currentLesson }
         case 'FETCH_CURRICULUMS':
+            
             return {...prevState, curriculums: action.payload.curriculums}
         case 'FETCH_USERS_CURRICULUMS':
             return { ...prevState, thisUsersCurriculums: action.payload.thisUsersCurriculums }
@@ -136,17 +136,18 @@ export const reducer = (prevState = initialState, action) => {
             console.log(action.payload.subscriptions)
             let payloadCopy = [...action.payload.subscriptions]
             let reducedNotes = []
-            payloadCopy.forEach(curriculum => {
-                curriculum.curriculum.lessons.forEach(lesson => {
-                    lesson.notebooks.forEach(notebook => {
-                        if(notebook.user_id === prevState.currentUser.id){
-                            reducedNotes.push(notebook)
-                        }
-                    })
-                    lesson.notebooks = reducedNotes
-                    reducedNotes = []
-                })
-            })
+            // payloadCopy.forEach(cur => {
+            //    cur.curriculum.lessons.forEach(lesson => {
+            //        console.log(lesson)
+            //         lesson.notebooks.forEach(notebook => {
+            //             if(notebook.user_id === prevState.currentUser.id){
+            //                 reducedNotes.push(notebook)
+            //             }
+            //         })
+            //         lesson.notebooks = reducedNotes
+            //         reducedNotes = []
+            //     })
+            // })
 
             console.log(payloadCopy)
 
