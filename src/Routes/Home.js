@@ -104,6 +104,21 @@ const Home = props =>{
                     <LeftBackUnaltered theme="minerva" pointing="right" onMouseDown={scrollRight}/>
                 </div>
             </div>
+
+            <Row marginLeft="10%">
+                <TitleBox theme="secondary"><F4 font="secondary">Adobe:</F4></TitleBox>
+            </Row>
+            <div className={classes.root}>
+                <div className={classes.leftChevron}>
+                    <LeftBackUnaltered theme="minerva" onMouseDown={scrollLeft} />
+                </div>
+                <div className={classes.leftToRightScroll} id="content">
+                    {props.curriculums && props.curriculums.length > 0 ? renderCurriculums() : <LoadingAnimation />}
+                </div>
+                <div className={classes.rightChevron}>
+                    <LeftBackUnaltered theme="minerva" pointing="right" onMouseDown={scrollRight} />
+                </div>
+            </div>
                 
 
             <Row marginLeft="10%">

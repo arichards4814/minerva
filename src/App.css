@@ -303,4 +303,12 @@ svg *{
   animation: apple_fall ease 3s;
 }
 
+a:link {
+  text-decoration: none;
+  color: black,
+}
 
+a:visited {
+  text-decoration: none;
+  color: black,
+}

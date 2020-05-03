@@ -6,11 +6,12 @@ import LogoHolder from '../Components/LogoHolder.js'
 import bottomLine from '../SVGs/bottom_line.svg'
 import Expander from '../Icons/Expander'
 import LoginPopper from '../Components/LoginPopper'
+import { Link } from 'react-router-dom'
 
 // redux
 import { connect } from 'react-redux';
 
-import { showNavling } from '../actionCreators'
+import { showNavling, logout } from '../actionCreators'
 import { secondary } from '../Schemes/ColorScheme.js'
 
 
@@ -33,6 +34,18 @@ const useStyles = makeStyles({
     expander: {
         position: "absolute",
         right: 20
+    },
+    loginInfo:{
+        position: "absolute",
+        right: 67,
+        top: 0,
+        backgroundColor: "#FFD000",
+        width: 227,
+        textAlign: "right",
+        padding: 2
+    },
+    spread: {
+        paddingLeft: 5,
     }
 });
 
@@ -50,20 +63,28 @@ const Navling = props => {
             <div className={classes.expander}>
                 {props.navlingHidden && <Expander onClick={props.showNavling} theme={"secondary"}/>}
             </div>
-            {popper && <LoginPopper />}
+            <div className={classes.loginInfo}>
+                {!props.navlingHidden && props.currentUser.id && <Link onClick={props.logout}>Logout</Link>}
+                {!props.navlingHidden && !props.currentUser.id && <Link to={{ pathname: "/login" }}>Login</Link>}
+                <span className={classes.spread}>
+                    {!props.navlingHidden && !props.currentUser.id && <Link to={{ pathname: "/signup" }}>Signup</Link>}</span>
+            </div>
+            {/* {popper && <LoginPopper />} */}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        navlingHidden: state.navlingHidden
+        navlingHidden: state.navlingHidden,
+        currentUser: state.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         showNavling: () => dispatch(showNavling()),
+        logout: () => dispatch(logout())
     }
 }
 
