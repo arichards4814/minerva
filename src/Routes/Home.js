@@ -56,7 +56,7 @@ const Home = props =>{
     const classes = useStyles(props)
     let history = useHistory()
     const [popper, setPopper] = useState(false)
-
+    //hmm should i have this here...
     
     const renderCurriculums = () => {
         if(props.curriculums){
