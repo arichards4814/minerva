@@ -21,11 +21,12 @@ const Tweet = props => {
                 console.log(body)
                 setTweet(body)
             })
-    }, [])
+    },[props.tweet_url])
 
 
     return (
         <div >
+            {console.log("test", props.tweet_url)}
             {tweet.html && <div className="tweet" dangerouslySetInnerHTML={{ __html: tweet.html }}></div>}
         </div>
     );

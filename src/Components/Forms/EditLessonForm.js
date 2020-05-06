@@ -45,7 +45,7 @@ export default function EditLessonForm(props) {
                 return 1
             case "Blog":
                 return 2
-            case "Misc":
+            case "Tweet":
                 return 3
             default:
                 return 0
@@ -80,7 +80,7 @@ export default function EditLessonForm(props) {
             <F4 font="secondary">Lesson Title:</F4><MinervaInput name="title" theme="secondary" onChange={props.onChange} value={title}/>
             <br></br>
             <F4 font="secondary">Type:</F4>
-            <Toggler value="Video" selected={typeSelector()} name="lesson_type" index={0} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Book" selected={typeSelector()} name="lesson_type" index={1} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Blog" selected={typeSelector()} name="lesson_type" index={2} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Misc" selected={typeSelector()} name="lesson_type" index={3} onClick={setSelected1} onChange={props.onChange}/> 
+            <Toggler value="Video" selected={typeSelector()} name="lesson_type" index={0} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Book" selected={typeSelector()} name="lesson_type" index={1} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Blog" selected={typeSelector()} name="lesson_type" index={2} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Tweet" selected={typeSelector()} name="lesson_type" index={3} onClick={setSelected1} onChange={props.onChange}/> 
             <F4 font="secondary">Media Url:</F4><MinervaInput name="material_url" theme="secondary" width={400} onChange={urlListener} value={material_url}/>
             <F4 font="secondary">Content Preview:</F4>
             <ContentCard videoURL={material_url} getNewLessonImage={getNewLessonImage} type={lesson_type}/>
