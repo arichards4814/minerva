@@ -312,3 +312,12 @@ a:visited {
   text-decoration: none;
   color: black,
 }
+
+
+.tweet {
+  width: 550px;
+  box-shadow: 1px 1px 4px;
+  padding: 2px;
+  margin: 10px
+
+}
