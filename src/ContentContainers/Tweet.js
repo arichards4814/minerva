@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
+import TweetEmbed from 'react-tweet-embed'
 
 // redux
 import { connect } from 'react-redux';
@@ -7,27 +8,17 @@ import {  } from '../actionCreators'
 
 
 const Tweet = props => {
-    const [tweet, setTweet] = useState({})
+    const [tweetId, setTweetId] = useState({})
 
     
     useEffect(() => {
-        fetch(`http://localhost:3000/tweet`, {
-            headers: {
-                "TweetUrl": props.tweet_url
-            }
-        })
-            .then(resp => resp.json())
-            .then(body => {
-                console.log(body)
-                setTweet(body)
-            })
-    },[props.tweet_url])
+       setTweetId(props.tweet_url.split("/")[5])
+    },[])
 
 
     return (
-        <div >
-            {console.log("test", props.tweet_url)}
-            {tweet.html && <div className="tweet" dangerouslySetInnerHTML={{ __html: tweet.html }}></div>}
+        <div>
+            <TweetEmbed id={tweetId} />
         </div>
     );
 }
