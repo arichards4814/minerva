@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Button from './Button'
-import F4 from '../Typing/F4'
 import F5 from '../Typing/F5'
-import F6 from '../Typing/F6'
 import SearchCircle from '../Icons/SearchCircle'
 import LoadingAnimation from './LoadingAnimation'
 
@@ -11,6 +8,10 @@ import '../App.css';
 
 
 const useStyles = makeStyles({
+    root2: {
+        position: "relative",
+        display: "inline-block"
+    },
     root: {
         // borderStyle: "solid",
         width: 280,
@@ -29,10 +30,11 @@ const useStyles = makeStyles({
                 return 10
             }
         },
-        backgroundColor: "white"
+        backgroundColor: "white",
+
+        position: "relative",
     },
     hovered: {
-        // borderStyle: "solid",
         width: 280,
         height: 325,
         borderRadius: 8,
@@ -69,8 +71,14 @@ const useStyles = makeStyles({
     },
     cardBody: {
         padding: 10,
-        height: "28%",
+        height: "28%", 
         backgroundColor: "#FFD000"
+    },
+    bodyText: {
+        whiteSpace: "pre-wrap",
+        width: "100%",
+        height: "75%",
+        overflowY: "hidden"
     },
     cardFooter: {
         textAlign: "center",
@@ -103,27 +111,29 @@ export default function Card(props){
 
 
     return(
-        <div className={hovered ? classes.hovered : classes.root} onMouseOver={handleHover} onMouseOut={unHover}>
-            <div className={classes.cardHeader}>
+        <div className={classes.root2} onMouseOver={handleHover} onMouseOut={unHover}>
+            <div className={hovered ? classes.hovered : classes.root} >
+                <div className={classes.cardHeader}>
 
-            </div>
-            <div className={classes.cardImage}>
-                <img src={props.image_url} style={{height: "100%", width: "100%"}}></img>
-                {!props.image_url && <LoadingAnimation />}
-            </div>
-            <div className={classes.cardTitle}>
-                <F5>{props.title}</F5>
-            </div>
-            <div className={classes.cardBody}>
-                {props.description}
-            </div>
-            <div className={classes.cardFooter}>
-                {/* <Button value="View" onClick={props.onClick}><F4 color="black" >View</F4></Button> */}
-                <div className={classes.searchIcon}>
-                    <SearchCircle onClick={props.onClick}/>
                 </div>
-                <div className={classes.usertag}>
-                    Created by: {props.user.username}
+                <div className={classes.cardImage}>
+                    <img src={props.image_url} style={{height: "100%", width: "100%"}}></img>
+                    {!props.image_url && <LoadingAnimation />}
+                </div>
+                <div className={classes.cardTitle}>
+                    <F5>{props.title}</F5>
+                </div>
+                <div className={classes.cardBody}>
+                    <div className={classes.bodyText}>{props.description}</div>
+                </div>
+                <div className={classes.cardFooter}>
+                    {/* <Button value="View" onClick={props.onClick}><F4 color="black" >View</F4></Button> */}
+                    <div className={classes.searchIcon}>
+                        <SearchCircle onClick={props.onClick}/>
+                    </div>
+                    <div className={classes.usertag}>
+                        Created by: {props.user.username}
+                    </div>
                 </div>
             </div>
         </div>

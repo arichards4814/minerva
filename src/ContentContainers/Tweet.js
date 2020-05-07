@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React from 'react';
 import TweetEmbed from 'react-tweet-embed'
 
 // redux
@@ -8,17 +8,9 @@ import {  } from '../actionCreators'
 
 
 const Tweet = props => {
-    const [tweetId, setTweetId] = useState({})
-
-    
-    useEffect(() => {
-       setTweetId(props.tweet_url.split("/")[5])
-    },[])
-
-
     return (
         <div>
-            <TweetEmbed id={tweetId} />
+            <TweetEmbed id={props.tweet_url.split("/")[5]} />
         </div>
     );
 }

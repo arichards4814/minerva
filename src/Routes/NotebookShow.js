@@ -9,7 +9,7 @@ import { makeStyles} from '@material-ui/core'
 import LeftBackIcon from '../Icons/leftBackIcon'
 import NotebooksDock from '../Components/NotebooksDock'
 import Button from '../Components/Button'
-import Twitter from '../ContentContainers/Tweet'
+import Tweet from '../ContentContainers/Tweet'
 
 import QuillEditorV2 from '../Components/QuillEditorV2'
 
@@ -141,7 +141,7 @@ const NotebookShow = props => {
                         {editing && props.currentNotebook.lessons && <div><MinervaInput onChange={handleEditChange} theme="secondary" placeholder="New Notebook Title" /><Button theme="secondary" color="white" onClick={submitNameChange}>Change</Button></div>}</F2>
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("youtube") && <Youtube id={getYoutubeIDFromURL(materialHandler())} onClick={postNewNote} notes={props.currentNotebook.notes} getTotalTime={getTotalTime}/> }
 
-                    {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("twitter") && <div style={{marginLeft: "10%", marginTop: "10%", marginBottom: "10%"}}><Twitter tweet_url={props.currentNotebook.material_url} /></div>}
+                    {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("twitter") && <div style={{marginLeft: "10%", marginTop: "10%", marginBottom: "10%"}}><Tweet tweet_url={props.currentNotebook.material_url} /></div>}
                     {!props.currentNotebook.material_url && <Material setEditing={setEditing} />}
 
                     {/* <Timeline notes={props.currentNotebook.notes} totalTime={totalTime}/> */}
