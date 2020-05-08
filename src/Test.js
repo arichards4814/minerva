@@ -5,7 +5,7 @@ import Tweet from './ContentContainers/Tweet'
 // redux
 import { connect } from 'react-redux';
 import {  } from './actionCreators'
-import TikTok from './TikTok';
+import TikTok from './ContentContainers/TikTok';
 
 
 

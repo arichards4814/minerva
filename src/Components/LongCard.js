@@ -151,6 +151,8 @@ const LongCard = props => {
                 {props.lesson.lesson_type && props.lesson.lesson_type === "blog" || props.lesson.lesson_type === "Blog" && <BlogIcon />}
                 {props.lesson.lesson_type && props.lesson.lesson_type === "book" || props.lesson.lesson_type === "Book" && <BookIcon />}
 
+                {props.lesson.lesson_type && props.lesson.lesson_type === "tweet" || props.lesson.lesson_type === "Tweet" && <img src="/twitterIcon.png"style={{height: 50}}></img> }
+
             </div>
         </div>
     )

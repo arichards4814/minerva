@@ -53,12 +53,11 @@ export default function AddLessonForm(props) {
             <F4 font="secondary">Media Url:</F4><MinervaInput value={props.formInfo.material_url} name="material_url" theme="secondary" width={400} onChange={urlListener}/>
             <F4 font="secondary">Content Preview:</F4>
             {selectedToggle1 === 0 && <ContentCard videoURL={videoURL} getNewLessonImage={props.getNewLessonImage} type={props.formInfo.lesson_type} />}
-            {selectedToggle1 === 3 && <Tweet tweet_url={videoURL}/>}
+            {selectedToggle1 === 3 && <Tweet tweet_url={videoURL} getNewLessonImage={props.getNewLessonImage}/>}
             <br></br>
             <F4 font="secondary">Price:</F4>
             <Toggler value="free" name="cost" selected={selectedToggle2} onClick={setSelected2} index={0} /> <Toggler value="$" selected={selectedToggle2} name="cost" onClick={setSelected2} index={1} /> <Toggler value="$$" selected={selectedToggle2} name="cost" onClick={setSelected2} index={2} /> <Toggler value="$$$" selected={selectedToggle2} name="cost" onClick={setSelected2} index={3}/> 
             <F4 font="secondary">Description:</F4><MinervaInput value={props.formInfo.description} name="description" theme="secondary" width={400} onChange={props.onChange}/>
-            {/* This will be the price toggle... */}
             <MajesticButton color="third" onClick={submitAndClear}>Create</MajesticButton>
         </div>
     )

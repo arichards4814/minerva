@@ -17,6 +17,7 @@ import TinyNotebook from '../Icons/Tiny/TinyNotebook'
 import Expander from '../Icons/Expander'
 import Pin from '../Icons/Pin'
 import PinBar from '../Components/PinBar'
+import ShelfPanel from '../Container/ShelfPanel'
 
 // redux
 import { connect } from 'react-redux';
@@ -32,6 +33,10 @@ const useStyles = makeStyles({
     scroller: {
         height: 400,
         overflow: "auto"
+    },
+    notebooks_panel: {
+        height: 410,
+        overflowX: "auto"
     }
 })
 const Notebooks = props => {
@@ -67,7 +72,12 @@ const Notebooks = props => {
     }
 
     const selectHandler = (e) => {
+        console.log(e.target.value)
         setSelection(e.target.value)
+    }
+
+    const selectHandlerShelves = (info) => {
+        setSelection(info)
     }
 
     const createBlankNotebook = () => {
@@ -122,7 +132,8 @@ const Notebooks = props => {
             </Row>
             <Row marginTop={5} marginLeft={50} >
                 <Layout width={3}>
-                    <F5>Info: </F5>
+                    <ShelfPanel selection={selection} setSelection={selectHandlerShelves}/>
+                    {/* <F5>Info: </F5>
                     <F6>To create a notebook for a lesson:</F6>
                     <div style={{width: 50}}><TinyPlus theme="minerva" /> </div>
                     <F6>To view a notebook:</F6>
@@ -130,11 +141,13 @@ const Notebooks = props => {
                     <F6>To expand a curriculum:</F6>
                     <div style={{ width: 50, paddingLeft: 6}}><Expander width={40} theme="minerva" /> </div>
                     <F6>To pin a notebook:</F6>
-                    <div style={{ width: 50 }}><Pin width={50}/> </div>
+                    <div style={{ width: 50 }}><Pin width={50}/> </div> */}
                 </Layout>
                 <Layout width={6}>
-                    {selection === "all" && renderAllNotebooks()}
-                    {selection === "subscribed" && renderCurriculums()}
+                    <div className={classes.notebooks_panel}>
+                        {selection === "all" && renderAllNotebooks()}
+                        {selection === "subscribed" && renderCurriculums()}
+                    </div>
                 </Layout>
                 <Layout width={3}>
                     <Button theme="third" color="minerva" margin={3} onClick={createBlankNotebook}>Create New Notebook +</Button>

@@ -10,6 +10,9 @@ import LeftBackIcon from '../Icons/leftBackIcon'
 import NotebooksDock from '../Components/NotebooksDock'
 import Button from '../Components/Button'
 import Tweet from '../ContentContainers/Tweet'
+import TikTok from '../ContentContainers/TikTok'
+
+import DropdownGeneral from '../Components/Forms/DropdownGeneral'
 
 import QuillEditorV2 from '../Components/QuillEditorV2'
 
@@ -142,6 +145,8 @@ const NotebookShow = props => {
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("youtube") && <Youtube id={getYoutubeIDFromURL(materialHandler())} onClick={postNewNote} notes={props.currentNotebook.notes} getTotalTime={getTotalTime}/> }
 
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("twitter") && <div style={{marginLeft: "10%", marginTop: "10%", marginBottom: "10%"}}><Tweet tweet_url={props.currentNotebook.material_url} /></div>}
+                    {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("tiktok") && <div style={{ marginLeft: "10%", marginTop: "10%", marginBottom: "10%" }}><TikTok tiktok_url={props.currentNotebook.material_url} /></div>}
+
                     {!props.currentNotebook.material_url && <Material setEditing={setEditing} />}
 
                     {/* <Timeline notes={props.currentNotebook.notes} totalTime={totalTime}/> */}

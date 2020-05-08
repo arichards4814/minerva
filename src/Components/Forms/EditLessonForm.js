@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import F4 from '../../Typing/F4'
 import ContentCard from '../ContentCard'
 import MajesticButton from '../MajesticButton'
-import TinyEdit from '../../Icons/Tiny/TinyEdit'
+import Tweet from '../../ContentContainers/Tweet'
 
 import Toggler from './Toggler'
 
@@ -75,6 +75,7 @@ export default function EditLessonForm(props) {
     
     return(
         <div>
+            {console.log(props.formInfo)}
             <F4>Edit Lesson {props.id}</F4>
              {console.log(props)}
             <F4 font="secondary">Lesson Title:</F4><MinervaInput name="title" theme="secondary" onChange={props.onChange} value={title}/>
@@ -83,7 +84,8 @@ export default function EditLessonForm(props) {
             <Toggler value="Video" selected={typeSelector()} name="lesson_type" index={0} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Book" selected={typeSelector()} name="lesson_type" index={1} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Blog" selected={typeSelector()} name="lesson_type" index={2} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Tweet" selected={typeSelector()} name="lesson_type" index={3} onClick={setSelected1} onChange={props.onChange}/> 
             <F4 font="secondary">Media Url:</F4><MinervaInput name="material_url" theme="secondary" width={400} onChange={urlListener} value={material_url}/>
             <F4 font="secondary">Content Preview:</F4>
-            <ContentCard videoURL={material_url} getNewLessonImage={getNewLessonImage} type={lesson_type}/>
+            {selectedToggle1 === 0 && <ContentCard videoURL={videoURL} getNewLessonImage={props.getNewLessonImage} type={props.formInfo && props.formInfo.lesson.lesson_type} />}
+            {selectedToggle1 === 3 && <Tweet tweet_url={videoURL} />}
             <br></br>
             <F4 font="secondary">Price:</F4>
             <Toggler value="free" name="cost" selected={costSelector()} onClick={setSelected2} index={0} /> <Toggler value="$" selected={costSelector()} name="cost" onClick={setSelected2} index={1} /> <Toggler value="$$" selected={costSelector()} name="cost" onClick={setSelected2} index={2} /> <Toggler value="$$$" selected={costSelector()} name="cost" onClick={setSelected2} index={3}/> 

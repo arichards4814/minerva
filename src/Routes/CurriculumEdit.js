@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import CreatorHeader from '../Icons/Headers/CreatorHeader'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
 import F2 from '../Typing/F2'
 import F3 from '../Typing/F3'
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import TitleBox from '../Components/TitleBox'
 import LongCardScroller from '../Container/LongCardScroller'
 import AddLessonForm from '../Components/Forms/AddLessonForm'
 import MinervaInput from '../Components/Forms/MinervaInput'
 import Snackling from '../Components/Snackling'
-import { useHistory } from 'react-router-dom'
+import SearchButton from '../Components/Forms/SeachButton'
+import EditLessonForm from '../Components/Forms/EditLessonForm'
+import UploaderV2 from '../Components/UploaderV2'
 
+import CreatorHeader from '../Icons/Headers/CreatorHeader'
 import EditImage from '../Icons/EditImage'
 import AddNew from '../Icons/AddNew'
 import EditExisting from '../Icons/EditExisting'
@@ -21,9 +23,6 @@ import TrashIcon from '../Icons/TrashIcon'
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons, patchLesson, deleteLesson, deleteCurriculum } from '../actionCreators'
 
-import SearchButton from '../Components/Forms/SeachButton'
-import EditLessonForm from '../Components/Forms/EditLessonForm'
-import UploaderV2 from '../Components/UploaderV2'
 
 
 const CurriculumEdit = props => {
@@ -49,7 +48,8 @@ const CurriculumEdit = props => {
 
     // Edit Image
     const [formImageUrl, setFormImageUrl] = useState({
-        image_url: ""})
+        image_url: ""
+    })
 
     // Add Lessons
     const [formLesson, setFormLesson] = useState({
@@ -81,14 +81,15 @@ const CurriculumEdit = props => {
     }, [])
 
     const alterFormState = (index) => {
-        if(index === 0){
+        if (index === 0) {
             setCurriculumDetails({
                 title: props.currentCurriculum.title,
                 description: props.currentCurriculum.description
             })
-        } else if (index === 1){
+        } else if (index === 1) {
             setFormImageUrl({
-            image_url: props.currentCurriculum.image_url})
+                image_url: props.currentCurriculum.image_url
+            })
         } else if (index === 2) {
             setEditFormActive(false)
         }
@@ -97,7 +98,7 @@ const CurriculumEdit = props => {
     }
 
     const handlePageTitle = () => {
-        switch(formState){
+        switch (formState) {
             case 0:
                 return "Edit Details"
             case 1:
@@ -127,7 +128,7 @@ const CurriculumEdit = props => {
     }
 
     const handleToggles1 = (e) => {
-        setFormLesson({ ...formLesson, lesson_type: e})
+        setFormLesson({ ...formLesson, lesson_type: e })
     }
 
     const handleToggles2 = (e) => {
@@ -137,7 +138,7 @@ const CurriculumEdit = props => {
     const handleSubmitLessonForm = () => {
         // need to validate here
 
-        let updatedWithCurrId = {...formLesson, curriculum_id: props.currentCurriculum.id}
+        let updatedWithCurrId = { ...formLesson, curriculum_id: props.currentCurriculum.id }
         // create lesson in database, add lesson to list of lessons in current curriculum, 
         props.postLessons(updatedWithCurrId)
 
@@ -157,11 +158,11 @@ const CurriculumEdit = props => {
     }
 
     const handleChangeCurriculumDetails = (e) => {
-        setCurriculumDetails({...formCurriculumDetails, [e.target.name]: e.target.value})
+        setCurriculumDetails({ ...formCurriculumDetails, [e.target.name]: e.target.value })
     }
 
     const handleSubmitDescriptionChange = () => {
-        let descriptionData = {...props.currentCurriculum, ...formCurriculumDetails}
+        let descriptionData = { ...props.currentCurriculum, ...formCurriculumDetails }
         props.updateCurrentCurriculum(descriptionData, props.currentCurriculum.id)
         setSnacklingMessage("Your change was made!")
         setOpen(true)
@@ -194,6 +195,7 @@ const CurriculumEdit = props => {
         setEditFormActive(true)
     }
 
+    ///DELETE CURRICULUM
     const deleteCurriculumOnClick = () => {
         if (window.confirm("Are you sure you want to delete this curriculum?")) {
             props.deleteCurriculum(props.currentCurriculum.id)
@@ -201,8 +203,9 @@ const CurriculumEdit = props => {
         }
     }
 
+    ///DELETE LESSON
     const deleteLessonOnClick = (id) => {
-        if(window.confirm("Are you sure you want to delete this lesson?")){
+        if (window.confirm("Are you sure you want to delete this lesson?")) {
             console.log(id)
             props.deleteLesson(id)
         }
@@ -225,7 +228,6 @@ const CurriculumEdit = props => {
     const patchLesson = (id) => {
 
         props.patchLesson(editFormLesson, id)
-        console.log(id, "oh yes about to get this to work")
         setEditFormLesson({
             id: "",
             title: "",
@@ -245,51 +247,46 @@ const CurriculumEdit = props => {
                     <F2 font="secondary"> Curriculum Creator: </F2>
                     <F2 font="secondary"> {handlePageTitle()} </F2>
                     {formState === 0 ? <MinervaInput type="text" name="title" theme="minerva" value={formCurriculumDetails.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Change title..." /> :
-                    <TitleBox style="rounded" theme="secondary" paddingLeft={3}><F3 font="secondary">{props.currentCurriculum && props.currentCurriculum.title}</F3></TitleBox>
+                        <TitleBox style="rounded" theme="secondary" paddingLeft={3}><F3 font="secondary">{props.currentCurriculum && props.currentCurriculum.title}</F3></TitleBox>
                     }
-                    {/*  */}
-                    
-                    {/* <SearchButton theme="secondary" onClick={handleClick}></SearchButton> */}
+
                     <Row>
-                        <EditImage tooltip="bottom" content="Change Image" onClick={() => alterFormState(1)}/>
-                        <EditExisting tooltip="bottom" content="Edit Details" onClick={() => alterFormState(0)}/>
-                        <AddNew tooltip="bottom" content="Add Lessons" onClick={() => alterFormState(2)}/>
-                        {formState === 0 && <TrashIcon tooltip="bottom" content="Delete" onClick={deleteCurriculumOnClick}/>}
+                        <EditImage tooltip="bottom" content="Change Image" onClick={() => alterFormState(1)} />
+                        <EditExisting tooltip="bottom" content="Edit Details" onClick={() => alterFormState(0)} />
+                        <AddNew tooltip="bottom" content="Add Lessons" onClick={() => alterFormState(2)} />
+                        {formState === 0 && <TrashIcon tooltip="bottom" content="Delete" onClick={deleteCurriculumOnClick} />}
                     </Row>
                 </Layout>
                 <Layout width={7}>
                     <CreatorHeader />
                 </Layout>
             </Row>
+
             {formState === 2 &&
-            <Row marginLeft={80} >
-                <Layout width={6}>
-                    <LongCardScroller info={props.currentCurriculum && props.currentCurriculum.lessons} placeholder="There are no lessons in this curriculum" headerTitle="Lessons:" editLessonOnClick={editLessonOnClick} deleteLessonOnClick={deleteLessonOnClick} style={"edit"}/>
-                </Layout>
-                <Layout width={6}>
-                    {!editFormActive ? <AddLessonForm formInfo={formLesson} onChange={handleChangeLessonForm} onSubmit={handleSubmitLessonForm} getNewLessonImage={getNewLessonImage} handleToggles1={handleToggles1} handleToggles2={handleToggles2} /> : 
-                        <EditLessonForm lesson={editFormLesson} onChange={handleChangeEditForm} handleToggles1={handleEditToggles1} handleToggles2={handleEditToggles2} onSubmit={patchLesson} />}
-                
-                    {/* could do another add lesson form that is a patch request... */}
-                </Layout>
-            </Row>}
+                <Row marginLeft={80} >
+                    <Layout width={6}>
+                        <LongCardScroller info={props.currentCurriculum && props.currentCurriculum.lessons} placeholder="There are no lessons in this curriculum" headerTitle="Lessons:" editLessonOnClick={editLessonOnClick} deleteLessonOnClick={deleteLessonOnClick} style={"edit"} />
+                    </Layout>
+                    <Layout width={6}>
+                        {!editFormActive ? <AddLessonForm formInfo={formLesson} onChange={handleChangeLessonForm} onSubmit={handleSubmitLessonForm} getNewLessonImage={getNewLessonImage} handleToggles1={handleToggles1} handleToggles2={handleToggles2} /> :
+                            <EditLessonForm lesson={editFormLesson} onChange={handleChangeEditForm} handleToggles1={handleEditToggles1} handleToggles2={handleEditToggles2} onSubmit={patchLesson} />}
+                    </Layout>
+                </Row>}
 
             {formState === 1 &&
-            <Row marginTop={30} marginLeft={80}>
-                <img src={props.currentCurriculum.image_url} style={{ width: 640, height: 360}}></img>
-                <UploaderV2 />
-                {/* <MinervaInput type="text" theme="third" width={700} value={props.currentCurriculum.image_url} onChange={handleChangeImageUrl} placeholder="Enter image url..." /> */}
-                {/* <SearchButton theme="third" value="Save" onClick={handleSubmitImageChange} /> */}
-            </Row>}
+                <Row marginTop={30} marginLeft={80}>
+                    <img src={props.currentCurriculum.image_url} style={{ width: 640, height: 360 }}></img>
+                    <UploaderV2 />
+                </Row>}
 
             {formState === 0 &&
                 <Row marginTop={30} marginLeft={80}>
-                <F3>Description:</F3>
-                <MinervaInput type="text" value={formCurriculumDetails.description} onChange={handleChangeCurriculumDetails} name="description" theme="minerva" width={700}  placeholder="Enter image url..." />
-                <SearchButton theme="minerva" value="Save" onClick={handleSubmitDescriptionChange}/>
+                    <F3>Description:</F3>
+                    <MinervaInput type="text" value={formCurriculumDetails.description} onChange={handleChangeCurriculumDetails} name="description" theme="minerva" width={700} placeholder="Enter image url..." />
+                    <SearchButton theme="minerva" value="Save" onClick={handleSubmitDescriptionChange} />
                 </Row>}
 
-                {open && <Snackling theme="minerva" icon="plus" close={close} value={snacklingMessage}></Snackling>}    
+            {open && <Snackling theme="minerva" icon="plus" close={close} value={snacklingMessage}></Snackling>}
         </div>
     )
 }

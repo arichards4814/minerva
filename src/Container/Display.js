@@ -58,6 +58,9 @@ const Display = props => {
                     {props.lesson_type && props.lesson_type === "video" || props.lesson_type === "Video" && <VideoIcon />}
                     {props.lesson_type && props.lesson_type === "blog" || props.lesson_type === "Blog" && <BlogIcon />}
                     {props.lesson_type && props.lesson_type === "book" || props.lesson_type === "Book" && <BookIcon />}
+
+                    {props.lesson_type && props.lesson_type === "tweet" || props.lesson_type === "Tweet" && <img src="/twitterIcon.png" style={{ height: 50 }}></img>}
+
                 </div>
             </div>
         </div>

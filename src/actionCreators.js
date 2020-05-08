@@ -315,6 +315,27 @@ export const postLogin = (data) => dispatch => {
 }
 
 
+//POST NOTEBOOKS_LESSONS Just to post the joiner
+export const postNotebooksLessons = (data) => dispatch => {
+    //
+    requestsNot.postNotebooksLessons(data)
+        .then(data => {
+            console.log(data)
+            dispatch({ type: 'POST_NOTEBOOKS_LESSONS', payload: data })
+        })
+}
+
+
+//DELETE NOTEBOOKS
+
+export const deleteNotebook = (id) => dispatch => {
+    console.log("in action cretor")
+    requestsNot.deleteNotebook(id)
+        .then(data => {
+            console.log(data)
+        })
+    dispatch({ type: 'DELETE_NOTEBOOK', payload: { deletedNotebook: id } })
+}
 
 export const logout = () => dispatch => {
     //

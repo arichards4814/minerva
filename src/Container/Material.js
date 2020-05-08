@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {makeStyles} from "@material-ui/core"
 import MinervaInput from '../Components/Forms/MinervaInput'
 import Button from '../Components/Button'
 import TinyEdit from '../Icons/Tiny/TinyEdit'
 
+import DropdownGeneral from '../Components/Forms/DropdownGeneral'
+
 // redux
 import { connect } from 'react-redux';
-import { fetchNotebook, patchNotebooks } from '../actionCreators'
+import { fetchNotebook, patchNotebooks, fetchUsersSubscriptions } from '../actionCreators'
 
 
 const useStyles = makeStyles({
@@ -20,6 +22,10 @@ const useStyles = makeStyles({
 const Material = props => {
     const classes = useStyles(props)
     const [input, setInput] = useState("")
+
+    useEffect(() => {
+        props.fetchUsersSubscriptions(localStorage.user_id)
+    }, [])
 
     const handleChange = (e) => {
         setInput(e.target.value)
@@ -35,6 +41,7 @@ const Material = props => {
 
     return (
         <div className={classes.root}>
+            {console.log(props.subscriptions)}
             {props.currentNotebook && props.currentNotebook.material_url ?
             <React.Fragment>
             <div>
@@ -50,6 +57,10 @@ const Material = props => {
                     Add Material to this Notebook:
                     <MinervaInput onChange={handleChange} width={400} theme="secondary" placeholder="Add URL Here" />
                     {input && <Button onClick={handleSubmit} margin={10} theme="secondary" color="white">Create</Button>}
+                    <br></br>
+                    <br></br>
+                    OR Choose a lesson for this notebook:
+                    {props.subscriptions && props.subscriptions.length > 0 && <DropdownGeneral info={props.subscriptions} theme="minerva"/>}
                 </div>
                 }
 
@@ -61,14 +72,16 @@ const Material = props => {
 
 const mapStateToProps = (state) => {
     return {
-        currentNotebook: state.currentNotebook
+        currentNotebook: state.currentNotebook,
+        subscriptions: state.subscriptions
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchNotebook: (id) => dispatch(fetchNotebook(id)),
-        patchNotebooks: (data, id) => dispatch(patchNotebooks(data, id))
+        patchNotebooks: (data, id) => dispatch(patchNotebooks(data, id)),
+        fetchUsersSubscriptions: (id) => dispatch(fetchUsersSubscriptions(id))
     }
 }
 

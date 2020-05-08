@@ -100,12 +100,24 @@ export default function ContentCard(props){
     const handleAllOtherURLs = (videoURL) => {
         // if not youtube check if theres any others
         // otherwise just add a placeholder... 
+        // dont use switch because it is an abuse of case
 
-        console.log(props.type)
         if (videoURL.includes("medium")){
             props.getNewLessonImage("https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png")
             setVideoInfo({
                 alternative: "https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png"
+            })
+            setLoading(false)
+        } else if (videoURL.includes("twitter")) {
+            props.getNewLessonImage("/twitterIcon.png")
+            setVideoInfo({
+                alternative: "/twitterIcon.png"
+            })
+            setLoading(false)
+        } else if (videoURL.includes("tiktok")) {
+            props.getNewLessonImage("/tiktok.png")
+            setVideoInfo({
+                alternative: "/tiktok.png"
             })
             setLoading(false)
         } else if (videoURL.includes("udemy")){
@@ -127,7 +139,7 @@ export default function ContentCard(props){
                 alternative: "/blogPlaceholder.png"
             })
             setLoading(false)
-        } else if (props.type && props.type === 'Book'){
+        } else if (props.type && props.type === 'Book') {
             props.getNewLessonImage("/bookPlaceholder.png")
             setVideoInfo({
                 alternative: "/bookPlaceholder.png"
@@ -162,8 +174,6 @@ return(
                     </div>
             </div>
         </div>
-            
-            
     </div>
 )
 

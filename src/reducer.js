@@ -109,6 +109,11 @@ export const reducer = (prevState = initialState, action) => {
             return { ...prevState, currentNotebook: action.payload.currentNotebook }
         case 'FETCH_NOTEBOOK':
             return { ...prevState, currentNotebook: action.payload.currentNotebook }
+        case 'DELETE_NOTEBOOK':
+            let updatedNotebooks2 = [ ...prevState.notebooks ]
+            let foundnbIndex = updatedNotebooks2.findIndex(notebook => notebook.id === action.payload.deletedNotebook)
+            updatedNotebooks2.splice(foundnbIndex, 1)
+            return { ...prevState, notebooks: updatedNotebooks2 }
         case 'HIDE_NAVLING':
             return { ...prevState, navlingHidden: true }
         case 'SHOW_NAVLING':
@@ -183,6 +188,10 @@ export const reducer = (prevState = initialState, action) => {
             let indexUnpinned = notebooksCopyUnpinned.findIndex(notebook => notebook.id === action.payload.notebook.id)
             notebooksCopyUnpinned[indexUnpinned] = action.payload.notebook
             return { ...prevState, currentNotebook: action.payload.notebook, notebooks: notebooksCopyUnpinned, pinned: {} }
+        case 'POST_NOTEBOOKS_LESSONS':
+            let cnCopy = {...prevState.currentNotebook}
+            cnCopy.material_url = action.payload.material_url
+            return { ...prevState, currentNotebook: cnCopy}
         case 'POST_USERS':
             console.log(action.payload)
             if (action.payload.user.errors){

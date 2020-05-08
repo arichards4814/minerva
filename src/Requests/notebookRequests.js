@@ -78,7 +78,17 @@ export const postNotebooksWLessonJoiner = (lesson_id, notebook_data) => fetch(`$
     })
 
 
+//post notebookslessons joiner
 
+export const postNotebooksLessons = (data) => fetch(`${baseURL}/notebookslessons`,{
+    method: 'POST',
+    headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'ReplaceMaterial': 'ReplaceMaterial'
+    },
+    body: JSON.stringify(data)}
+).then(parseData)
 
 
 // POST Notes
@@ -93,6 +103,11 @@ export const postNotes = (data) => fetch(`${baseURL}/notes`, {
 
 // DELETE Notes/:id
 export const deleteNote = (id) => fetch(`${baseURL}/notes/${id}`, {
+    method: 'DELETE'
+})
+
+//DELETE Notebooks
+export const deleteNotebook = (id) => fetch(`${baseURL}/notebooks/${id}`, {
     method: 'DELETE'
 })
 

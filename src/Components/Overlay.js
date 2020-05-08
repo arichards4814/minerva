@@ -98,7 +98,7 @@ const Overlay = props => {
                 }
                 <p>Lesson: {props.currentNotebook.lessons.length > 0 ? props.currentNotebook.lessons[0].title : "No lesson associated with this notebook."}</p>
                 <p>Lesson Type: {props.currentNotebook.lessons.length > 0 ? props.currentNotebook.lessons[0].lesson_type : "No lesson associated with this notebook."}</p>
-                <p>Material: {props.currentNotebook.lessons.length > 0 ? <a href="props.currentNotebook.material_url">{props.currentNotebook.lessons[0].material_url}</a> : <a href="props.currentNotebook.material_url">{props.currentNotebook.material_url}</a>}</p>
+                <p>Material: {props.currentNotebook.lessons.length > 0 ? <a href={props.currentNotebook.material_url}>{props.currentNotebook.lessons[0].material_url}</a> : <a href="props.currentNotebook.material_url">{props.currentNotebook.material_url}</a>}</p>
                 <p># of Notes: {props.currentNotebook.notes.length}</p>
               </div>
         </React.Fragment>)

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import TinyPlus from '../Icons/Tiny/TinyPlus'
 import TinyNotebook from '../Icons/Tiny/TinyNotebook'
+
+import TinyTrash from '../Icons/Tiny/TinyTrash'
 import { useHistory } from 'react-router-dom'
 import SearchCircle from '../Icons/SearchCircle'
 import Pin from '../Icons/Pin'
@@ -9,7 +11,7 @@ import Pin from '../Icons/Pin'
 
 // redux
 import { connect } from 'react-redux';
-import { postNotebooksWLessonJoiner, pinNotebook, unpinNotebook } from '../actionCreators'
+import { postNotebooksWLessonJoiner, pinNotebook, unpinNotebook, deleteNotebook } from '../actionCreators'
 import DropdownTile from './DropdownTile'
 import TipBubble from '../Icons/Tiny/TipBubble'
 
@@ -128,18 +130,25 @@ const DropdownChild = props => {
             props.pinNotebook(props.id, props)
         }
     }
-
+ 
+    const deleteNotebookCheck = (id) => {
+        if (window.confirm("Are you sure you want to delete this notebook?")) {
+            props.deleteNotebook(id)
+        }
+    }
 
     //onclick of the tiny plus it will show an input with a plus icon.
     //onclick of that plus icon a new notebook will be created.
 
     return (
         <div className={classes.all}>
+            {console.log(props)}
             <div className={classes.root}>
                 {props.title}
                 <div className={classes.icon}>
-                    {props.icon && props.icon === "notebook" && <div style={{ position: "relative", right: 40 }}><Pin onClick={pinNotebook1}/></div>}
-                    {props.icon && props.icon === "notebook" && <div style={{ position: "relative", bottom: 40 }}><TinyNotebook size={1.5} onClick={() => history.push(`/notebooks/${props.id}`)} /></div> }
+                    {props.icon && props.icon === "notebook" && <div style={{ position: "relative", right: 90 }}><TinyTrash height={30} theme="minerva" onClick={() => deleteNotebookCheck(props.id)} /></div>}
+                    {props.icon && props.icon === "notebook" && <div style={{ position: "relative", right: 50, bottom: 30 }}><Pin onClick={pinNotebook1}/></div>}
+                    {props.icon && props.icon === "notebook" && <div style={{ position: "relative", right: 10, bottom: 70}}><TinyNotebook size={1.5} onClick={() => history.push(`/notebooks/${props.id}`)} /></div> }
                     {props.notebooks && props.notebooks.length < 1 && !editing && <TinyPlus theme="minerva" onClick={openEdit} cursor={"pointer"}/>}
                 </div>
             </div>
@@ -177,6 +186,7 @@ const mapDispatchToProps = (dispatch) => {
         postNotebooksWLessonJoiner: (lesson_id, notebook_data) => dispatch(postNotebooksWLessonJoiner(lesson_id, notebook_data)),
         pinNotebook: (id, data) => dispatch(pinNotebook(id,data)),
         unpinNotebook: (id, data) => dispatch(unpinNotebook(id, data)),
+        deleteNotebook: (id) => dispatch(deleteNotebook(id))
     }
 }
 
