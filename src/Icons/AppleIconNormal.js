@@ -4,6 +4,10 @@ import Tooltip from '../Components/Tooltip'
 
 
 const useStyles = makeStyles({
+    root: {
+        width: 60,
+        display: "inline-block"
+    },
     st0: {
         fill: "#ED3466"
     },
@@ -15,30 +19,12 @@ const useStyles = makeStyles({
     }
 });
 
-export default function AppleIcon(props) {
-    const classes = useStyles()
-
-    const [hovered, setHovered] = useState(false)
-
-    const [selected, setSelected] = useState(false)
-
-    const handleHover = () => {
-        setHovered(true)
-    }   
-    const handleMouseOut = () => {
-        setHovered(false)
-    }           
-    useEffect(() => {
-        if (props.selected === props.index) {
-            setSelected(true)
-            setHovered(false)
-        } else {
-            setSelected(false)
-        }
-    });
+export default function AppleIconNormal(props) {
+    const classes = useStyles(props)
+    
 
     return (
-        <div className={selected ? "icon-hover selected" : "icon-hover"} onClick={() => props.clickAction(props.index)} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+        <div className={classes.root} >
 
             <svg
                 width="100%"
@@ -53,7 +39,6 @@ export default function AppleIcon(props) {
                     <path className={classes.st2} d="M267.31,132.93c0,0,43.25,25.23,31.55,102.69C291.78,200.78,280.88,166.62,267.31,132.93z" />
                 </g>
             </svg>
-            <Tooltip content="Create" showing={hovered ? "visible" : "hidden"} />
         </div>
     )
 }

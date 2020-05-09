@@ -4,8 +4,13 @@ import NotebooksHeader from '../Icons/Headers/NotebooksHeader'
 import { makeStyles } from '@material-ui/core'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
-
+import AppleIconNormal from '../Icons/AppleIconNormal'
 import F3 from '../Typing/F3'
+
+
+// redux
+import { connect } from 'react-redux';
+import { } from '../actionCreators'
 
 const useStyles = makeStyles({
     root: {
@@ -26,6 +31,21 @@ const useStyles = makeStyles({
     },
     image: {
         width: 300
+    },
+    num_badge: {
+        maxWidth: 30,
+        padding: 3,
+        borderRadius: "50%",
+        backgroundColor: "#00B79D",
+        textAlign: "center",
+        display: "inline-block",
+        cursor: "default",
+        position: "relative",
+        left: 8,
+        bottom: 10
+    },
+    info_panel:{
+        display: "inline-block",
     }
 })
 const Profile = (props) => {
@@ -39,10 +59,17 @@ const Profile = (props) => {
 
                 </Layout>
                 <Layout width={9}>
-
-                    <F3 >Hello</F3>
+                    
+                    
+                    <F3 >Hello {props.currentUser.username}</F3>
                     <img src={'/logo512.png'} className={classes.image}/>
-                    <textarea className={classes.input}></textarea><br></br>
+                    <div className={classes.info_panel}>
+                        <div>
+                            <div className={classes.num_badge}>32</div><AppleIconNormal />
+                        </div>
+                            <textarea className={classes.input}></textarea>
+                    </div>
+                    <br></br>
                     You don't have any curriculums yet!
                     <div className={classes.headers}>
                         <CreatorHeader /> 
@@ -57,4 +84,15 @@ const Profile = (props) => {
     )
 }
 
-export default Profile
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
