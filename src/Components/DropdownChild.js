@@ -101,7 +101,7 @@ const DropdownChild = props => {
         let data = {
             title: notebookName,
             material_url: props.material_url,
-            user_id: localStorage.user_id
+            user_id: localStorage.token
         }
 
         props.postNotebooksWLessonJoiner(props.id, data)

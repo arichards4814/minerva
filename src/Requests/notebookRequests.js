@@ -53,7 +53,9 @@ export const postNotebooksWLessonJoiner = (lesson_id, notebook_data) => fetch(`$
     method: 'POST',
     headers: {
         'content-type': 'application/json',
-        'accept': 'application/json'
+        'accept': 'application/json',
+        'Authorization': localStorage.token,
+        'ReplaceMaterial': 'ReplaceMaterial'
     },
     body: JSON.stringify(notebook_data)
 }).then(response => response.json())
