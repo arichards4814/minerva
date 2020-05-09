@@ -13,6 +13,7 @@ import Login from './Routes/Login';
 import Overlay from './Components/Overlay'
 import Learn from './Routes/Learn';
 import Test from './Test.js'
+import Profile from './Routes/Profile'
 
 import history from './history.js'
 
@@ -85,6 +86,9 @@ const App = props => {
           </Route>
           <Route path="/test">
             <Test />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
           <Route path="/">
             <Home /> 

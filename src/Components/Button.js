@@ -4,6 +4,7 @@ import "../Button.scss"
 import { makeStyles } from '@material-ui/core'
 import HandleScheme from '../Schemes/HandleScheme'
 import {HandleSchemeTextColor}  from '../Schemes/HandleScheme'
+import Cursor from 'quill/blots/cursor'
 
 
 const useStyles = makeStyles({
@@ -24,7 +25,6 @@ const useStyles = makeStyles({
                 return 0
             }
         }
-    
     }
 })
 

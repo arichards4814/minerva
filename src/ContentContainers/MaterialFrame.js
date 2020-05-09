@@ -32,22 +32,14 @@ const useStyles = makeStyles({
 })
 const MaterialFrame = props => {
     const classes = useStyles(props)
-    // const testGettingIframeInfo = () => {
-    //     // console.log(document.getElementById("test"))
-    //     var iframe = document.getElementById('iframeId');
-    //     var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-    // }
-    const selected = () => {
-        console.log(document.getElementById("iframeId").scrollHeight)
-    }
+  
 
     return (
         <div>
-            <iframe id="iframeId" src="https://en.wikipedia.org/w/index.php?title=Beyonc%C3%A9&printable=yes" style={{ width: "100%", height: 600 }}></iframe>
-
-            {/* <iframe id="iframeId" src={props.material_url} style={{ width: "100%", height: 600 }}></iframe> */}
-            <div className={classes.textInput}><textarea className={classes.input}></textarea></div>
-            <div className={classes.tray}><AddNew onClick={selected} /><EditExisting /></div>
+            <iframe id="iframeId" src={props.material_url} style={{ width: "95%", height: 400 }}></iframe>
+                
+                 {props.frameType && props.frameType === "fullscreen" && <React.Fragment><div className={classes.textInput}><textarea className={classes.input}></textarea></div>
+                <div className={classes.tray}><AddNew /><EditExisting /></div></React.Fragment>}
         </div>
     );
 }

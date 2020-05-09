@@ -11,6 +11,7 @@ import NotebooksDock from '../Components/NotebooksDock'
 import Button from '../Components/Button'
 import Tweet from '../ContentContainers/Tweet'
 import TikTok from '../ContentContainers/TikTok'
+import MaterialFrame from '../ContentContainers/MaterialFrame'
 
 import DropdownGeneral from '../Components/Forms/DropdownGeneral'
 
@@ -23,6 +24,7 @@ import { connect } from 'react-redux';
 import { patchNotebooks, hideNavling, showNavling, fetchNotebook, setCurrentNotepadContent, setCurrentNotepadDetails, postNotes } from '../actionCreators'
 import Material from '../Container/Material';
 import MinervaInput from '../Components/Forms/MinervaInput';
+import SpotifyFrame from '../ContentContainers/SpotifyFrame';
 
 const useStyles = makeStyles({
     backIcon: {
@@ -30,6 +32,15 @@ const useStyles = makeStyles({
         left: -160,
         transform: "translateX(-15px)",
         transform: "translateY(10px)"
+    },
+    text_editor: {
+        position: "relative"
+    },
+    add_note_button: {
+        position: "absolute",
+        top: 0,
+        right: 60,
+        zIndex: 1
     }
 })
 
@@ -132,6 +143,9 @@ const NotebookShow = props => {
         setEditedName(e.target.value)
     }
 
+    const postNoteNonVideo = () => {
+        postNewNote(0)
+    }
 
 
     return (
@@ -143,14 +157,20 @@ const NotebookShow = props => {
                     <F2 font="secondary">  {props.currentNotebook.lessons && props.currentNotebook.lessons[0] ? "Lesson: " + props.currentNotebook.lessons[0].title : "Notebook: " + props.currentNotebook.title}
                         {editing && props.currentNotebook.lessons && <div><MinervaInput onChange={handleEditChange} theme="secondary" placeholder="New Notebook Title" /><Button theme="secondary" color="white" onClick={submitNameChange}>Change</Button></div>}</F2>
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("youtube") && <Youtube id={getYoutubeIDFromURL(materialHandler())} onClick={postNewNote} notes={props.currentNotebook.notes} getTotalTime={getTotalTime}/> }
-
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("twitter") && <div style={{marginLeft: "10%", marginTop: "10%", marginBottom: "10%"}}><Tweet tweet_url={props.currentNotebook.material_url} /></div>}
                     {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("tiktok") && <div style={{ marginLeft: "10%", marginTop: "10%", marginBottom: "10%" }}><TikTok tiktok_url={props.currentNotebook.material_url} /></div>}
-
+                    {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("docs.google") && <MaterialFrame material_url={props.currentNotebook.material_url} />}
+                    {props.currentNotebook.material_url && props.currentNotebook.material_url.includes("spotify") && <SpotifyFrame material_url={props.currentNotebook.material_url} />}
                     {!props.currentNotebook.material_url && <Material setEditing={setEditing} />}
 
                     {/* <Timeline notes={props.currentNotebook.notes} totalTime={totalTime}/> */}
-                    <QuillEditorV2 />
+                    <div className={classes.text_editor}>
+                        {props.currentNotebook.material_url && !props.currentNotebook.material_url.includes("youtube") &&
+                            <div className={classes.add_note_button}>
+                                <Button theme="secondary" onClick={postNoteNonVideo}>Create</Button>
+                            </div>}
+                        <QuillEditorV2 />
+                    </div>
                 </Layout>
                 <Layout width={4}>
                     <NotebooksDock notebook={props.currentNotebook}/>
