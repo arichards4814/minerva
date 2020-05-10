@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom'
 import Button from '../Components/Button'
 import { makeStyles } from '@material-ui/core'
 import TagsList from '../Components/TagsList'
+import ShareIconCircle from '../Icons/ShareIconCircle'
 
 // redux
 import { connect } from 'react-redux';
@@ -20,6 +21,9 @@ import TipBubbleLeft from '../Icons/Tiny/TipBubbleLeft'
 
 
 const useStyles = makeStyles({
+    top_bar: {
+        position: "relative"
+    },
     buttonPlacement: {
         margin: 20,
         position: "relative"
@@ -31,6 +35,13 @@ const useStyles = makeStyles({
         zIndex: 1,
         color: "white",
         cursor: "pointer"
+    },
+    share_bar: {
+        position: "absolute",
+        bottom: 5,
+        right: 0,
+        // zIndex: 1
+        // right: 0
     }
 })
 
@@ -107,10 +118,13 @@ const CurriculumShow = props => {
     return (
         <div className="fade-in">
             <Row marginLeft={80}>
-                <Layout width={4} >
-                    <F2 font="secondary"> Curriculum</F2>
+                <Layout width={4} ><div className={classes.top_bar}>
+                    <F2 font="secondary"> Curriculum</F2><div className={classes.share_bar}><ShareIconCircle /></div>
+                </div>
+                    
                     <TitleBox style="rounded" theme="secondary" paddingLeft={3}><F3 font="secondary">{props.currentCurriculum.title}</F3></TitleBox>
                     <div className={classes.buttonPlacement}>
+                        
                         {subscribed ? <Button theme={"minerva"} onClick={subscribe}>Unsubscribe</Button> : <Button theme={"secondary"} onClick={subscribe}>Subscribe</Button>}
                         {subscribed && <div className={classes.tipbubbleText} onClick={goToNotebooks}>View Your Notebooks</div>}
                         {subscribed && <TipBubbleLeft onClick={goToNotebooks} theme="minerva" /> }
