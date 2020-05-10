@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 
@@ -11,8 +11,8 @@ const useStyles = makeStyles({
     st0: {
         fill: "white"
     },
-    st0Clicked: {
-        fill: "#A0A0A0"
+    st0Hovered: {
+        fill: "rgb(220,220,220, .8)"
     },
     st1: {
         fill: "#ED3466"
@@ -24,10 +24,19 @@ const useStyles = makeStyles({
 
 export default function ShareIconCircle(props) {
     const classes = useStyles(props)
-    
+
+    const [hovered, setHovered] = useState(false)
+
+    const handleHover = () => {
+        setHovered(true)
+    }
+    const handleMouseOut = () => {
+        setHovered(false)
+    }
+
 
     return (
-        <div className={classes.root} >
+        <div className={classes.root} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
             <svg
                 width="100%"
                 height="100%"
@@ -35,7 +44,7 @@ export default function ShareIconCircle(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
             ><g>
-                    <circle className={classes.st0} cx="150" cy="150" r="147.3" />
+                    <circle className={hovered ? classes.st0Hovered : classes.st0} cx="150" cy="150" r="147.3" />
                 </g>
                 <g>
                     <g>

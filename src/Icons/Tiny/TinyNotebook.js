@@ -24,6 +24,12 @@ const useStyles = makeStyles({
     },
     st2: {
         fill: "#FFCF00"
+    },
+    hovered: {
+        fill: "rgb(220,220,220, .8)"
+    },
+    nothovered: {
+        fill: "white"
     }
 });
 
@@ -32,9 +38,17 @@ export default function NoteIcon(props) {
 
     // needs to go to 155 on component did mount or on click or something.
     // if style.theme === "minerva" theme it like it should be
+    const [hovered, setHovered] = useState(false)
+
+    const handleHover = () => {
+        setHovered(true)
+    }
+    const handleMouseOut = () => {
+        setHovered(false)
+    }    
 
     return (
-        <div className={classes.root} onClick={props.onClick}>
+        <div className={classes.root} onClick={props.onClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
             <svg
                 width="100%"
                 height="100%"
@@ -43,6 +57,9 @@ export default function NoteIcon(props) {
                 xmlnsXlink="http://www.w3.org/1999/xlink"
             >
                 <g>
+                    <g>
+                        <circle className={hovered ? classes.hovered : classes.nothovered} cx="110" cy="110" r="120" />
+                    </g>
                     <g>
                         <path className={classes.st0} d="M171.2,204.54H62.83c-11.36,0-20.6-9.24-20.6-20.6V38.68c0-11.36,9.24-20.6,20.6-20.6H171.2
 			c11.36,0,20.6,9.24,20.6,20.6v145.25C191.8,195.3,182.56,204.54,171.2,204.54z M62.83,24.85c-7.63,0-13.83,6.21-13.83,13.83
