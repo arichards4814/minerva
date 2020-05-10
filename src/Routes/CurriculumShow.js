@@ -13,11 +13,14 @@ import Button from '../Components/Button'
 import { makeStyles } from '@material-ui/core'
 import TagsList from '../Components/TagsList'
 import ShareIconCircle from '../Icons/ShareIconCircle'
+import EmbedIconCircle from '../Icons/EmbedIconCircle'
+import Popmenu from '../Container/Popmenu'
 
 // redux
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, postNotebooks, postSubscription, fetchUsersSubscriptions } from '../actionCreators'
 import TipBubbleLeft from '../Icons/Tiny/TipBubbleLeft'
+import { handleFonts } from '../Schemes/Fonts'
 
 
 const useStyles = makeStyles({
@@ -42,14 +45,26 @@ const useStyles = makeStyles({
         right: 0,
         // zIndex: 1
         // right: 0
+    },
+    popmenu: {
+        backgroundColor: "white",
+        position: "absolute",
+    },
+    popover_input: {
+        fontSize: 15,
+        padding: 3
     }
 })
 
 const CurriculumShow = props => {
+    const pathname = useLocation().pathname
     const location = useLocation().pathname.split("/")[2]
     const history = useHistory()
     const classes = useStyles(props)
     const [subscribed, setSubscribed] = useState(false)
+    
+    const [popover, setPopover] = useState(false)
+    const [popoverLink, setPopoverLink] = useState("")
     
 
     useEffect(() => {
@@ -115,11 +130,16 @@ const CurriculumShow = props => {
         }
     }
 
+    const handlePopover = (link) => {
+        setPopover(!popover)
+        setPopoverLink(link)
+    }
+
     return (
         <div className="fade-in">
             <Row marginLeft={80}>
                 <Layout width={4} ><div className={classes.top_bar}>
-                    <F2 font="secondary"> Curriculum</F2><div className={classes.share_bar}><ShareIconCircle /></div>
+                    <F2 font="secondary"> Curriculum</F2><div className={classes.share_bar}><EmbedIconCircle onClick={() => handlePopover("embed " + pathname)} /><ShareIconCircle onClick={() => handlePopover("share " + pathname)} />{popover && <div className={classes.popmenu}><Popmenu width={250} height={35}><input className={classes.popover_input} value={popoverLink}></input></Popmenu></div>}</div>
                 </div>
                     
                     <TitleBox style="rounded" theme="secondary" paddingLeft={3}><F3 font="secondary">{props.currentCurriculum.title}</F3></TitleBox>

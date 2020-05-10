@@ -36,7 +36,7 @@ export default function ShareIconCircle(props) {
 
 
     return (
-        <div className={classes.root} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+        <div className={classes.root} onClick={props.onClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
             <svg
                 width="100%"
                 height="100%"
