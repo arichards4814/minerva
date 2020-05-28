@@ -38,6 +38,6 @@ export default function MinervaTextArea(props){
     const classes = useStyles(props)
 
     return(
-        <input className={classes.root} name="textarea" cols={70} rows={50} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></input>
+        <input className={classes.root} name={props.name} cols={70} rows={50} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></input>
     )
 }

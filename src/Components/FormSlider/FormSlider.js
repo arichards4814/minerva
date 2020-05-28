@@ -22,15 +22,17 @@ const FormSlider = props => {
 
     return(
         <div className={classes.root}>
-            {props.children[page]}
-            <button onClick={(e) => { e.preventDefault() 
-                setPage(page + 1) }}>Continue</button>
-            {/* have to figure out how to show each child based on the forms state */}
-            {/* it will also keep a state which will have an object, each object a kv pair to
-            store the information. When you finally press a submit it will return that object
-            you will be able to use it to do stuff. */}
-            {/* form slider dots component */}
-            <Dots numOfPages={4} selected={page} onClick={setPage}/>
+            <form>
+                {props.children[page]}
+                <button onClick={(e) => { e.preventDefault() 
+                    setPage(page + 1) }}>Continue</button>
+                {/* have to figure out how to show each child based on the forms state */}
+                {/* it will also keep a state which will have an object, each object a kv pair to
+                store the information. When you finally press a submit it will return that object
+                you will be able to use it to do stuff. */}
+                {/* form slider dots component */}
+                <Dots numOfPages={4} selected={page} onClick={setPage}/>
+            </form>
         </div>
     )
 }
