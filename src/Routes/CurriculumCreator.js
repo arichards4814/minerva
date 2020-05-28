@@ -40,14 +40,13 @@ const CurriculumEdit = props => {
     return (
         <div className="fade-in">
             <Row marginLeft={80}>
-                <Layout width={4} >
-                    <F2 font="secondary"> Curriculum Editor: </F2>
-                    <F2 font="secondary"> {props.currentCurriculum.title}</F2>
+                <Layout width={12} >
+                    <F2 font="secondary"> Curriculum Editor: {props.currentCurriculum.title}  </F2>
                 </Layout>
             </Row>
             
             {/* This is a slider for creating awesome forms. */}
-            <Row>
+            <Row marginTop={10}>
                 <Layout width={3.5}></Layout>
                 <Layout width= {5}>
                     <FormSlider numOfPages={4}>

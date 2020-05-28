@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import F4 from '../Typing/F4'
 import F5 from '../Typing/F5'
-import F6 from '../Typing/F6'
 import TinyNote from '../Icons/Tiny/TinyNote'
 import TinyTrash from '../Icons/Tiny/TinyTrash'
-
-import HideIcon from '../Icons/HideIcon'
 
 
 

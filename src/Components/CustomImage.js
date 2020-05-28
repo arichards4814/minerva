@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
-import F4 from '../Typing/F4'
 
 const useStyles = makeStyles({
     root: {

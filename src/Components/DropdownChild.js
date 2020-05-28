@@ -5,14 +5,12 @@ import TinyNotebook from '../Icons/Tiny/TinyNotebook'
 
 import TinyTrash from '../Icons/Tiny/TinyTrash'
 import { useHistory } from 'react-router-dom'
-import SearchCircle from '../Icons/SearchCircle'
 import Pin from '../Icons/Pin'
 
 
 // redux
 import { connect } from 'react-redux';
 import { postNotebooksWLessonJoiner, pinNotebook, unpinNotebook, deleteNotebook } from '../actionCreators'
-import DropdownTile from './DropdownTile'
 import TipBubble from '../Icons/Tiny/TipBubble'
 
 const useStyles = makeStyles({

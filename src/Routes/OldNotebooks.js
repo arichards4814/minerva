@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import NotebooksHeader from '../Icons/Headers/NotebooksHeader'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
 import F2 from '../Typing/F2'
-import F3 from '../Typing/F3'
 import { useLocation, useHistory } from "react-router-dom";
-import TitleBox from '../Components/TitleBox'
 import NotebookPreview from '../Container/NotebookPreview'
 import LongCardScroller from '../Container/LongCardScroller'
 

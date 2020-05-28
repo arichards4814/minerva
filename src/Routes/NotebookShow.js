@@ -12,12 +12,8 @@ import Button from '../Components/Button'
 import Tweet from '../ContentContainers/Tweet'
 import TikTok from '../ContentContainers/TikTok'
 import MaterialFrame from '../ContentContainers/MaterialFrame'
-
-import DropdownGeneral from '../Components/Forms/DropdownGeneral'
-
 import QuillEditorV2 from '../Components/QuillEditorV2'
 
-import HideIcon from '../Icons/HideIcon'
 
 // redux
 import { connect } from 'react-redux';
