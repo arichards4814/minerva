@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
 import F2 from '../Typing/F2'
@@ -18,6 +18,7 @@ import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons
 const CurriculumEdit = props => {
     const history = useHistory()
     const location = useLocation().pathname.split("/")[2]
+    const [formInfo, setFormInfo] = useState({})
 
     // Get All Curriculum information
     useEffect(() => {
@@ -38,6 +39,7 @@ const CurriculumEdit = props => {
                     <F2 font="secondary"> Title: {props.currentCurriculum.title}</F2>
                 </Layout>
             </Row>
+            
             {/* This is a slider for creating awesome forms. */}
             <form>
                 <FormSlider numOfPages={4}>
@@ -54,6 +56,7 @@ const CurriculumEdit = props => {
                         <MinervaTextArea type="text" name="title" theme="minerva" value={"Test"} onChange={handleChangeCurriculumDetails} width={500} placeholder="Change title..." />
                     </FormPage>
                     <FormPage>
+                        Preview
                         <button>Submit</button>
                     </FormPage>
                 </FormSlider>

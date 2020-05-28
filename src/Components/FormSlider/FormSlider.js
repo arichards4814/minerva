@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         minHeight: 300,
         mixWidth: 400,
         maxWidth: 600,
-        backgroundColor: "blue",
+        // backgroundColor: "blue",
         position: "relative"
     }
 })
@@ -17,6 +17,7 @@ const FormSlider = props => {
     const classes = useStyles(props)
     const [page, setPage] = useState(0)
 
+    //throw and error if the number of pages does not match the number of children
 
 
     return(

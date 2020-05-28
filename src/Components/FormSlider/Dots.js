@@ -21,8 +21,8 @@ const useStyles = makeStyles({
         },
         position: "absolute",
         cursor: "pointer",
-        bottom: 0,
-        left: "45%"
+        top: 0,
+        right: 0
     }
 });
 
