@@ -43,7 +43,7 @@ export default function Dots(props) {
             if(x === "selected"){
                 return <DotIcon key={x} height={20} filled={true}/>
             } else {
-                return <DotIcon key={x} height={20} />
+                return <DotIcon key={x} height={20} onClick={() => props.onClick(x)}/>
             }
             
         })

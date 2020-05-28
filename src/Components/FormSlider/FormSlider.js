@@ -29,7 +29,7 @@ const FormSlider = props => {
             store the information. When you finally press a submit it will return that object
             you will be able to use it to do stuff. */}
             {/* form slider dots component */}
-            <Dots numOfPages={4} selected={page}/>
+            <Dots numOfPages={4} selected={page} onClick={setPage}/>
         </div>
     )
 }
