@@ -56,12 +56,12 @@ export default function EditExisting(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
             >
-                <circle class={classes.st0} cx="121.15" cy="121.02" r="116" />
+                <circle className={classes.st0} cx="121.15" cy="121.02" r="116" />
                 <g>
-                    <polygon class={classes.st1} points="147.07,78.45 70.49,155.03 86.82,171.36 163.12,95.06 	" />
-                    <path class={classes.st1} d="M161.56,63.81l-10.41,10.41l16.33,16.33l10.3-10.3c2.67-2.67,2.71-6.99,0.08-9.71l-6.43-6.65
+                    <polygon className={classes.st1} points="147.07,78.45 70.49,155.03 86.82,171.36 163.12,95.06 	" />
+                    <path className={classes.st1} d="M161.56,63.81l-10.41,10.41l16.33,16.33l10.3-10.3c2.67-2.67,2.71-6.99,0.08-9.71l-6.43-6.65
 		            C168.75,61.11,164.3,61.08,161.56,63.81z"/>
-                    <polygon class={classes.st1} points="67.69,158.71 62.48,180.25 83.74,175.33 	" />
+                    <polygon className={classes.st1} points="67.69,158.71 62.48,180.25 83.74,175.33 	" />
                 </g>
             </svg>
             {props.tooltip === "bottom" && <Tooltip width={100} content={props.content} showing={hovered ? "visible" : "hidden"} />}

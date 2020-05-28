@@ -25,7 +25,6 @@ const NotebooksDock = props => {
     const classes = useStyles(props)
 
 
-    console.log(props)
 
     return(
         <div className={classes.root}>

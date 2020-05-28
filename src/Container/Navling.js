@@ -60,7 +60,7 @@ const Navling = props => {
                 {props.navlingHidden && <Expander onClick={props.showNavling} theme={"secondary"}/>}
             </div>
             {!props.navlingHidden && props.currentUser.id &&<div className={classes.loginInfo}>
-                {!props.navlingHidden && props.currentUser.id && <Link onClick={props.logout}>Logout</Link>}
+                {!props.navlingHidden && props.currentUser.id && <Link to={{ pathname: "/login"}}onClick={props.logout}>Logout</Link>}
                 {!props.navlingHidden && !props.currentUser.id && <Link to={{ pathname: "/login" }}>Login</Link>}
                 <span className={classes.spread}>
                     {!props.navlingHidden && !props.currentUser.id && <Link to={{ pathname: "/signup" }}>Signup</Link>}</span>

@@ -49,7 +49,6 @@ const MajesticButton = props => {
         setLoginHover(false)
     }
     
-    console.log(props.currentUser)
 
     return (
         <div>
