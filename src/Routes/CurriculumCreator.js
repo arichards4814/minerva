@@ -6,6 +6,7 @@ import F3 from '../Typing/F3'
 import { useLocation, useHistory } from "react-router-dom";
 import FormSlider from '../Components/FormSlider/FormSlider'
 import FormPage from '../Components/FormSlider/FormPage'
+import Button from '../Components/Button'
 
 import MinervaInput from '../Components/Forms/MinervaInput'
 import MinervaTextArea from '../Components/Forms/MinervaTextArea'
@@ -51,7 +52,7 @@ const CurriculumEdit = props => {
                 <Layout width= {5}>
                     <FormSlider numOfPages={4}>
                         <FormPage>
-                            <F3>Lesson Title:</F3>
+                            <F3>Lesson Title</F3>
                             Choose a name for this lesson...
                             <MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
                         </FormPage>
@@ -69,7 +70,7 @@ const CurriculumEdit = props => {
                         <FormPage>
                             <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
-                            <button>Submit</button>
+                            <Button theme="minerva">Submit</Button>
                         </FormPage>
                     </FormSlider>
                 </Layout>
