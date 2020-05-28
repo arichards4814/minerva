@@ -38,21 +38,13 @@
 }
 
 .circle0 {
-  transform: translateX(-60px);
+  transform: translateX(-120px);
   transition: all 1s ease;
   position: relative;
   bottom: -30px
 } 
 
 .circle1 {
-  transform: translateX(-120px);
-  transition: all 1s ease;
-
-  position: relative;
-  bottom: -30px
-}
-
-.circle2 {
   transform: translateX(-180px);
   transition: all 1s ease;
 
@@ -60,8 +52,24 @@
   bottom: -30px
 }
 
-.circle3 {
+.circle2 {
   transform: translateX(-240px);
+  transition: all 1s ease;
+
+  position: relative;
+  bottom: -30px
+}
+
+.circle3 {
+  transform: translateX(-300px);
+  transition: all 1s ease;
+
+  position: relative;
+  bottom: -30px
+}
+
+.circle4 {
+  transform: translateX(-60px);
   transition: all 1s ease;
 
   position: relative;

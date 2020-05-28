@@ -37,6 +37,9 @@ export default function Underline(props) {
             case 3:
                 setClass1("circle3")
                 break;
+            case 4:
+                setClass1("circle4")
+                break;
             default:
             // code block
         }

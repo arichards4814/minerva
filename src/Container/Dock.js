@@ -6,13 +6,14 @@ import SpaceshipIcon from '../Icons/SpaceshipIcon'
 import NotebookIcon from '../Icons/NotebookIcon'
 import AppleIcon from '../Icons/AppleIcon'
 import HomeIcon from '../Icons/HomeIcon'
+import UserIcon from '../Icons/UserIcon'
 import { useLocation, useHistory } from 'react-router-dom'
 
 
 const useStyles = makeStyles({
     root: {
         height: 100,
-        width: 300,
+        width: 360,
         display: "flex",
         align: "bottom",
         float: props => props.align,
@@ -41,6 +42,9 @@ export default function Dock(props){
                 case "/creator":
                     setSelected(3)
                     break;
+                case "/profile":
+                    setSelected(4)
+                    break;
                 default:
                     setSelected(0)
             }
@@ -63,6 +67,9 @@ export default function Dock(props){
             case 3:
                 history.push("/creator")
                 break;
+            case 4:
+                history.push("/profile")
+                break;
             default:
             // code block
         }
@@ -74,6 +81,7 @@ return(
         <SpaceshipIcon clickAction={clickAction} index={2} selected={selected}/>
         <NotebookIcon clickAction={clickAction} index={1} selected={selected}/>
         <HomeIcon clickAction={clickAction} index={0} selected={selected}/>
+        <UserIcon clickAction={clickAction} index={4} selected={selected}/>
         <Underline position={selected} />
     </div>
 )
