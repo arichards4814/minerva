@@ -329,3 +329,14 @@ a:visited {
   margin: 10px
 
 }
+
+/* For Drag and Drop */
+
+.hold {
+  border: solid #282c34 4px;
+}
+
+.hovered{
+  background-color: white;
+  border-style: dashed;
+}

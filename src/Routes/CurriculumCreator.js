@@ -9,6 +9,7 @@ import FormPage from '../Components/FormSlider/FormPage'
 import { makeStyles } from '@material-ui/core'
 import LessonCard from '../Components/LessonComponents/LessonCard'
 import ContentCard from '../Components/ContentCard'
+import LessonsPanel from '../Container/LessonsPanel';
 
 import MinervaInput from '../Components/Forms/MinervaInput'
 import MinervaTextArea from '../Components/Forms/MinervaTextArea'
@@ -65,12 +66,6 @@ const CurriculumEdit = props => {
         console.log("submit")
     }
 
-    const renderLessons = () => {
-        if (props.currentCurriculum && props.currentCurriculum.lessons){
-            return props.currentCurriculum.lessons.map(lesson => <li>{lesson.title}</li>)
-        }
-    }
-
     const getNewLessonImage = (newLessonImageUrl) => {
         setFormInfo({ ...formInfo, image_url: newLessonImageUrl })
     }
@@ -120,12 +115,10 @@ const CurriculumEdit = props => {
                     {/* <div className={classes.lessonCard}>
                         <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id}/>
                     </div> */}
-                    <ContentCard videoURL={formInfo.material_url} getNewLessonImage={getNewLessonImage}/>
+                    {/* <ContentCard videoURL={formInfo.material_url} getNewLessonImage={getNewLessonImage}/> */}
                 </Layout>
                 <Layout width={2}>
-                    <ul>
-                        {renderLessons()}
-                    </ul>
+                    <LessonsPanel lessons={props.currentCurriculum.lessons}/>
                 </Layout>
             </Row>
         </div>
