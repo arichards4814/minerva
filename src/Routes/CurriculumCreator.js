@@ -6,7 +6,8 @@ import F3 from '../Typing/F3'
 import { useLocation, useHistory } from "react-router-dom";
 import FormSlider from '../Components/FormSlider/FormSlider'
 import FormPage from '../Components/FormSlider/FormPage'
-import Button from '../Components/Button'
+import { makeStyles } from '@material-ui/core'
+import LessonCard from '../Components/LessonComponents/LessonCard'
 
 import MinervaInput from '../Components/Forms/MinervaInput'
 import MinervaTextArea from '../Components/Forms/MinervaTextArea'
@@ -17,7 +18,26 @@ import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons
 
 
 
+
+const useStyles = makeStyles({
+    lessonSubtitle: {
+        margin: 20
+    },
+    lessonHelp: {
+        margin: 20
+    },
+    lessonInput: {
+        marginLeft: 20
+    },
+    lessonCard: {
+        marginLeft: 20,
+        position: "relative",
+        bottom: 10
+
+    }
+})
 const CurriculumEdit = props => {
+    const classes = useStyles(props)
     const history = useHistory()
     const location = useLocation().pathname.split("/")[2]
     const [formInfo, setFormInfo] = useState({
@@ -42,6 +62,12 @@ const CurriculumEdit = props => {
         e.preventDefault()
         console.log("submit")
     }
+
+    const renderLessons = () => {
+        if (props.currentCurriculum && props.currentCurriculum.lessons){
+            return props.currentCurriculum.lessons.map(lesson => <li>{lesson.title}</li>)
+        }
+    }
     
     return (
         <div className="fade-in">
@@ -60,24 +86,35 @@ const CurriculumEdit = props => {
                     tooltips={["Title", "Media", "Description", "Finish"]}>
                         <FormPage tooltip="Lesson Title">
                             <F3>Lesson Title</F3>
-                            Choose a name for this lesson...
-                            <MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
+                            <div className={classes.lessonSubtitle}>Choose a name for this lesson...</div>
+                            <div className={classes.lessonInput}><MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." /></div>
                         </FormPage>
                         <FormPage tooltip="Lesson Media">
                             <F3>Lesson Media</F3>
-                            Add Media to this Lesson...
-                            <MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleChangeCurriculumDetails} width={500} placeholder="Paste media link here..." />
+                            <div className={classes.lessonSubtitle}>Add Media to this Lesson...</div>
+                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleChangeCurriculumDetails} width={500} placeholder="Paste media link here..." /></div>
+                            <div className={classes.lessonHelp}>Media could be anything from a Youtube video, to a Tweet, article, blog or even a TikTok.</div>
                         </FormPage >
                         <FormPage tooltip="Lesson Description">
                             <F3>Lesson Description</F3>
-                            Write a Description
-                            <MinervaTextArea type="text" name="description" theme="minerva" value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." />
+                            <div className={classes.lessonSubtitle}>Write a Description</div>
+                            <div className={classes.lessonInput}><MinervaTextArea type="text" name="description" theme="minerva" height={130} value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." /></div>
                         </FormPage>
                         <FormPage tooltip="Finish">
                             <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
                         </FormPage>
                     </FormSlider>
+                </Layout>
+                <Layout width={3}>
+                    <div className={classes.lessonCard}>
+                        <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title}/>
+                    </div>
+                </Layout>
+                <Layout width={2}>
+                    <ul>
+                        {renderLessons()}
+                    </ul>
                 </Layout>
             </Row>
         </div>
@@ -89,7 +126,8 @@ const CurriculumEdit = props => {
 const mapStateToProps = (state) => {
     return {
         currentCurriculum: state.currentCurriculum,
-        currentLesson: state.currentLesson
+        currentLesson: state.currentLesson,
+        currentUser: state.currentUser
     }
 }
 
