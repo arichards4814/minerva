@@ -12,8 +12,7 @@ const useStyles = makeStyles({
             }
         },
         backgroundColor: "#04B89F",
-        position: "relative",
-        bottom: 20,
+        position: "absolute",
         right: props => {
             if(props.right){
                 return props.right

@@ -39,11 +39,11 @@ export default function Dots(props) {
                 a.push(i)
             }
         }
-        return a.map(x => {
+        return a.map((x, ind) => {
             if(x === "selected"){
-                return <DotIcon key={x} height={20} filled={true}/>
+                return <DotIcon key={x} height={20} filled={true} tooltip={props.tooltips[ind]}/>
             } else {
-                return <DotIcon key={x} height={20} onClick={() => props.onClick(x)}/>
+                return <DotIcon key={x} height={20} tooltip={props.tooltips[ind]} onClick={() => props.onClick(x)}/>
             }
             
         })

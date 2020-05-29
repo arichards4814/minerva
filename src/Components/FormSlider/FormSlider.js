@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Dots from './Dots'
-import Button from '../Button'
+import GoodButton from '../GoodButton'
 
 const useStyles = makeStyles({
     root: {
@@ -16,6 +16,16 @@ const useStyles = makeStyles({
     },
     button: {
         position: "absolute"
+    },
+    buttonBlockLeft: {
+        position: "absolute",
+        bottom: 10,
+        left: 10
+    },
+    buttonBlockRight: {
+        position: "absolute",
+        bottom: 10,
+        right: 10
     }
 })
 
@@ -30,11 +40,24 @@ const FormSlider = props => {
             setPage(page + 1)
     }
 
+    const handleBack = (e) => {
+        e.preventDefault()
+        setPage(page - 1)
+    }
+
     return(
         <div className={classes.root}>
             <form>
                 {props.children[page]}
-                {page != props.children.length - 1 && <Button theme="secondary" onClick={handleClick}>Next</Button> }
+                 <div className={classes.buttonBlockLeft}>
+                    {page != 0 && <GoodButton theme="secondary" onClick={handleBack}>Back</GoodButton>}
+                </div> 
+                <div className={classes.buttonBlockRight}>
+                    {page != props.children.length - 1 ? <GoodButton theme="secondary" onClick={handleClick}>Next</GoodButton> : 
+                        <GoodButton theme="minerva" onClick={props.handleSubmit}>Submit</GoodButton>}
+                </div> 
+
+                
                     
                 
                 {/* have to figure out how to show each child based on the forms state */}
@@ -42,7 +65,7 @@ const FormSlider = props => {
                 store the information. When you finally press a submit it will return that object
                 you will be able to use it to do stuff. */}
                 {/* form slider dots component */}
-                <Dots numOfPages={props.children.length} selected={page} onClick={setPage}/>
+                <Dots numOfPages={props.children.length} selected={page} onClick={setPage} tooltips={props.tooltips}/>
             </form>
         </div>
     )

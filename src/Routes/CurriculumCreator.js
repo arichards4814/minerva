@@ -37,6 +37,11 @@ const CurriculumEdit = props => {
         console.log(formInfo)
             setFormInfo({...formInfo, [e.target.name]: e.target.value})
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("submit")
+    }
     
     return (
         <div className="fade-in">
@@ -48,33 +53,32 @@ const CurriculumEdit = props => {
             
             {/* This is a slider for creating awesome forms. */}
             <Row marginTop={10}>
-                <Layout width={3.5}></Layout>
+                <Layout width={1}></Layout>
                 <Layout width= {5}>
-                    <FormSlider numOfPages={4}>
-                        <FormPage>
+                    <FormSlider numOfPages={4} 
+                    handleSubmit={handleSubmit}
+                    tooltips={["Title", "Media", "Description", "Finish"]}>
+                        <FormPage tooltip="Lesson Title">
                             <F3>Lesson Title</F3>
                             Choose a name for this lesson...
                             <MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
                         </FormPage>
-                        <FormPage>
+                        <FormPage tooltip="Lesson Media">
                             <F3>Lesson Media</F3>
                             Add Media to this Lesson...
                             <MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleChangeCurriculumDetails} width={500} placeholder="Paste media link here..." />
-                        </FormPage>
-                        <FormPage>
-
+                        </FormPage >
+                        <FormPage tooltip="Lesson Description">
                             <F3>Lesson Description</F3>
                             Write a Description
                             <MinervaTextArea type="text" name="description" theme="minerva" value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." />
                         </FormPage>
-                        <FormPage>
+                        <FormPage tooltip="Finish">
                             <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
-                            <Button theme="minerva">Submit</Button>
                         </FormPage>
                     </FormSlider>
                 </Layout>
-               
             </Row>
         </div>
     )
