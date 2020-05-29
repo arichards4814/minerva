@@ -32,8 +32,8 @@ const useStyles = makeStyles({
     lessonCard: {
         marginLeft: 20,
         position: "relative",
-        bottom: 10
-
+        left: 80,
+        marginBottom: 50
     }
 })
 const CurriculumEdit = props => {
@@ -73,7 +73,7 @@ const CurriculumEdit = props => {
         <div className="fade-in">
             <Row marginLeft={80}>
                 <Layout width={12} >
-                    <F2 font="secondary"> Curriculum Editor: {props.currentCurriculum.title}  </F2>
+                    <F2 font="secondary"> Curriculum Builder: {props.currentCurriculum.title}  </F2>
                 </Layout>
             </Row>
             
@@ -103,13 +103,17 @@ const CurriculumEdit = props => {
                         <FormPage tooltip="Finish">
                             <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
+
+                            <div className={classes.lessonCard}>
+                                 <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} />
+                            </div>
                         </FormPage>
                     </FormSlider>
                 </Layout>
                 <Layout width={3}>
-                    <div className={classes.lessonCard}>
-                        <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title}/>
-                    </div>
+                    {/* <div className={classes.lessonCard}>
+                        <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id}/>
+                    </div> */}
                 </Layout>
                 <Layout width={2}>
                     <ul>

@@ -54,7 +54,7 @@ const FormSlider = props => {
                 </div> 
                 <div className={classes.buttonBlockRight}>
                     {page != props.children.length - 1 ? <GoodButton theme="secondary" onClick={handleClick}>Next</GoodButton> : 
-                        <GoodButton theme="minerva" onClick={props.handleSubmit}>Submit</GoodButton>}
+                        <GoodButton theme="minerva" onClick={props.handleSubmit}>Create</GoodButton>}
                 </div> 
 
                 
