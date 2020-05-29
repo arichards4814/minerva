@@ -67,6 +67,7 @@ export default function ContentCard(props){
     }
 
     const handleSearch = async (youtubeid) => {
+        console.log(process.env.REACT_APP_API_KEY)
         const response = await AxiosSearch.get('/search', {
             params: {
                 q: youtubeid,

@@ -8,6 +8,7 @@ import FormSlider from '../Components/FormSlider/FormSlider'
 import FormPage from '../Components/FormSlider/FormPage'
 import { makeStyles } from '@material-ui/core'
 import LessonCard from '../Components/LessonComponents/LessonCard'
+import ContentCard from '../Components/ContentCard'
 
 import MinervaInput from '../Components/Forms/MinervaInput'
 import MinervaTextArea from '../Components/Forms/MinervaTextArea'
@@ -43,7 +44,8 @@ const CurriculumEdit = props => {
     const [formInfo, setFormInfo] = useState({
         title: "",
         material_url: "",
-        description: ""
+        description: "",
+        image_url: ""
     })
 
     // Get All Curriculum information
@@ -67,6 +69,10 @@ const CurriculumEdit = props => {
         if (props.currentCurriculum && props.currentCurriculum.lessons){
             return props.currentCurriculum.lessons.map(lesson => <li>{lesson.title}</li>)
         }
+    }
+
+    const getNewLessonImage = (newLessonImageUrl) => {
+        setFormInfo({ ...formInfo, image_url: newLessonImageUrl })
     }
     
     return (
@@ -114,6 +120,7 @@ const CurriculumEdit = props => {
                     {/* <div className={classes.lessonCard}>
                         <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id}/>
                     </div> */}
+                    <ContentCard videoURL={formInfo.material_url} getNewLessonImage={getNewLessonImage}/>
                 </Layout>
                 <Layout width={2}>
                     <ul>
