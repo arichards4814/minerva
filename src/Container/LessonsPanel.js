@@ -23,11 +23,16 @@ const LessonsPanel = props => {
     const [lessons, setLessons] = useState([])
     const [currentlyDragging, setCurrentlyDragging] = useState(null)
 
-    // useEffect(() => {
-    //     setLessons(props.lessons)
-    // }, [])
+    useEffect(() => {
+        console.log("props", props)
+        if(props.lessons){
+            console.log("hello", props.lessons)
+            setLessons(props.lessons)
+        }
+    }, [props.lessons])
 
     const dragStart = (e) => {
+        console.log(lessons)
         console.log(e.target.id, e.target.title)
         setCurrentlyDragging({
             index: parseInt(e.target.dataset.index),
@@ -57,7 +62,7 @@ const LessonsPanel = props => {
 
     const renderLessons = () => {
         if (props.lessons) {
-            return props.lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>{lesson.title}</div>)
+            return lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>{lesson.title}</div>)
         } else {
         }
     }
