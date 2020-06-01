@@ -1,0 +1,160 @@
+import AxiosSearch from '../Youtube/AxiosSearch';
+// from the url, the material manager will
+// 1. Figure out the type of material.
+// 2. Figure out the image that should be the main image of the lesson
+// 3. Return an object with this information.
+
+// example return {
+// origin: 
+// material_image:
+// material_type: 
+// }
+
+const materialManager = async function (url, callback) {
+if(!url) return null
+
+    let returnObject = {}
+
+    if (isYoutubeUrl(url)) {
+        try {
+            let response = await handleSearchAsync(getYoutubeIDFromURL(url))
+            console.log('response', response)
+
+            returnObject.video_info = response.data.items[0].snippet
+            returnObject.image_url = response.data.items[0].snippet.thumbnails.high.url
+            return callback(returnObject, null)
+        } catch(e){
+            return callback(null, e)
+        }
+    } else {
+        console.log("not youtube")
+    }
+}
+
+const isYoutubeUrl = (videoURL) => {
+    if (videoURL.includes("youtube")) {
+        console.log("is youtube")
+        return true
+    } else {
+        return false
+    }
+}
+
+const handleSearch = async (youtubeid) => {
+
+    let videoInfo = {}
+
+    const response = await AxiosSearch.get('/search', {
+        params: {
+            q: youtubeid,
+            part: "snippet",
+            key: process.env.REACT_APP_API_KEY
+        }
+    })
+
+    // 
+    if (response.data.items.length > 0) {
+        videoInfo.idk = response.data.items[0].snippet
+        videoInfo.image_url = response.data.items[0].snippet.thumbnails.high.url
+    } else  {
+        videoInfo.error = "Cannot retrieve details for this url."
+    } 
+    //handle the search response here :)
+
+    return 
+}
+
+const handleSearchAsync = async (youtubeid) =>{
+    if(!youtubeid) return null
+    try {
+        const response = await AxiosSearch.get('/search', {
+            params: {
+                q: youtubeid,
+                part: "snippet",
+                key: process.env.REACT_APP_API_KEY
+            }
+            //
+        })
+        console.log("Response", response)
+        return response
+    } catch(e){
+        console.log(e)
+    }
+}
+
+const getYoutubeIDFromURL = (url) => {
+    let video_id = url.split('v=')[1]
+
+    if (!video_id) {
+        console.log("There is a problem with this URL")
+        return false
+    } else {
+        let ampersandPosition = video_id.indexOf('&');
+        if (ampersandPosition != -1) {
+            video_id = video_id.substring(0, ampersandPosition);
+        }
+        console.log(`The video ID is ${video_id}`)
+        return video_id
+    }
+}
+
+// const handleAllOtherURLs = (videoURL) => {
+//     // if not youtube check if theres any others
+//     // otherwise just add a placeholder... 
+//     // dont use switch because it is an abuse of case
+
+//     if (videoURL.includes("medium")) {
+//         props.getNewLessonImage("https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png")
+//         setVideoInfo({
+//             alternative: "https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png"
+//         })
+//         setLoading(false)
+//     } else if (videoURL.includes("twitter")) {
+//         props.getNewLessonImage("/twitterIcon.png")
+//         setVideoInfo({
+//             alternative: "/twitterIcon.png"
+//         })
+//         setLoading(false)
+//     } else if (videoURL.includes("tiktok")) {
+//         props.getNewLessonImage("/tiktok.png")
+//         setVideoInfo({
+//             alternative: "/tiktok.png"
+//         })
+//         setLoading(false)
+//     } else if (videoURL.includes("udemy")) {
+//         props.getNewLessonImage("https://www.pipelinersales.com/wp-content/uploads/2019/06/large-udemy.jpg")
+//         setVideoInfo({
+//             alternative: "https://www.pipelinersales.com/wp-content/uploads/2019/06/large-udemy.jpg"
+//         })
+
+//         setLoading(false)
+//     } else if (videoURL.includes("khan")) {
+//         props.getNewLessonImage("https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/f7/53/cd/f753cd8a-4139-f1b4-ef71-a2661690fa22/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png")
+//         setVideoInfo({
+//             alternative: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/f7/53/cd/f753cd8a-4139-f1b4-ef71-a2661690fa22/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png"
+//         })
+//         setLoading(false)
+//     } else if (props.type && props.type === 'Blog') {
+//         props.getNewLessonImage("/blogPlaceholder.png")
+//         setVideoInfo({
+//             alternative: "/blogPlaceholder.png"
+//         })
+//         setLoading(false)
+//     } else if (props.type && props.type === 'Book') {
+//         props.getNewLessonImage("/bookPlaceholder.png")
+//         setVideoInfo({
+//             alternative: "/bookPlaceholder.png"
+//         })
+//         setLoading(false)
+//     } else {
+//         props.getNewLessonImage("/blogPlaceholder.png")
+//         setVideoInfo({
+//             alternative: "/blogPlaceholder.png"
+//         })
+//         setLoading(false)
+//     }
+
+
+// } 
+
+export default materialManager

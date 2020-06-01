@@ -119,7 +119,7 @@ export default function Card(props) {
                     {/* <Link to={"/curriculums/" + props.ccID}></Link> */}
                 </div>
                 <div className={classes.cardImage}>
-                    <img src={props.image_url} style={{ height: "100%", width: "100%" }}></img>
+                    {props.image_url && <img src={props.image_url} style={{ height: "100%", width: "100%" }}></img>}
                     {/* {!props.image_url && <LoadingAnimation />} */}
                 </div>
                 <div className={classes.cardTitle}>

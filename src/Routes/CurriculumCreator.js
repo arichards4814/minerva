@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons, patchLesson, deleteLesson, deleteCurriculum } from '../actionCreators'
 
 
-
+import materialManager from '../Managers/materialManager'
 
 const useStyles = makeStyles({
     lessonSubtitle: {
@@ -46,8 +46,11 @@ const CurriculumEdit = props => {
         title: "",
         material_url: "",
         description: "",
-        image_url: ""
+        image_url: "",
+        lesson_type: "",
+        cost: "free"
     })
+
 
     // Get All Curriculum information
     useEffect(() => {
@@ -69,7 +72,18 @@ const CurriculumEdit = props => {
     const getNewLessonImage = (newLessonImageUrl) => {
         setFormInfo({ ...formInfo, image_url: newLessonImageUrl })
     }
+
+    const handleUrl = (e) => {
+
+        materialManager(e.target.value, (response, error) => {
+            if(error) return
+            setFormInfo({...formInfo, image_url: response.image_url})
+            console.log(response, error)
+        })
+
+    }
     
+
     return (
         <div className="fade-in">
             <Row marginLeft={80}>
@@ -93,7 +107,7 @@ const CurriculumEdit = props => {
                         <FormPage tooltip="Lesson Media">
                             <F3>Lesson Media</F3>
                             <div className={classes.lessonSubtitle}>Add Media to this Lesson...</div>
-                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleChangeCurriculumDetails} width={500} placeholder="Paste media link here..." /></div>
+                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleUrl} width={500} placeholder="Paste media link here..." /></div>
                             <div className={classes.lessonHelp}>Media could be anything from a Youtube video, to a Tweet, article, blog or even a TikTok.</div>
                         </FormPage >
                         <FormPage tooltip="Lesson Description">
@@ -106,7 +120,7 @@ const CurriculumEdit = props => {
                             How your lesson card will look to others.
 
                             <div className={classes.lessonCard}>
-                                 <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} />
+                                 <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} image_url={formInfo.image_url}/>
                             </div>
                         </FormPage>
                     </FormSlider>
