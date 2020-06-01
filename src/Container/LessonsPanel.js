@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 
 
@@ -7,7 +7,7 @@ const useStyles = makeStyles({
         width: 300,
         minHeight: 400,
         boxShadow: "2px 2px 8px 2px",
-        padding: 2
+        padding: 4
 
     },
     lessonCard: {
@@ -20,29 +20,12 @@ const useStyles = makeStyles({
 })
 const LessonsPanel = props => {
     const classes = useStyles(props)
-    const [lessons, setLessons] = useState(
-        [
-            {id: 0,
-            title: "test1"},
-            {
-                id: 1,
-                title: "test2"
-            },
-            {
-                id: 2,
-                title: "test3"
-            },
-            {
-                id: 3,
-                title: "test4"
-            },
-            {
-                id: 4,
-                title: "test5"
-            }
-        ]
-    )
+    const [lessons, setLessons] = useState([])
     const [currentlyDragging, setCurrentlyDragging] = useState(null)
+
+    // useEffect(() => {
+    //     setLessons(props.lessons)
+    // }, [])
 
     const dragStart = (e) => {
         console.log(e.target.id, e.target.title)
@@ -68,20 +51,21 @@ const LessonsPanel = props => {
             id: currentlyDragging.id,
             title: currentlyDragging.title}
         let splicedOut = lessonsCopy.splice(currentlyDragging.index, 1)
-        debugger
         lessonsCopy.splice(e.target.dataset.index, 0, newCurrent)
         setLessons(lessonsCopy)
     }
 
     const renderLessons = () => {
-        if (lessons) {
-            return lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>{lesson.title}</div>)
+        if (props.lessons) {
+            return props.lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>{lesson.title}</div>)
+        } else {
         }
     }
 
 
     return(
         <div className={classes.root}>
+            Lessons:
             {renderLessons()}
         </div>
     )

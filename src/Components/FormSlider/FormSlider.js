@@ -57,14 +57,6 @@ const FormSlider = props => {
                         <GoodButton theme="minerva" onClick={props.handleSubmit}>Create</GoodButton>}
                 </div> 
 
-                
-                    
-                
-                {/* have to figure out how to show each child based on the forms state */}
-                {/* it will also keep a state which will have an object, each object a kv pair to
-                store the information. When you finally press a submit it will return that object
-                you will be able to use it to do stuff. */}
-                {/* form slider dots component */}
                 <Dots numOfPages={props.children.length} selected={page} onClick={setPage} tooltips={props.tooltips}/>
             </form>
         </div>

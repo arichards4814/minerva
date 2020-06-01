@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, isValidElement } from 'react'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
 import F2 from '../Typing/F2'
@@ -21,6 +21,7 @@ import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons
 
 import materialManager from '../Managers/materialManager'
 import CheckCircle from '../Icons/CheckCircle'
+import CheckEx from '../Icons/CheckEx'
 
 const useStyles = makeStyles({
     lessonSubtitle: {
@@ -37,6 +38,11 @@ const useStyles = makeStyles({
         position: "relative",
         left: 80,
         marginBottom: 50
+    },
+    finalCheckmark: {
+        position: "absolute",
+        bottom: 20,
+        left: 250
     }
 })
 const CurriculumEdit = props => {
@@ -67,15 +73,25 @@ const CurriculumEdit = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("submit")
+        if (isValidForm(formInfo)){
+            props.postLessons({ ...formInfo, curriculum_id: props.currentCurriculum.id })
+        } else {
+            console.log("Not valid form info.")
+        }
     }
 
-    const getNewLessonImage = (newLessonImageUrl) => {
-        setFormInfo({ ...formInfo, image_url: newLessonImageUrl })
+    const isValidForm = formInfo => {
+        if (formInfo.title.length > 3 && formInfo.description.length > 10 && formInfo.image_url.length > 3){
+            return true
+        } else {
+            return false
+        }
     }
 
     const handleUrl = (e) => {
+        setFormInfo({ ...formInfo, material_url: e.target.value})
         materialManager(e.target.value, (response, error) => {
+            console.log(response)
             if(error) return
             setFormInfo({...formInfo, image_url: response.image_url, material_url: response.url})
             console.log(response, error)
@@ -94,7 +110,7 @@ const CurriculumEdit = props => {
             
             {/* This is a slider for creating awesome forms. */}
             <Row marginTop={10}>
-                <Layout width={1}></Layout>
+                <Layout width={2}></Layout>
                 <Layout width= {5}>
                     <FormSlider numOfPages={4} 
                     handleSubmit={handleSubmit}
@@ -122,18 +138,16 @@ const CurriculumEdit = props => {
                         <FormPage tooltip="Finish">
                             <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
-
                             <div className={classes.lessonCard}>
                                  <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} image_url={formInfo.image_url}/>
+                            </div>
+                            <div className={classes.finalCheckmark}>
+                                Ready: {isValidForm(formInfo) ? <CheckCircle width={20} height={20} /> : <CheckEx width={20} height={20} />}
                             </div>
                         </FormPage>
                     </FormSlider>
                 </Layout>
-                <Layout width={3}>
-                    {/* <div className={classes.lessonCard}>
-                        <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id}/>
-                    </div> */}
-                    {/* <ContentCard videoURL={formInfo.material_url} getNewLessonImage={getNewLessonImage}/> */}
+                <Layout width={1}>
                 </Layout>
                 <Layout width={2}>
                     <LessonsPanel lessons={props.currentCurriculum.lessons}/>

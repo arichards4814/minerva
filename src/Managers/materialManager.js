@@ -26,7 +26,8 @@ if(!url) return null
             return callback(null, e)
         }
     } else {
-        console.log("not youtube")
+        let materialInfo = handleAllOtherURLs(url)
+        return callback({...returnObject, ...materialInfo}, null)
     }
 }
 
@@ -37,30 +38,6 @@ const isYoutubeUrl = (videoURL) => {
     } else {
         return false
     }
-}
-
-const handleSearch = async (youtubeid) => {
-
-    let videoInfo = {}
-
-    const response = await AxiosSearch.get('/search', {
-        params: {
-            q: youtubeid,
-            part: "snippet",
-            key: process.env.REACT_APP_API_KEY
-        }
-    })
-
-    // 
-    if (response.data.items.length > 0) {
-        videoInfo.idk = response.data.items[0].snippet
-        videoInfo.image_url = response.data.items[0].snippet.thumbnails.high.url
-    } else  {
-        videoInfo.error = "Cannot retrieve details for this url."
-    } 
-    //handle the search response here :)
-
-    return 
 }
 
 const handleSearchAsync = async (youtubeid) =>{
@@ -97,63 +74,30 @@ const getYoutubeIDFromURL = (url) => {
     }
 }
 
-// const handleAllOtherURLs = (videoURL) => {
-//     // if not youtube check if theres any others
-//     // otherwise just add a placeholder... 
-//     // dont use switch because it is an abuse of case
+const handleAllOtherURLs = (url) => {
+    let generatedObject = {} 
 
-//     if (videoURL.includes("medium")) {
-//         props.getNewLessonImage("https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png")
-//         setVideoInfo({
-//             alternative: "https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png"
-//         })
-//         setLoading(false)
-//     } else if (videoURL.includes("twitter")) {
-//         props.getNewLessonImage("/twitterIcon.png")
-//         setVideoInfo({
-//             alternative: "/twitterIcon.png"
-//         })
-//         setLoading(false)
-//     } else if (videoURL.includes("tiktok")) {
-//         props.getNewLessonImage("/tiktok.png")
-//         setVideoInfo({
-//             alternative: "/tiktok.png"
-//         })
-//         setLoading(false)
-//     } else if (videoURL.includes("udemy")) {
-//         props.getNewLessonImage("https://www.pipelinersales.com/wp-content/uploads/2019/06/large-udemy.jpg")
-//         setVideoInfo({
-//             alternative: "https://www.pipelinersales.com/wp-content/uploads/2019/06/large-udemy.jpg"
-//         })
+    if (url.includes("medium")) {
+        generatedObject.image_url = "https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png"
+        generatedObject.material_type = "blog"
+    } else if (url.includes("twitter")) {
+        generatedObject.image_url = "/twitterIcon.png"
+        generatedObject.material_type = "tweet"
+    } else if (url.includes("tiktok")) {
+        generatedObject.image_url = "/tiktok.png"
+        generatedObject.material_type = "tiktok"
+    } else if (url.includes("udemy")) {
+        generatedObject.image_url = "/tiktok.png"
+        generatedObject.material_type = "video"
+    } else if (url.includes("khan")) {
+        generatedObject.image_url = "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/f7/53/cd/f753cd8a-4139-f1b4-ef71-a2661690fa22/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png"
+        generatedObject.material_type = "video"
+    } else {
+        generatedObject.image_url = "/blogPlaceholder.png"
+        generatedObject.material_type = "blog"
+    }
 
-//         setLoading(false)
-//     } else if (videoURL.includes("khan")) {
-//         props.getNewLessonImage("https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/f7/53/cd/f753cd8a-4139-f1b4-ef71-a2661690fa22/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png")
-//         setVideoInfo({
-//             alternative: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/f7/53/cd/f753cd8a-4139-f1b4-ef71-a2661690fa22/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png"
-//         })
-//         setLoading(false)
-//     } else if (props.type && props.type === 'Blog') {
-//         props.getNewLessonImage("/blogPlaceholder.png")
-//         setVideoInfo({
-//             alternative: "/blogPlaceholder.png"
-//         })
-//         setLoading(false)
-//     } else if (props.type && props.type === 'Book') {
-//         props.getNewLessonImage("/bookPlaceholder.png")
-//         setVideoInfo({
-//             alternative: "/bookPlaceholder.png"
-//         })
-//         setLoading(false)
-//     } else {
-//         props.getNewLessonImage("/blogPlaceholder.png")
-//         setVideoInfo({
-//             alternative: "/blogPlaceholder.png"
-//         })
-//         setLoading(false)
-//     }
-
-
-// } 
+    return generatedObject
+} 
 
 export default materialManager
