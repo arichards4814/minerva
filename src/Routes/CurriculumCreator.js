@@ -20,6 +20,7 @@ import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons
 
 
 import materialManager from '../Managers/materialManager'
+import CheckCircle from '../Icons/CheckCircle'
 
 const useStyles = makeStyles({
     lessonSubtitle: {
@@ -74,10 +75,9 @@ const CurriculumEdit = props => {
     }
 
     const handleUrl = (e) => {
-
         materialManager(e.target.value, (response, error) => {
             if(error) return
-            setFormInfo({...formInfo, image_url: response.image_url})
+            setFormInfo({...formInfo, image_url: response.image_url, material_url: response.url})
             console.log(response, error)
         })
 
@@ -102,18 +102,22 @@ const CurriculumEdit = props => {
                         <FormPage tooltip="Lesson Title">
                             <F3>Lesson Title</F3>
                             <div className={classes.lessonSubtitle}>Choose a name for this lesson...</div>
-                            <div className={classes.lessonInput}><MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." /></div>
+                            <div className={classes.lessonInput}><MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
+                                {formInfo.title.length > 3 && <CheckCircle width={20} height={20} />}</div>
+                            
                         </FormPage>
                         <FormPage tooltip="Lesson Media">
                             <F3>Lesson Media</F3>
                             <div className={classes.lessonSubtitle}>Add Media to this Lesson...</div>
-                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleUrl} width={500} placeholder="Paste media link here..." /></div>
+                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleUrl} width={500} placeholder="Paste media link here..." />
+                                {formInfo.image_url.length > 3 && <CheckCircle width={20} height={20} />}</div>
                             <div className={classes.lessonHelp}>Media could be anything from a Youtube video, to a Tweet, article, blog or even a TikTok.</div>
                         </FormPage >
                         <FormPage tooltip="Lesson Description">
                             <F3>Lesson Description</F3>
                             <div className={classes.lessonSubtitle}>Write a Description</div>
-                            <div className={classes.lessonInput}><MinervaTextArea type="text" name="description" theme="minerva" height={130} value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." /></div>
+                            <div className={classes.lessonInput}><MinervaTextArea type="text" name="description" theme="minerva" height={130} value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." />
+                                {formInfo.description.length > 10 && formInfo.description.length < 240 && <CheckCircle width={20} height={20} />}</div>
                         </FormPage>
                         <FormPage tooltip="Finish">
                             <F3>Lesson Preview</F3>

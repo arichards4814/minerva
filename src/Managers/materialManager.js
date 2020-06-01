@@ -13,15 +13,14 @@ import AxiosSearch from '../Youtube/AxiosSearch';
 const materialManager = async function (url, callback) {
 if(!url) return null
 
-    let returnObject = {}
+    let returnObject = {url: url}
 
     if (isYoutubeUrl(url)) {
         try {
             let response = await handleSearchAsync(getYoutubeIDFromURL(url))
-            console.log('response', response)
-
             returnObject.video_info = response.data.items[0].snippet
             returnObject.image_url = response.data.items[0].snippet.thumbnails.high.url
+            returnObject.material_type = "video"
             return callback(returnObject, null)
         } catch(e){
             return callback(null, e)
