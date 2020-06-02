@@ -9,7 +9,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import CreatorAddLessons from '../Container/CreatorAddLessons'
 import CreatorEditCurrDetails from '../Container/CreatorEditCurrDetails'
-
+import CreatorPublish from '../Container/CreatorPublish'
 
 // redux
 import { connect } from 'react-redux';
@@ -120,6 +120,7 @@ const CurriculumCreator = props => {
 
                     {value === 0 && <CreatorEditCurrDetails />}
                     {value === 1 && <CreatorAddLessons />}
+                    {value === 2 && <CreatorPublish />}
                 </Layout>
                 <Layout width={1}>
                 </Layout>
