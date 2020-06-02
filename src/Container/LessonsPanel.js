@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
+import Button from '../Components/Button'
+
+
+// redux
+import { connect } from 'react-redux';
+import { patchMultipleLessons } from '../actionCreators'
 
 
 const useStyles = makeStyles({
@@ -7,8 +13,8 @@ const useStyles = makeStyles({
         width: 300,
         minHeight: 400,
         boxShadow: "2px 2px 8px 2px",
-        padding: 4
-
+        padding: 4,
+        position: "relative"
     },
     lessonCard: {
         margin: 15,
@@ -16,28 +22,33 @@ const useStyles = makeStyles({
         backgroundColor: "white",
         boxShadow: "1px 1px 2px 1px",
         cursor: "grab"
+    },
+    footer: {
+        position: "absolute",
+        bottom: 10,
+        left: 75
     }
 })
 const LessonsPanel = props => {
     const classes = useStyles(props)
     const [lessons, setLessons] = useState([])
     const [currentlyDragging, setCurrentlyDragging] = useState(null)
+    const [reordered, setReordered] = useState(false)
 
     useEffect(() => {
-        console.log("props", props)
         if(props.lessons){
-            console.log("hello", props.lessons)
-            setLessons(props.lessons)
+            let sortedLessons = props.lessons.sort((a,b) => a.lesson_index - b.lesson_index)
+            setLessons(sortedLessons)
         }
     }, [props.lessons])
 
     const dragStart = (e) => {
         console.log(lessons)
         console.log(e.target.id, e.target.title)
-        setCurrentlyDragging({
-            index: parseInt(e.target.dataset.index),
-            id: e.target.id,
-            title: e.target.title})
+
+        //find it by its index first then set the currently dragging
+        //need all info 
+        setCurrentlyDragging(lessons[e.target.dataset.index])
     }
 
     const dragEnd = (e) => {
@@ -48,16 +59,18 @@ const LessonsPanel = props => {
         // console.log(e.target.id)
     }
 
-    const drop = (e) => {
+    const drop = async (e) => {
         // console.log(e.target.id)
         let lessonsCopy  = [...lessons]
         // the id shouldnt be the index
-        let newCurrent = { 
-            id: currentlyDragging.id,
-            title: currentlyDragging.title}
-        let splicedOut = lessonsCopy.splice(currentlyDragging.index, 1)
+        let newCurrent = {...currentlyDragging}
+        let splicedOut = lessonsCopy.splice(currentlyDragging.lesson_index, 1)
         lessonsCopy.splice(e.target.dataset.index, 0, newCurrent)
+        lessonsCopy.forEach((lesson, ind) => {
+            lesson.lesson_index = ind
+        })
         setLessons(lessonsCopy)
+        setReordered(true)
     }
 
     const renderLessons = () => {
@@ -67,12 +80,42 @@ const LessonsPanel = props => {
         }
     }
 
+    const indexLessons = () => {
+        let lessonsCopy = [...lessons]
+        
+        setLessons(lessonsCopy)
+    }
+    
+ 
+    const saveOrder = async () => {
+        console.log("Saving Lessons")
+        await props.patchMultipleLessons(lessons)
+        setTimeout(function () { setReordered(false) }, 800);
+    }
+
 
     return(
         <div className={classes.root}>
             Lessons:
             {renderLessons()}
+            <div className={classes.footer}>
+                {reordered && <Button onClick={saveOrder} theme="secondary">Save Order</Button>}
+            </div>
         </div>
     )
 }
-export default LessonsPanel
+
+
+
+const mapStateToProps = (state) => {
+    return {
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        patchMultipleLessons: (arrayOfLessons) => dispatch(patchMultipleLessons(arrayOfLessons))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LessonsPanel);

@@ -125,6 +125,14 @@ export const patchLesson = (data, id) => dispatch => {
     dispatch({ type: 'PATCH_LESSON', payload: { lesson: data } })
 }
 
+export const patchMultipleLessons = (arrayOfLessons) => dispatch => {
+    arrayOfLessons.forEach(lesson => {
+        requestsLes.patchLesson(lesson, lesson.id)
+            .then(data => {
+                dispatch({ type: 'PATCH_LESSON', payload: { lesson: data } })})
+    })
+}
+
 
 export const deleteLesson = (id) => dispatch => {
     requestsLes.deleteLesson(id)

@@ -35,19 +35,14 @@ export default function Button(props){
 
 
     const clickHandler = () => {
-        if (props.onClick){
-            props.onClick()
-        }
-            
-        console.log(rippling)
         setRippling(true)
         setTimeout(function () { setRippling(false) }, 1000);
     }
     
     
     return(
-        <div>
-            <button className={classes.root + " minerva-button js-ripple"} onClick={clickHandler}>
+        <div onClick={clickHandler}>
+            <button className={classes.root + " minerva-button js-ripple"} onClick={props.onClick}>
                 <div className={rippling ? "c-ripple js-ripple  is-active" : "c-ripple js-ripple"}>
                     <span className="c-ripple__circle" ></span>
                 </div>{props.children}</button>
