@@ -1,27 +1,46 @@
-import React, { useEffect, useState, isValidElement } from 'react'
+import React, { useEffect, useState } from 'react'
 import Row from '../Container/Row'
 import Layout from '../Container/Layout'
-import F2 from '../Typing/F2'
-import F3 from '../Typing/F3'
 import { useLocation, useHistory } from "react-router-dom";
-import FormSlider from '../Components/FormSlider/FormSlider'
-import FormPage from '../Components/FormSlider/FormPage'
-import { makeStyles } from '@material-ui/core'
-import LessonCard from '../Components/LessonComponents/LessonCard'
-import ContentCard from '../Components/ContentCard'
+import { makeStyles, withStyles } from '@material-ui/core'
 import LessonsPanel from '../Container/LessonsPanel';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import CreatorAddLessons from '../Container/CreatorAddLessons'
+import CreatorEditCurrDetails from '../Container/CreatorEditCurrDetails'
 
-import MinervaInput from '../Components/Forms/MinervaInput'
-import MinervaTextArea from '../Components/Forms/MinervaTextArea'
 
 // redux
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons, patchLesson, deleteLesson, deleteCurriculum } from '../actionCreators'
 
 
-import materialManager from '../Managers/materialManager'
-import CheckCircle from '../Icons/CheckCircle'
-import CheckEx from '../Icons/CheckEx'
+const StyledTabs = withStyles({
+    indicator: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "transparent",
+        "& > span": {
+            maxWidth: 40,
+            width: "100%",
+            backgroundColor: "#ED3466"
+        }
+    }
+})(props => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+
+const StyledTab = withStyles(theme => ({
+    root: {
+        textTransform: "none",
+        color: "#000000",
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: theme.typography.pxToRem(15),
+        marginRight: theme.spacing(1),
+        "&:focus": {
+            opacity: 1
+        }
+    }
+}))(props => <Tab disableRipple {...props} />);
 
 const useStyles = makeStyles({
     lessonSubtitle: {
@@ -43,11 +62,13 @@ const useStyles = makeStyles({
         position: "absolute",
         bottom: 20,
         left: 250
+    },
+    demo2: {
+        backgroundColor: "#ffffff"
     }
 })
-const CurriculumEdit = props => {
+const CurriculumCreator = props => {
     const classes = useStyles(props)
-    const history = useHistory()
     const location = useLocation().pathname.split("/")[2]
     const [formInfo, setFormInfo] = useState({
         title: "",
@@ -56,7 +77,12 @@ const CurriculumEdit = props => {
         image_url: "",
         lesson_type: "",
         cost: "free"
-    })
+    }) 
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
 
     // Get All Curriculum information
@@ -66,45 +92,24 @@ const CurriculumEdit = props => {
         }
     }, [])
 
-    const handleChangeCurriculumDetails = (e) => {
-        console.log(formInfo)
-            setFormInfo({...formInfo, [e.target.name]: e.target.value})
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (isValidForm(formInfo)){
-            props.postLessons({ ...formInfo, curriculum_id: props.currentCurriculum.id })
-        } else {
-            console.log("Not valid form info.")
-        }
-    }
-
-    const isValidForm = formInfo => {
-        if (formInfo.title.length > 3 && formInfo.description.length > 10 && formInfo.image_url.length > 3){
-            return true
-        } else {
-            return false
-        }
-    }
-
-    const handleUrl = (e) => {
-        setFormInfo({ ...formInfo, material_url: e.target.value})
-        materialManager(e.target.value, (response, error) => {
-            console.log(response)
-            if(error) return
-            setFormInfo({...formInfo, image_url: response.image_url, material_url: response.url})
-            console.log(response, error)
-        })
-
-    }
     
-
     return (
         <div className="fade-in">
             <Row marginLeft={80}>
                 <Layout width={12} >
-                    <F2 font="secondary"> Curriculum Builder: {props.currentCurriculum.title}  </F2>
+                    <div className={classes.demo2}>
+                        <StyledTabs
+                            value={value}
+                            onChange={handleChange}
+                            aria-label="styled tabs example"
+                        >
+                            <StyledTab label="Curriculum Info" />
+                            <StyledTab label="Add Lessons" />
+                            <StyledTab label="Publish" />
+                        </StyledTabs>
+                        <Typography className={classes.padding} />
+                    </div>
+                    {/* <F2 font="secondary"> Curriculum Builder: {props.currentCurriculum.title}  </F2> */}
                 </Layout>
             </Row>
             
@@ -112,40 +117,9 @@ const CurriculumEdit = props => {
             <Row marginTop={10}>
                 <Layout width={2}></Layout>
                 <Layout width= {5}>
-                    <FormSlider numOfPages={4} 
-                    handleSubmit={handleSubmit}
-                    tooltips={["Title", "Media", "Description", "Finish"]}>
-                        <FormPage tooltip="Lesson Title">
-                            <F3>Lesson Title</F3>
-                            <div className={classes.lessonSubtitle}>Choose a name for this lesson...</div>
-                            <div className={classes.lessonInput}><MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
-                                {formInfo.title.length > 3 && <CheckCircle width={20} height={20} />}</div>
-                            
-                        </FormPage>
-                        <FormPage tooltip="Lesson Media">
-                            <F3>Lesson Media</F3>
-                            <div className={classes.lessonSubtitle}>Add Media to this Lesson...</div>
-                            <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleUrl} width={500} placeholder="Paste media link here..." />
-                                {formInfo.image_url.length > 3 && <CheckCircle width={20} height={20} />}</div>
-                            <div className={classes.lessonHelp}>Media could be anything from a Youtube video, to a Tweet, article, blog or even a TikTok.</div>
-                        </FormPage >
-                        <FormPage tooltip="Lesson Description">
-                            <F3>Lesson Description</F3>
-                            <div className={classes.lessonSubtitle}>Write a Description</div>
-                            <div className={classes.lessonInput}><MinervaTextArea type="text" name="description" theme="minerva" height={130} value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." />
-                                {formInfo.description.length > 10 && formInfo.description.length < 240 && <CheckCircle width={20} height={20} />}</div>
-                        </FormPage>
-                        <FormPage tooltip="Finish">
-                            <F3>Lesson Preview</F3>
-                            How your lesson card will look to others.
-                            <div className={classes.lessonCard}>
-                                 <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} image_url={formInfo.image_url}/>
-                            </div>
-                            <div className={classes.finalCheckmark}>
-                                Ready: {isValidForm(formInfo) ? <CheckCircle width={20} height={20} /> : <CheckEx width={20} height={20} />}
-                            </div>
-                        </FormPage>
-                    </FormSlider>
+
+                    {value === 0 && <CreatorEditCurrDetails />}
+                    {value === 1 && <CreatorAddLessons />}
                 </Layout>
                 <Layout width={1}>
                 </Layout>
@@ -179,4 +153,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurriculumEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(CurriculumCreator);

@@ -80,12 +80,6 @@ const LessonsPanel = props => {
         }
     }
 
-    const indexLessons = () => {
-        let lessonsCopy = [...lessons]
-        
-        setLessons(lessonsCopy)
-    }
-    
  
     const saveOrder = async () => {
         console.log("Saving Lessons")
@@ -99,7 +93,7 @@ const LessonsPanel = props => {
             Lessons:
             {renderLessons()}
             <div className={classes.footer}>
-                {reordered && <Button onClick={saveOrder} theme="secondary">Save Order</Button>}
+                {reordered && <Button onClick={saveOrder} theme="secondary">Save Order</Button> }
             </div>
         </div>
     )

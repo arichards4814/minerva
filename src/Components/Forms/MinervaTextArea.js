@@ -16,6 +16,7 @@ const useStyles = makeStyles({
                 return 300
             }
         },
+        maxWidth: "95%",
         height: props => {
             if (props.height) {
                 return props.height
