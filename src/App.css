@@ -346,6 +346,11 @@ a:visited {
   cursor: pointer;
 }
 
+.hover-green:hover {
+  background-color: rgb(50, 207, 129);
+  cursor: pointer;
+}
+
 .currentCur {
   background-color: gray;
 }

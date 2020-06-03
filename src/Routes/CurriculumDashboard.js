@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core'
 import Button from '../Components/Button'
+import CurriculumInfo from '../Container/CurriculumInfo'
+import CurriculumInfoPlaceholder from '../Container/CurriculumInfoPlaceholder'
+import AddIcon from '@material-ui/icons/Add';
 
 // redux
 import { connect } from 'react-redux';
@@ -38,17 +41,36 @@ const useStyles = makeStyles({
     },
     rightPanelFooter: {
         position: "absolute",
-        bottom: 16
+        bottom: 20,
+        right: 200
     },
     curriculumSelect: {
         width: "100%",
         backgroundColor: "white",
-        height: 30,
+        height: 40,
         borderStyle: "solid",
         borderWidth: 1,
         borderColor: "gray",
+        paddingTop: 10,
         paddingLeft: 10,
         marginTop: 1
+    },
+    newCurrButton: {
+        position: "relative",
+        backgroundColor: "#00B79D",
+        height: 40,
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderColor: "gray",
+        paddingTop: 10,
+        paddingLeft: 10,
+        marginTop: 1
+    },
+    icon: {
+        display: "inline-block",
+        position: "absolute",
+        right: 5,
+        top: 7
     }
 })
 const CurriculumDashboard = props => {
@@ -86,21 +108,25 @@ const CurriculumDashboard = props => {
                         </div>   
                         <div className={classes.leftBody}>
                             {renderCurriculums()}
+                            <div onClick={() => {console.log("create new")}} className={classes.newCurrButton + " hover-green"} >Create New Curriculum
+                            <div className={classes.icon}><AddIcon /></div></div>
+
                         </div>           
                         <div className={classes.leftPanelFooter}>
-                            <Button theme="secondary">Create New Curriculum</Button>
                         </div>
                     </div>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={7}>
                     <div className={classes.rightPanel}>
-                        {props.currentCurriculum.title}
+
+                        {props.currentCurriculum.title ? <CurriculumInfo /> : <CurriculumInfoPlaceholder /> }
+                        
                         <div className={classes.rightPanelFooter}>
                             {!props.currentCurriculum.title ? null : <Button theme="minerva">Edit Curriculum</Button>}
                         </div>
                     </div>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={1}>
                     
                 </Grid>
             </Grid>

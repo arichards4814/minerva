@@ -13,6 +13,7 @@ import AddNew from '../Icons/AddNew'
 import { makeStyles } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import TagsList from '../Components/TagsList'
+import CurriculumDashboard from './CurriculumDashboard'
 
 // redux
 import { connect } from 'react-redux';
@@ -177,10 +178,13 @@ const Creator = props => {
                     <CreatorHeader />
                 </Layout>
             </Row>
+            <CurriculumDashboard />
             <Row>
                 <Layout width={3}>
                 </Layout>
                 <Layout width={6}>
+
+                    
 
                     {stage === 0 && <div>
                         <F2 font="secondary">Title</F2>
