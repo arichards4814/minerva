@@ -238,11 +238,11 @@ const Creator = props => {
             </Row>
 
             <div className={classes.footer}>
-                {stage === -1 && <AddNew onClick={setToBeginning} tooltip="top" content="Create New"/>}
+                {/* {stage === -1 && <AddNew onClick={setToBeginning} tooltip="top" content="Create New"/>}
                 {stage === 0 && <EditExisting onClick={showEditDropdown} tooltip="top" content="Edit Existing"/>}
                 {stage === 1 && <BackIcon onClick={goBack} tooltip="top" content="Go Back"/>}
                 {stage === 2 && <BackIcon onClick={goBack} tooltip="top" content="Go Back"/>}
-                {stage === 3 && <BackIcon onClick={goBack} tooltip="top" content="Go Back"/>}
+                {stage === 3 && <BackIcon onClick={goBack} tooltip="top" content="Go Back"/>} */}
                 {/* <EditExistingShadow /> */}
             </div>
 
