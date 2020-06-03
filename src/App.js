@@ -8,6 +8,7 @@ import Explore from './Routes/Explore'
 import CurriculumShow from './Routes/CurriculumShow';
 import CurriculumEdit from './Routes/CurriculumEdit';
 import CurriculumCreator from './Routes/CurriculumCreator';
+import CurriculumDashboard from './Routes/CurriculumDashboard';
 import NotebookShow from './Routes/NotebookShow';
 import Signup from './Routes/Signup';
 import Login from './Routes/Login';
@@ -61,10 +62,15 @@ const App = props => {
           <Route path="/explore">
             <Explore />
           </Route>
-          <Route path="/creator">
+          <Route exact path="/creator">
             {props.currentUser && localStorage.user_id ?
             <Creator /> : 
             <Redirect to="/signup" />}
+          </Route>
+          <Route path="/creator/dashboard">
+            {props.currentUser && localStorage.user_id ?
+              <CurriculumDashboard /> :
+              <Redirect to="/signup" />}
           </Route>
           {/* TESTCREATOR */}
           <Route path="/testcreator/:id">

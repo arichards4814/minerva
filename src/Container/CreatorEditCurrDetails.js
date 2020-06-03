@@ -4,9 +4,6 @@ import MinervaTextArea from '../Components/Forms/MinervaTextArea'
 import SearchButton from '../Components/Forms/SeachButton'
 import TagsList from '../Components/TagsList'
 
-
-
-
 const CreatorAddLessons = props => {
     const [tags, setTags] = useState([])
     const [formTitle, setFormTitle] = useState("")
@@ -34,6 +31,7 @@ const CreatorAddLessons = props => {
         <div>
             <p>Curriculum Title:</p>
             <div>
+                
                 <MinervaInput type="text" name="title" theme="secondary" value={""} width={500} placeholder="Create Title..." />
             </div>
             <p>Curriculum Description:</p>

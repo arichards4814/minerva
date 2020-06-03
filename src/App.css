@@ -340,3 +340,12 @@ a:visited {
   background-color: white;
   border-style: dashed;
 }
+
+.hover:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.currentCur {
+  background-color: gray;
+}

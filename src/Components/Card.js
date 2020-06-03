@@ -98,7 +98,7 @@ const useStyles = makeStyles({
 });
 
 export default function Card(props){
-    const classes = useStyles()
+    const classes = useStyles(props)
     //hmm, how big should a card be? Should I have sm, md, lg? 
     const [hovered, setHovered] = useState(false)
 
