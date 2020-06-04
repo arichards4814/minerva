@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom'
 
 // redux
 import { connect } from 'react-redux';
-import { fetchCurriculum, fetchUsersCurriculums, deleteCurriculum } from '../actionCreators'
+import { fetchCurriculum, fetchUsersCurriculums, deleteCurriculum, postCurriculums } from '../actionCreators'
 
 
 const useStyles = makeStyles({
@@ -29,7 +29,8 @@ const useStyles = makeStyles({
     },
     leftBody: {
         height: "78%",
-        backgroundColor: "#d1d1d1"
+        backgroundColor: "#d1d1d1",
+        overflow: "auto"
     },
     leftPanelFooter: {
         position: "absolute",
@@ -72,6 +73,10 @@ const useStyles = makeStyles({
         position: "absolute",
         right: 5,
         top: 7
+    },
+    button: {
+        display: "inline-block",
+        margin: 2
     }
 })
 const CurriculumDashboard = props => {
@@ -96,6 +101,19 @@ const CurriculumDashboard = props => {
         props.fetchCurriculum(id)
     }
 
+
+    const createBlankCurriculum = () => {
+        props.postCurriculums({
+            user_id: localStorage.user_id,
+            title: "Unnamed"}, null)
+    }
+
+    const deleteCurriculum = (id) => {
+        if (window.confirm("Are you sure you want to delete this curriculum?")) {
+                props.deleteCurriculum(id)
+        }
+    }
+
     return( 
         <div className={classes.root}>
             <div className={classes.header}>
@@ -110,7 +128,7 @@ const CurriculumDashboard = props => {
                         </div>   
                         <div className={classes.leftBody}>
                             {renderCurriculums()}
-                            <div onClick={() => {console.log("create new")}} className={classes.newCurrButton + " hover-green"} >Create New Curriculum
+                            <div onClick={createBlankCurriculum} className={classes.newCurrButton + " hover-green"} >Create New Curriculum
                             <div className={classes.icon}><AddIcon /></div></div>
 
                         </div>           
@@ -124,7 +142,8 @@ const CurriculumDashboard = props => {
                         {props.currentCurriculum.title ? <CurriculumInfo /> : <CurriculumInfoPlaceholder /> }
                         
                         <div className={classes.rightPanelFooter}>
-                            {!props.currentCurriculum.title ? null : <Button theme="minerva" onClick={() => history.push(`/testcreator/${props.currentCurriculum.id}`)}>Edit Curriculum</Button>}
+                            {!props.currentCurriculum.title ? null : <div className={classes.button}><Button theme="secondary" onClick={() => history.push(`/creator/edit/${props.currentCurriculum.id}`)}>Edit Curriculum</Button></div>}
+                            {!props.currentCurriculum.title ? null : <div className={classes.button}><Button theme="minerva" onClick={() => deleteCurriculum(props.currentCurriculum.id)}>Delete Curriculum</Button></div>}
                         </div>
                     </div>
                 </Grid>
@@ -149,7 +168,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchCurriculum: (id) => dispatch(fetchCurriculum(id)),
         fetchUsersCurriculums: (user_id) => dispatch(fetchUsersCurriculums(user_id)),
-        deleteCurriculum: (id) => dispatch(deleteCurriculum(id))
+        deleteCurriculum: (id) => dispatch(deleteCurriculum(id)),
+        postCurriculums: (curriculum, tags) => dispatch(postCurriculums(curriculum, tags)),
     }
 }
 

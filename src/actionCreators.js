@@ -42,6 +42,7 @@ export const updateCurrentCurriculum = (data, curriculum_id) => dispatch => {
 
 
 export const postCurriculums = (data, tags) => dispatch => {
+    //postCurriculums with tags as null to just create a new curriculum.
     if(tags){
         requestsCur.postCurriculums(data)
             .then(data => {
@@ -61,8 +62,9 @@ export const postCurriculums = (data, tags) => dispatch => {
     } else {
         requestsCur.postCurriculums(data)
             .then(data => {
+                console.log(data)
                 dispatch({ type: 'POST_CURRICULUMS', payload: { curriculum: data } })
-                history.push(`/editcurriculums/${data.id}`)
+                history.push(`/creator/edit/${data.id}`)
                 return data
             })
     }

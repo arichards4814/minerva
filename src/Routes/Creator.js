@@ -186,52 +186,52 @@ const Creator = props => {
 
                     
 
-                    {stage === 0 && <div>
+                    {/* {stage === 0 && <div>
                         <F2 font="secondary">Title</F2>
                         <MinervaInput width={500} height={75} fontSize={25} type="text" theme="secondary" onChange={handleChangeTitle} value={newCurriculumTitle} placeholder="Name Your Curriculum..." />
                     <SearchButton theme="secondary" onClick={() => addStage(1)} value="Next"></SearchButton>
-                    </div>}
+                    </div>} */}
 
-                    {stage === 1 && <div>
+                    {/* {stage === 1 && <div>
                         <F2 font="secondary">Description</F2>
                         <MinervaInput width={500} height={75} fontSize={14} type="text" theme="secondary" onChange={handleChangeDescription} value={newCurriculumDescription} placeholder="Set a description for this curriculum..." />
                         <SearchButton theme="secondary" onClick={() => addStage(1)} value="Next"></SearchButton>
-                    </div>}
+                    </div>} */}
 
                     
-                    {stage === 2 && <div>
+                    {/* {stage === 2 && <div>
                         <F2 font="secondary">Tags</F2>
                         <MinervaInput width={500} height={75} fontSize={14} type="text" theme="secondary" onChange={handleChange} value={formTitle} placeholder="Choose tags for your curriculum..." />
                         <SearchButton theme="secondary" onClick={addTag} value="Add"></SearchButton>
                         <SearchButton theme="secondary" onClick={() => addStage(1)} value="Next"></SearchButton>
                         <TagsList tags={tags} exClick={removeTag}/>
-                    </div>}
+                    </div>} */}
 
-                    {stage === 3 && <div>
+                    {/* {stage === 3 && <div>
                         <F2 font="secondary">Image</F2>
                         <div className={classes.imagePicker}>
                             <UploaderV2 setImageInCreator={handleImageDragAndDrop} />
-                        </div>
+                        </div> */}
                         {/* <button onClick={showDetails}>tester buttonia</button> */}
-                        <div className={classes.imagePicker}>
+                        {/* <div className={classes.imagePicker}>
                             <SearchButton theme="secondary" onClick={showDetails} value="Create Curriculum" width={300}></SearchButton>
-                        </div>
+                        </div> */}
                         {/* <SearchButton theme="secondary" onClick={handleClick3} value="Next"></SearchButton> */}
-                    </div>}
+                    {/* </div>} */}
 
-                    {stage === 4 && <div style={{textAlign: "center", marginTop: 30}}>
+                    {/* {stage === 4 && <div style={{textAlign: "center", marginTop: 30}}>
                         <SearchButton width={300} height={100} fontSize={80} onClick={submitFinalForm} theme="secondary" value="Create and add lessons!"></SearchButton>
-                        </div>}
+                        </div>} */}
 
-                    {stage === -1 && <div style={{ textAlign: "center", marginTop: 30 }}>
+                    {/* {stage === -1 && <div style={{ textAlign: "center", marginTop: 30 }}>
                         <F2 font="secondary">Choose Curriculum to Edit</F2>
                         <Dropdown theme="secondary" onChange={handleSelectChange}/>
                         <SearchButton theme="secondary" value="Edit" onClick={handleSelectSubmit}></SearchButton>
-                    </div>}
+                    </div>} */}
                     
-                    <div style={{marginTop: 20, marginLeft: 20}}>
+                    {/* <div style={{marginTop: 20, marginLeft: 20}}>
                         {errors}
-                    </div>
+                    </div> */}
                 </Layout>
                 <Layout width={3}>
                 </Layout>

@@ -73,7 +73,7 @@ const App = props => {
               <Redirect to="/signup" />}
           </Route>
           {/* TESTCREATOR */}
-          <Route path="/testcreator/:id">
+          <Route path="/creator/edit/:id">
             {props.currentUser && localStorage.user_id ?
               <CurriculumCreator /> :
               <Redirect to="/signup" />}
