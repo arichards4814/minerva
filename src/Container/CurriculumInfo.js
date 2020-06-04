@@ -24,13 +24,13 @@ const useStyles = makeStyles({
         display: "inline-block",
         height: 300,
         width: "49%",
-        backgroundColor: "gray",
+        backgroundColor: "white",
         verticalAlign: "top",
         margin: 4
     },
     description: {
         width: "100%",
-        backgroundColor: "gray",
+        backgroundColor: "white",
         height: 100,
         padding: 20
     },

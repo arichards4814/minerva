@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     title: {
         height: 45,
         padding: 2,
-        backgroundColor: "gray",
+        backgroundColor: "white",
         margin: 4
     },
     root: {
@@ -19,20 +19,20 @@ const useStyles = makeStyles({
         display: "inline-block",
         height: 300,
         width: "49%",
-        backgroundColor: "gray",
+        backgroundColor: "white",
         margin: 4
     },
     right: {
         display: "inline-block",
         height: 300,
         width: "49%",
-        backgroundColor: "gray",
+        backgroundColor: "white",
         verticalAlign: "top",
         margin: 4
     },
     description: {
         width: "99%",
-        backgroundColor: "gray",
+        backgroundColor: "white",
         height: 100,
         padding: 20,
         margin: 4

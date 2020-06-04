@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import React, { useEffect, useState } from 'react';
+import Row from '../Container/Row';
+import Layout from '../Container/Layout';
 import { useLocation, useHistory } from "react-router-dom";
-import { makeStyles, withStyles } from '@material-ui/core'
+import { makeStyles, withStyles } from '@material-ui/core';
+import { Button as MaterialButton } from '@material-ui/core';
 import LessonsPanel from '../Container/LessonsPanel';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import CreatorAddLessons from '../Container/CreatorAddLessons'
-import CreatorEditCurrDetails from '../Container/CreatorEditCurrDetails'
-import CreatorPublish from '../Container/CreatorPublish'
+import CreatorAddLessons from '../Container/CreatorAddLessons';
+import CreatorEditCurrDetails from '../Container/CreatorEditCurrDetails';
+import CreatorPublish from '../Container/CreatorPublish';
 
 // redux
 import { connect } from 'react-redux';
@@ -70,6 +71,7 @@ const useStyles = makeStyles({
 const CurriculumCreator = props => {
     const classes = useStyles(props)
     const location = useLocation().pathname.split("/")[2]
+    const history = useHistory()
     const [formInfo, setFormInfo] = useState({
         title: "",
         material_url: "",
@@ -98,6 +100,8 @@ const CurriculumCreator = props => {
             <Row marginLeft={80}>
                 <Layout width={12} >
                     <div className={classes.demo2}>
+                        <div style={{display: "inline-block"}}><MaterialButton variant="outlined" onClick={() => {history.push('/creator')}}>Back to Dashboard</MaterialButton></div>
+                        <div style={{ display: "inline-block" }}>
                         <StyledTabs
                             value={value}
                             onChange={handleChange}
@@ -107,6 +111,7 @@ const CurriculumCreator = props => {
                             <StyledTab label="Add Lessons" />
                             <StyledTab label="Publish" />
                         </StyledTabs>
+                        </div>
                         <Typography className={classes.padding} />
                     </div>
                     {/* <F2 font="secondary"> Curriculum Builder: {props.currentCurriculum.title}  </F2> */}

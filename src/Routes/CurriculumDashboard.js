@@ -5,6 +5,7 @@ import Button from '../Components/Button'
 import CurriculumInfo from '../Container/CurriculumInfo'
 import CurriculumInfoPlaceholder from '../Container/CurriculumInfoPlaceholder'
 import AddIcon from '@material-ui/icons/Add';
+import { useHistory } from 'react-router-dom'
 
 // redux
 import { connect } from 'react-redux';
@@ -75,6 +76,7 @@ const useStyles = makeStyles({
 })
 const CurriculumDashboard = props => {
     const classes = useStyles(props)
+    const history = useHistory()
 
     useEffect(() => {
         props.fetchUsersCurriculums(localStorage.user_id)
@@ -122,7 +124,7 @@ const CurriculumDashboard = props => {
                         {props.currentCurriculum.title ? <CurriculumInfo /> : <CurriculumInfoPlaceholder /> }
                         
                         <div className={classes.rightPanelFooter}>
-                            {!props.currentCurriculum.title ? null : <Button theme="minerva">Edit Curriculum</Button>}
+                            {!props.currentCurriculum.title ? null : <Button theme="minerva" onClick={() => history.push(`/testcreator/${props.currentCurriculum.id}`)}>Edit Curriculum</Button>}
                         </div>
                     </div>
                 </Grid>
