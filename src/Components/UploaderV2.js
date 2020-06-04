@@ -1,12 +1,6 @@
-
-import { DirectUpload } from "@rails/activestorage"
-import Uploader from "./Uploader"
 import React, { useState } from 'react'
 import ImageUploader from './ImageUploader'
 import SearchButton from '../Components/Forms/SeachButton'
-
-import DropzoneComponent from 'react-dropzone-component';
-
 
 // redux
 import { connect } from 'react-redux';
@@ -21,19 +15,7 @@ const UploaderV2 = (props) =>  {
 
         const formData = new FormData();
         formData.append("file", image);
-
-        // fetch to curriculums/:id/image
-
         props.patchCurriculumWImage(formData, props.currentCurriculum.id)
-
-        // fetch(`${baseURL}/curriculums/${props.currentCurriculum.id}/image`, {
-        //     method: "PATCH",
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     });
     }
 
 

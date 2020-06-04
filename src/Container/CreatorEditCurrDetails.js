@@ -3,6 +3,7 @@ import MinervaInput from '../Components/Forms/MinervaInput'
 import MinervaTextArea from '../Components/Forms/MinervaTextArea'
 import SearchButton from '../Components/Forms/SeachButton'
 import TagsList from '../Components/TagsList'
+import UploaderV2 from '../Components/UploaderV2'
 
 const CreatorAddLessons = props => {
     const [tags, setTags] = useState([])
@@ -29,6 +30,7 @@ const CreatorAddLessons = props => {
 
     return(
         <div>
+            <UploaderV2 />
             <p>Curriculum Title:</p>
             <div>
                 

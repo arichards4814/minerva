@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Button from '../Components/Button'
+import F4 from '../Typing/F4'
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 
 // redux
@@ -21,12 +23,27 @@ const useStyles = makeStyles({
         height: 40,
         backgroundColor: "white",
         boxShadow: "1px 1px 2px 1px",
-        cursor: "grab"
+        cursor: "grab",
+        paddingLeft: 5,
+        verticalAlign: "top"
+    },
+    lcText: {
+        display: "inline-block",
+        paddingTop: 12,
+        paddingLeft: 3,
+        verticalAlign: "top"
     },
     footer: {
         position: "absolute",
         bottom: 10,
         left: 75
+    },
+    header: {
+        paddingLeft: 12
+    },
+    dragIndicator: {
+        display: "inline-block",
+        paddingTop: 9
     }
 })
 const LessonsPanel = props => {
@@ -75,7 +92,8 @@ const LessonsPanel = props => {
 
     const renderLessons = () => {
         if (props.lessons) {
-            return lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>{lesson.title}</div>)
+            return lessons.map((lesson, ind) => <div className={classes.lessonCard} data-index={ind} id={lesson.id} title={lesson.title}draggable={true} onDragStart={dragStart} onDragEnd={dragEnd} onDragOver={dragOver} onDrop={drop}>
+                <div className={classes.dragIndicator}><DragIndicatorIcon /></div><div className={classes.lcText}>{lesson.title}</div></div>)
         } else {
         }
     }
@@ -90,7 +108,9 @@ const LessonsPanel = props => {
 
     return(
         <div className={classes.root}>
-            Lessons:
+            <div className={classes.header}>
+                <F4>Lessons:</F4>
+            </div>
             {renderLessons()}
             <div className={classes.footer}>
                 {reordered && <Button onClick={saveOrder} theme="secondary">Save Order</Button> }
