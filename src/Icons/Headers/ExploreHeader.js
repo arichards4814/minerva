@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import '../../HeaderAnimations.scss'
+import '../../assets/scss/HeaderAnimations.scss';
 
 
 

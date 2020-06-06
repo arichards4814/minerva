@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core';
-import F5 from '../Typing/F5';
+import F5 from '../assets/typing/F5';
 import TinyNote from '../icons/Tiny/TinyNote';
 import TinyTrash from '../icons/Tiny/TinyTrash';
 import { connect } from 'react-redux';
-import { setCurrentLesson, setCurrentNotebook, setSelectedNoteIndex, deleteNote } from '../actionCreators'
+import { setCurrentLesson, setCurrentNotebook, setSelectedNoteIndex, deleteNote } from '../actionCreators';
 
 
 const useStyles = makeStyles({
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
         position: "relative",
         overflow: "hidden",
         width: props => {
-            if(props.width){
+            if (props.width) {
                 return props.width
             } else {
                 return 400
@@ -123,7 +123,7 @@ const NotesLongcard = props => {
     })
 
     const handleExpand = () => {
-        if (expanded){
+        if (expanded) {
             setExpanded(false)
         } else {
             setExpanded(true)
@@ -148,15 +148,15 @@ const NotesLongcard = props => {
     }
 
     const calcTimeStamp = () => {
-        
+
         let minutes = Math.floor(props.note.material_time_stamp / 60)
         let seconds = props.note.material_time_stamp % 60
-        if (seconds < 10){
+        if (seconds < 10) {
             return `Time - ${minutes}:${seconds}0`
         } else {
             return `Time - ${minutes}:${seconds}`
         }
-        
+
     }
 
     console.log("These are the props.. take note", props)
@@ -166,7 +166,7 @@ const NotesLongcard = props => {
 
             </div>
             <div className={classes.cardImage}>
-                <TinyNote theme={selected ? "minerva": "secondary"} onClick={setSelectedFromIcon}/>
+                <TinyNote theme={selected ? "minerva" : "secondary"} onClick={setSelectedFromIcon} />
                 {/* <HideIcon height={25} width={25} /> */}
             </div>
             <div className={classes.rightSide}>
@@ -178,12 +178,12 @@ const NotesLongcard = props => {
                     {/* <F6>{props.note.description}</F6> */}
                 </div>
             </div>
-            
+
             <div className={classes.cardFooter}>
                 {calcTimeStamp()}
                 {/* {props.note.material_time_stamp} */}
-                <div className={classes.tinyTrash} style={{width: 20}}>
-                    {expanded && <TinyTrash onClick={() => props.deleteNote(props.note.id)}/>}
+                <div className={classes.tinyTrash} style={{ width: 20 }}>
+                    {expanded && <TinyTrash onClick={() => props.deleteNote(props.note.id)} />}
                 </div>
             </div>
         </div>

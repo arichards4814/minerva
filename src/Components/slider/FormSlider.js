@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Dots from './Dots'
-import GoodButton from '../GoodButton'
+import GoodButton from '../../GoodButton'
 
 const useStyles = makeStyles({
     root: {

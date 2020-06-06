@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import F3 from '../Typing/F3'
+import F3 from '../assets/typing/F3'
 import NotesLongcard from '../components/NotesLongcard'
 
 const useStyles = makeStyles({

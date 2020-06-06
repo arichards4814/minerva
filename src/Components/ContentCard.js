@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
-import AxiosSearch from '../Youtube/AxiosSearch'
+import AxiosSearch from '../requests/youtube/AxiosSearch'
 import LoadingAnimation from './LoadingAnimation'
-import F5 from '../Typing/F5'
-import F6 from '../Typing/F6'
-import { getYoutubeIDFromURL } from '../Requests/requests'
+import F5 from '../assets/typing/F5'
+import F6 from '../assets/typing/F6'
+import { getYoutubeIDFromURL } from '../requests/requests'
 
 //////This is only for previews. When it's actually in there it will
 ///the purpose of this content card is to load up information

@@ -1,4 +1,4 @@
-import AxiosSearch from '../Youtube/AxiosSearch';
+import AxiosSearch from '../requests/youtube/AxiosSearch';
 // from the url, the material manager will
 // 1. Figure out the type of material.
 // 2. Figure out the image that should be the main image of the lesson

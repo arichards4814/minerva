@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import F5 from '../../Typing/F5'
+import { makeStyles } from '@material-ui/core'
+import F5 from '../../assets/typing/F5'
 import SearchCircle from '../../icons/SearchCircle'
-import LoadingAnimation from '../LoadingAnimation'
-import { Link } from 'react-router-dom'
 
 
 const useStyles = makeStyles({

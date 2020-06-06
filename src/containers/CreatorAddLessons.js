@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Row from './Row'
-import Layout from './Layout'
-import F3 from '../Typing/F3'
-import { useLocation, useHistory } from "react-router-dom";
-import FormSlider from '../components/FormSlider/FormSlider'
-import FormPage from '../components/FormSlider/FormPage'
+import F3 from '../assets/typing/F3'
+import FormSlider from '../components/forms/slider/FormSlider'
+import FormPage from '../components/forms/slider/FormPage'
 import { makeStyles, withStyles } from '@material-ui/core'
-import LessonCard from '../components/LessonComponents/LessonCard'
+import LessonCard from '../components/lessons/LessonCard'
 
-import MinervaInput from '../components/Forms/MinervaInput'
-import MinervaTextArea from '../components/Forms/MinervaTextArea'
+import MinervaInput from '../components/forms/MinervaInput'
+import MinervaTextArea from '../components/forms/MinervaTextArea'
 
 
 
@@ -18,7 +15,7 @@ import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons, patchLesson, deleteLesson, deleteCurriculum } from '../actionCreators'
 
 
-import materialManager from '../Managers/materialManager'
+import materialManager from '../helpers/materialManager'
 import CheckCircle from '../icons/CheckCircle'
 import CheckEx from '../icons/CheckEx'
 

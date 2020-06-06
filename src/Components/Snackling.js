@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
-import F5 from '../Typing/F5'
+import F5 from '../assets/typing/F5'
 import TinyPlus from '../icons/Tiny/TinyPlus'
 import TinyNote from '../icons/Tiny/TinyNote'
 import TinyQuestion from '../icons/Tiny/TinyQuestion'
 import TinyMinus from '../icons/Tiny/TinyMinus'
 import Ex from '../icons/Tiny/Ex'
-import HandleScheme from '../Schemes/HandleScheme'
+import HandleScheme from '../assets/schemes/HandleScheme'
 
 const useStyles = makeStyles({
     root: {

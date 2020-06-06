@@ -1,17 +1,18 @@
 import React from 'react'
 import { makeStyles} from '@material-ui/core'
-import * as Fonts from '../Schemes/Fonts'
+import * as Fonts from '../schemes/Fonts'
+
 
 const useStyles = makeStyles({
     root: {
-        fontSize: "40px",
+        fontSize: "50px",
         fontFamily: props => Fonts.handleFonts(props),
         color: props => props.color
     }
 
 });
 
-export default function F2(props){
+export default function F1(props){
     const classes = useStyles(props)
 
 

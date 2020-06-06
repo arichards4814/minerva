@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import HandleScheme from '../../Schemes/HandleScheme'
-import F4 from '../../Typing/F4'
-import "../../Button.scss"
-import * as color from '../../Schemes/ColorScheme'
+import HandleScheme from '../../assets/schemes/HandleScheme'
+import F4 from '../../assets/typing/F4'
+import "../../assets/scss/Button.scss";
+import * as color from '../../assets/schemes/ColorScheme'
 
 const useStyles = makeStyles({
     root: {

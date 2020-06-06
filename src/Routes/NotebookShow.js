@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Row from '../containers/Row'
 import Layout from '../containers/Layout'
-import F2 from '../Typing/F2'
+import F2 from '../assets/typing/F2'
 import { useLocation, useHistory } from "react-router-dom";
 import NotesScroller from '../containers/NotesScroller'
 import Youtube from '../components/Youtube'
@@ -19,7 +19,7 @@ import QuillEditorV2 from '../components/QuillEditorV2'
 import { connect } from 'react-redux';
 import { patchNotebooks, hideNavling, showNavling, fetchNotebook, setCurrentNotepadContent, setCurrentNotepadDetails, postNotes } from '../actionCreators'
 import Material from '../containers/Material';
-import MinervaInput from '../components/Forms/MinervaInput';
+import MinervaInput from '../components/forms/MinervaInput';
 import SpotifyFrame from '../containers/content/SpotifyFrame';
 
 const useStyles = makeStyles({

@@ -1,7 +1,7 @@
-import * as requests from './Requests/requests'
-import * as requestsCur from './Requests/curriculumRequests'
-import * as requestsNot from './Requests/notebookRequests'
-import * as requestsLes from './Requests/lessonRequests'
+import * as requests from './requests/requests'
+import * as requestsCur from './requests/curriculumRequests'
+import * as requestsNot from './requests/notebookRequests'
+import * as requestsLes from './requests/lessonRequests'
 import history from './history.js'
 
 

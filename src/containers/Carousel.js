@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core'
 import Card from '../components/Card'
 import { useHistory } from 'react-router-dom'
 
-import F4 from '../Typing/F4'
+import F4 from '../assets/typing/F4'
 
 const useStyles = makeStyles({
     root: {

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core'
 import Row from '../containers/Row'
 import Layout from '../containers/Layout'
 import AppleIconNormal from '../icons/AppleIconNormal'
-import F3 from '../Typing/F3'
+import F3 from '../assets/typing/F3'
 
 
 // redux

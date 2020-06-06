@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import "../Button.scss"
+import "../assets/scss/Button.scss"
 
 import { makeStyles } from '@material-ui/core'
-import HandleScheme from '../Schemes/HandleScheme'
-import {HandleSchemeTextColor}  from '../Schemes/HandleScheme'
+import HandleScheme from '../assets/schemes/HandleScheme'
+import { HandleSchemeTextColor } from '../assets/schemes/HandleScheme'
 
 
 const useStyles = makeStyles({

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import NotebooksHeader from '../Icons/Headers/NotebooksHeader'
 import Row from '../containers/Row'
 import Layout from '../containers/Layout'
-import F2 from '../Typing/F2'
+import F2 from '../typing/F2'
 import { useLocation, useHistory } from "react-router-dom";
 import NotebookPreview from '../containers/NotebookPreview'
 import LongCardScroller from '../containers/LongCardScroller'

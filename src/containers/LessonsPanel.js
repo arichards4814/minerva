@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Button from '../components/Button'
-import F4 from '../Typing/F4'
+import F4 from '../assets/typing/F4'
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import * as Colors from '../../Schemes/ColorScheme'
-import HandleScheme from '../../Schemes/HandleScheme'
+import * as Colors from '../../assets/schemes/ColorScheme'
+import HandleScheme from '../../assets/schemes/HandleScheme'
 
 const { primary, secondary, third, fourth } = Colors
 

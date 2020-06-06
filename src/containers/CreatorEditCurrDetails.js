@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import MinervaInput from '../components/Forms/MinervaInput'
-import MinervaTextArea from '../components/Forms/MinervaTextArea'
-import SearchButton from '../components/Forms/SeachButton'
+import MinervaInput from '../components/forms/MinervaInput'
+import MinervaTextArea from '../components/forms/MinervaTextArea'
+import SearchButton from '../components/forms/SeachButton'
 import TagsList from '../components/TagsList'
 import UploaderV2 from '../components/UploaderV2'
 

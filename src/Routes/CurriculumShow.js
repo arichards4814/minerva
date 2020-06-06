@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import CreatorHeader from '../icons/Headers/CreatorHeader'
 import Row from '../containers/Row'
 import Layout from '../containers/Layout'
-import F2 from '../Typing/F2'
-import F3 from '../Typing/F3'
+import F2 from '../assets/typing/F2'
+import F3 from '../assets/typing/F3'
 import { useLocation } from "react-router-dom";
 import TitleBox from '../components/TitleBox'
 import Display from '../containers/Display'
@@ -20,7 +20,7 @@ import Popmenu from '../containers/Popmenu'
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, postNotebooks, postSubscription, fetchUsersSubscriptions } from '../actionCreators'
 import TipBubbleLeft from '../icons/Tiny/TipBubbleLeft'
-import { handleFonts } from '../Schemes/Fonts'
+import { handleFonts } from '../assets/schemes/Fonts'
 
 
 const useStyles = makeStyles({

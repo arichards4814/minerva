@@ -1,5 +1,6 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core'
+import SliderTooltip from './SliderTooltip'
 
 
 const useStyles = makeStyles({
@@ -22,18 +23,34 @@ const useStyles = makeStyles({
         cursor: "pointer"
     },
     st0: {
-        fill: "none",
+        fill: props => {
+            if(props.filled){
+                return "#FFD000"
+            } else {
+                return "none"
+            }
+        },
         stroke: "#ED3466",
         strokeWidth: 7,
         strokeMiterLimit: 10
     }
 });
 
-export default function InfoIcon(props) {
+export default function DotIcon(props) {
     const classes = useStyles(props)
+    const [visible, setVisible] = useState("hidden")
+
+    const handleMouseEnter = () => {
+        setVisible("visible")
+    }
+    const handleMouseLeave = () => {
+        setVisible("hidden")
+    }
 
     return (
-        <div className={classes.root} onClick={props.onClick}>
+        <div className={classes.root} onClick={props.onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+
+            <SliderTooltip content={props.tooltip} showing={visible} width={100} right={50} top={0} />
             <svg
                 width="100%"
                 height="100%"

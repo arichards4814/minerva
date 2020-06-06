@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import HandleScheme from '../Schemes/HandleScheme'
+import HandleScheme from '../assets/schemes/HandleScheme'
 
 const useStyles = makeStyles({
     root: {

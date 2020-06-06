@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Dock from './Dock.js'
-import logo from '../SVGs/logo.svg'
+import logo from '../svgs/logo.svg'
 import LogoHolder from '../components/LogoHolder.js'
-import bottomLine from '../SVGs/bottom_line.svg'
+import bottomLine from '../svgs/bottom_line.svg'
 import Expander from '../icons/Expander'
 import { Link } from 'react-router-dom'
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import F3 from '../Typing/F3'
-import F5 from '../Typing/F5'
+import F3 from '../assets/typing/F3'
+import F5 from '../assets/typing/F5'
 
 // redux
 import { connect } from 'react-redux';

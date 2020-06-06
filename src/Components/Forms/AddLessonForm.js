@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MinervaInput from './MinervaInput'
 import { makeStyles } from '@material-ui/core'
-import F4 from '../../Typing/F4'
+import F4 from '../../assets/typing/F4'
 import ContentCard from '../ContentCard'
 import MajesticButton from '../MajesticButton'
 import Tweet from '../../containers/content/Tweet'

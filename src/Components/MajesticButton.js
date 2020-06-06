@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
-import "../MajesticButton.scss";
+import "../assets/scss/MajesticButton.scss";
 import { useHistory } from 'react-router-dom';
 
 
