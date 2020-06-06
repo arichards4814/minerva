@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core'
 import F4 from '../Typing/F4'
 import F5 from '../Typing/F5'
 import F6 from '../Typing/F6'
-import TinyEdit from '../Icons/Tiny/TinyEdit'
-import TinyTrash from '../Icons/Tiny/TinyTrash'
-import VideoIcon from '../Icons/VideoIcon'
-import BlogIcon from '../Icons/BlogIcon'
-import BookIcon from '../Icons/BookIcon'
+import TinyEdit from '../icons/Tiny/TinyEdit'
+import TinyTrash from '../icons/Tiny/TinyTrash'
+import VideoIcon from '../icons/VideoIcon'
+import BlogIcon from '../icons/BlogIcon'
+import BookIcon from '../icons/BookIcon'
 
 
 

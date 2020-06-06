@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import MinervaInput from '../Components/Forms/MinervaInput'
-import MinervaTextArea from '../Components/Forms/MinervaTextArea'
-import SearchButton from '../Components/Forms/SeachButton'
-import TagsList from '../Components/TagsList'
-import UploaderV2 from '../Components/UploaderV2'
+import MinervaInput from '../components/Forms/MinervaInput'
+import MinervaTextArea from '../components/Forms/MinervaTextArea'
+import SearchButton from '../components/Forms/SeachButton'
+import TagsList from '../components/TagsList'
+import UploaderV2 from '../components/UploaderV2'
 
 const CreatorAddLessons = props => {
     const [tags, setTags] = useState([])

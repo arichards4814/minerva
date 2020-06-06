@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import F5 from '../Typing/F5'
-import SearchCircle from '../Icons/SearchCircle'
+import SearchCircle from '../icons/SearchCircle'
 import LoadingAnimation from './LoadingAnimation'
 
-import '../App.css';
+import '../assets/App.css';
 
 
 const useStyles = makeStyles({

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import Pin from '../Icons/Pin'
-import TinyNotebook from '../Icons/Tiny/TinyNotebook'
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core';
+import Pin from '../icons/Pin';
+import TinyNotebook from '../icons/Tiny/TinyNotebook';
 import { useHistory } from "react-router-dom";
 
 // redux
 import { connect } from 'react-redux';
-import { fetchUsersNotebooks, unpinNotebook} from '../actionCreators'
-import { makeStyles } from '@material-ui/core'
+import { fetchUsersNotebooks, unpinNotebook} from '../actionCreators';
 
 const useStyles = makeStyles({
     root: {

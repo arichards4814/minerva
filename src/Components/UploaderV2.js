@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ImageUploader from './ImageUploader'
-import SearchButton from '../Components/Forms/SeachButton'
+import SearchButton from './Forms/SeachButton'
 
 // redux
 import { connect } from 'react-redux';

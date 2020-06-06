@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import TweetEmbed from 'react-tweet-embed'
+import TweetEmbed from 'react-tweet-embed';
 
 // redux
 import { connect } from 'react-redux';
-import {  } from '../actionCreators'
+import {  } from '../../actionCreators';
 
 
 

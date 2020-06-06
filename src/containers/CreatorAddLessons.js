@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import Row from './Row'
+import Layout from './Layout'
 import F3 from '../Typing/F3'
 import { useLocation, useHistory } from "react-router-dom";
-import FormSlider from '../Components/FormSlider/FormSlider'
-import FormPage from '../Components/FormSlider/FormPage'
+import FormSlider from '../components/FormSlider/FormSlider'
+import FormPage from '../components/FormSlider/FormPage'
 import { makeStyles, withStyles } from '@material-ui/core'
-import LessonCard from '../Components/LessonComponents/LessonCard'
+import LessonCard from '../components/LessonComponents/LessonCard'
 
-import MinervaInput from '../Components/Forms/MinervaInput'
-import MinervaTextArea from '../Components/Forms/MinervaTextArea'
+import MinervaInput from '../components/Forms/MinervaInput'
+import MinervaTextArea from '../components/Forms/MinervaTextArea'
 
 
 
@@ -19,8 +19,8 @@ import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons
 
 
 import materialManager from '../Managers/materialManager'
-import CheckCircle from '../Icons/CheckCircle'
-import CheckEx from '../Icons/CheckEx'
+import CheckCircle from '../icons/CheckCircle'
+import CheckEx from '../icons/CheckEx'
 
 
 

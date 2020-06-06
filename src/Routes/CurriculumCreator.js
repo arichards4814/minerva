@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Row from '../Container/Row';
-import Layout from '../Container/Layout';
+import Row from '../containers/Row';
+import Layout from '../containers/Layout';
 import { useLocation, useHistory } from "react-router-dom";
 import { makeStyles, withStyles } from '@material-ui/core';
 import { Button as MaterialButton } from '@material-ui/core';
-import LessonsPanel from '../Container/LessonsPanel';
+import LessonsPanel from '../containers/LessonsPanel';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import CreatorAddLessons from '../Container/CreatorAddLessons';
-import CreatorEditCurrDetails from '../Container/CreatorEditCurrDetails';
-import CreatorPublish from '../Container/CreatorPublish';
+import CreatorAddLessons from '../containers/CreatorAddLessons';
+import CreatorEditCurrDetails from '../containers/CreatorEditCurrDetails';
+import CreatorPublish from '../containers/CreatorPublish';
+
 
 // redux
 import { connect } from 'react-redux';

@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import F5 from '../Typing/F5'
-import TinyNote from '../Icons/Tiny/TinyNote'
-import TinyTrash from '../Icons/Tiny/TinyTrash'
-
-
-
-
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core';
+import F5 from '../Typing/F5';
+import TinyNote from '../icons/Tiny/TinyNote';
+import TinyTrash from '../icons/Tiny/TinyTrash';
 import { connect } from 'react-redux';
 import { setCurrentLesson, setCurrentNotebook, setSelectedNoteIndex, deleteNote } from '../actionCreators'
 

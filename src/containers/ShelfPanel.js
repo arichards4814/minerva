@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import '../App.css';
-import Shelf from '../Components/Shelf'
+import Shelf from '../components/Shelf'
+import '../assets/App.css';
 
 
 const useStyles = makeStyles({

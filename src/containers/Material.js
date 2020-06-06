@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {makeStyles} from "@material-ui/core"
-import MinervaInput from '../Components/Forms/MinervaInput'
-import Button from '../Components/Button'
-import TinyEdit from '../Icons/Tiny/TinyEdit'
+import MinervaInput from '../components/Forms/MinervaInput'
+import Button from '../components/Button'
+import TinyEdit from '../icons/Tiny/TinyEdit'
 
-import DropdownGeneral from '../Components/Forms/DropdownGeneral'
+import DropdownGeneral from '../components/Forms/DropdownGeneral'
 
 // redux
 import { connect } from 'react-redux';

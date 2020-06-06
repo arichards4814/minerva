@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import ExploreHeader from '../Icons/Headers/ExploreHeader'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import ExploreHeader from '../icons/Headers/ExploreHeader'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import F2 from '../Typing/F2'
-import MinervaInput from '../Components/Forms/MinervaInput'
-import Card from '../Components/Card'
+import MinervaInput from '../components/Forms/MinervaInput'
+import Card from '../components/Card'
 import { useHistory, useLocation } from 'react-router-dom'
-import TagsList from '../Components/TagsList'
-import Ex from '../Icons/Tiny/Ex'
+import TagsList from '../components/TagsList'
+import Ex from '../icons/Tiny/Ex'
 
 // redux
 import { connect } from 'react-redux';

@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
-import TinyPlus from '../Icons/Tiny/TinyPlus'
-import TinyNotebook from '../Icons/Tiny/TinyNotebook'
+import TinyPlus from '../icons/Tiny/TinyPlus'
+import TinyNotebook from '../icons/Tiny/TinyNotebook'
 
-import TinyTrash from '../Icons/Tiny/TinyTrash'
+import TinyTrash from '../icons/Tiny/TinyTrash'
 import { useHistory } from 'react-router-dom'
-import Pin from '../Icons/Pin'
+import Pin from '../icons/Pin'
 
 
 // redux
 import { connect } from 'react-redux';
 import { postNotebooksWLessonJoiner, pinNotebook, unpinNotebook, deleteNotebook } from '../actionCreators'
-import TipBubble from '../Icons/Tiny/TipBubble'
+import TipBubble from '../icons/Tiny/TipBubble'
 
 const useStyles = makeStyles({
     root: {

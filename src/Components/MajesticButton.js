@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core'
-import "../MajesticButton.scss"
-import { useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core';
+import "../MajesticButton.scss";
+import { useHistory } from 'react-router-dom';
 
 
 // redux
 import { connect } from 'react-redux';
-import { fetchCurriculums} from '../actionCreators'
+import { fetchCurriculums} from '../actionCreators';
 
 
 

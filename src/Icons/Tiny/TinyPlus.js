@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import  * as Colors from '../../Schemes/ColorScheme'
-import HandleScheme from '../../Schemes/HandleScheme'
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
+import  * as Colors from '../../Schemes/ColorScheme';
+import HandleScheme from '../../Schemes/HandleScheme';
 
 const {primary, secondary, third, fourth} = Colors
 

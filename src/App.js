@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import './App.css';
-import Navling from './Container/Navling'
-import Home from './Routes/Home'
-import Notebooks from './Routes/Notebooks'
-import Creator from './Routes/Creator'
-import Explore from './Routes/Explore'
+import React, { useEffect } from 'react'; 
+import './assets/App.css';
+import Navling from './containers/Navling';
+import Home from './Routes/Home';
+import Notebooks from './Routes/Notebooks';
+import Creator from './Routes/Creator';
+import Explore from './Routes/Explore';
 import CurriculumShow from './Routes/CurriculumShow';
 import CurriculumEdit from './Routes/CurriculumEdit';
 import CurriculumCreator from './Routes/CurriculumCreator';
@@ -12,12 +12,10 @@ import CurriculumDashboard from './Routes/CurriculumDashboard';
 import NotebookShow from './Routes/NotebookShow';
 import Signup from './Routes/Signup';
 import Login from './Routes/Login';
-import Overlay from './Components/Overlay'
+import Overlay from './components/Overlay'
 import Learn from './Routes/Learn';
-import Test from './Test.js'
-import Profile from './Routes/Profile'
-
-import history from './history.js'
+import Profile from './Routes/Profile';
+import history from './history.js';
 
 
 // redux
@@ -96,9 +94,6 @@ const App = props => {
           </Route>
           <Route path="/login">
             <Login />
-          </Route>
-          <Route path="/test">
-            <Test />
           </Route>
           <Route path="/profile">
             <Profile />

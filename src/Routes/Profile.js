@@ -1,10 +1,10 @@
 import React from 'react'
-import CreatorHeader from '../Icons/Headers/CreatorHeader'
-import NotebooksHeader from '../Icons/Headers/NotebooksHeader'
+import CreatorHeader from '../icons/Headers/CreatorHeader'
+import NotebooksHeader from '../icons/Headers/NotebooksHeader'
 import { makeStyles } from '@material-ui/core'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
-import AppleIconNormal from '../Icons/AppleIconNormal'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
+import AppleIconNormal from '../icons/AppleIconNormal'
 import F3 from '../Typing/F3'
 
 

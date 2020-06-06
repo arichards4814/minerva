@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import CreatorHeader from '../Icons/Headers/CreatorHeader'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import CreatorHeader from '../icons/Headers/CreatorHeader'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import F2 from '../Typing/F2'
 import F3 from '../Typing/F3'
 import { useLocation } from "react-router-dom";
-import TitleBox from '../Components/TitleBox'
-import Display from '../Container/Display'
-import LongCardScroller from '../Container/LongCardScroller'
+import TitleBox from '../components/TitleBox'
+import Display from '../containers/Display'
+import LongCardScroller from '../containers/LongCardScroller'
 import { useHistory } from 'react-router-dom'
-import Button from '../Components/Button'
+import Button from '../components/Button'
 import { makeStyles } from '@material-ui/core'
-import TagsList from '../Components/TagsList'
-import ShareIconCircle from '../Icons/ShareIconCircle'
-import EmbedIconCircle from '../Icons/EmbedIconCircle'
-import Popmenu from '../Container/Popmenu'
+import TagsList from '../components/TagsList'
+import ShareIconCircle from '../icons/ShareIconCircle'
+import EmbedIconCircle from '../icons/EmbedIconCircle'
+import Popmenu from '../containers/Popmenu'
 
 // redux
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, postNotebooks, postSubscription, fetchUsersSubscriptions } from '../actionCreators'
-import TipBubbleLeft from '../Icons/Tiny/TipBubbleLeft'
+import TipBubbleLeft from '../icons/Tiny/TipBubbleLeft'
 import { handleFonts } from '../Schemes/Fonts'
 
 

@@ -1,9 +1,9 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core'
-import LeftBackUnaltered from '../Icons/leftBackUnaltered'
-import InfoIcon from '../Icons/InfoIcon'
-import HideIcon from '../Icons/HideIcon'
-import TinyNotebook from '../Icons/Tiny/TinyNotebook'
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core';
+import LeftBackUnaltered from '../icons/leftBackUnaltered'
+import InfoIcon from '../icons/InfoIcon'
+import HideIcon from '../icons/HideIcon'
+import TinyNotebook from '../icons/Tiny/TinyNotebook'
 
 
 // redux

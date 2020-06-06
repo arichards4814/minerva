@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Timeline from '../Components/Timeline';
-import Button from '../Components/Button'
+import Timeline from './Timeline';
+import Button from './Button'
 
 class YouTube extends React.PureComponent {
     static propTypes = {

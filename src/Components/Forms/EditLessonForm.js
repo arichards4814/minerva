@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import F4 from '../../Typing/F4'
 import ContentCard from '../ContentCard'
 import MajesticButton from '../MajesticButton'
-import Tweet from '../../ContentContainers/Tweet'
+import Tweet from '../../containers/content/Tweet'
 
 import Toggler from './Toggler'
 

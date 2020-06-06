@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
-import Expander from '../Icons/Expander'
+import Expander from '../icons/Expander'
 import DropdownChild from './DropdownChild'
 
 

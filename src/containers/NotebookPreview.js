@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core' 
-import CustomImage from '../Components/CustomImage'
+import CustomImage from '../components/CustomImage'
 import F3 from '../Typing/F3'
 import F4 from '../Typing/F4'
-import Button from '../Components/Button'
+import Button from '../components/Button'
 
 const useStyles = makeStyles({
     root: {

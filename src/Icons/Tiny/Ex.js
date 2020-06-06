@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core';
 import HandleScheme from '../../Schemes/HandleScheme'
 
 const useStyles = makeStyles({

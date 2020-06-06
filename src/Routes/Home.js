@@ -1,13 +1,13 @@
 import React from 'react'
-import MajesticButton from '../Components/MajesticButton'
+import MajesticButton from '../components/MajesticButton'
 import F3 from '../Typing/F3'
 import F4 from '../Typing/F4'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
-import TitleBox from '../Components/TitleBox'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
+import TitleBox from '../components/TitleBox'
 import { useHistory } from 'react-router-dom'
-import Carousel from '../Container/Carousel'
-import LargeImage from '../Components/LargeImage'
+import Carousel from '../containers/Carousel'
+import LargeImage from '../components/LargeImage'
 
 // redux
 import { connect } from 'react-redux';

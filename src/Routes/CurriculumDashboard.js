@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core'
-import Button from '../Components/Button'
-import CurriculumInfo from '../Container/CurriculumInfo'
-import CurriculumInfoPlaceholder from '../Container/CurriculumInfoPlaceholder'
+import Button from '../components/Button'
+import CurriculumInfo from '../containers/CurriculumInfo'
+import CurriculumInfoPlaceholder from '../containers/CurriculumInfoPlaceholder'
 import AddIcon from '@material-ui/icons/Add';
 import { useHistory } from 'react-router-dom'
 
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
     rightPanelFooter: {
         position: "absolute",
         bottom: 20,
-        right: 200
+        right: 140
     },
     curriculumSelect: {
         width: "100%",
@@ -103,9 +103,12 @@ const CurriculumDashboard = props => {
 
 
     const createBlankCurriculum = () => {
-        props.postCurriculums({
-            user_id: localStorage.user_id,
-            title: "Unnamed"}, null)
+
+        if (window.confirm("Continue to create a curriculum?")) {
+            props.postCurriculums({
+                user_id: localStorage.user_id,
+                title: "Unnamed"}, null)
+        }
     }
 
     const deleteCurriculum = (id) => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core'
-import AddNew from '../Icons/AddNew'
-import EditExisting from '../Icons/EditExisting'
+import AddNew from '../../icons/AddNew'
+import EditExisting from '../../icons/EditExisting'
 
 // redux
 import { connect } from 'react-redux';
-import { } from '../actionCreators'
+import { } from '../../actionCreators';
 
 
 const useStyles = makeStyles({

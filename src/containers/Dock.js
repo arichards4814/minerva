@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
-import Underline from '../Components/Underline'
+import Underline from '../components/Underline'
 
-import SpaceshipIcon from '../Icons/SpaceshipIcon'
-import NotebookIcon from '../Icons/NotebookIcon'
-import AppleIcon from '../Icons/AppleIcon'
-import HomeIcon from '../Icons/HomeIcon'
-import UserIcon from '../Icons/UserIcon'
+import SpaceshipIcon from '../icons/SpaceshipIcon'
+import NotebookIcon from '../icons/NotebookIcon'
+import AppleIcon from '../icons/AppleIcon'
+import HomeIcon from '../icons/HomeIcon'
+import UserIcon from '../icons/UserIcon'
 import { useLocation, useHistory } from 'react-router-dom'
 
 

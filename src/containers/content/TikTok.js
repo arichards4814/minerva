@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
+import '../../assets/App.css';
 
 // redux
 import { connect } from 'react-redux';
-import {  } from '../actionCreators'
+import { } from '../../actionCreators';
 
 
 

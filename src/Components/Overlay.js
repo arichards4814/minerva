@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core'
-import Ex from '../Icons/Tiny/Ex'
-import F5 from '../Typing/F5'
-import TinyEdit from '../Icons/Tiny/TinyEdit'
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core';
+import Ex from '../icons/Tiny/Ex';
+import F5 from '../Typing/F5';
+import TinyEdit from '../icons/Tiny/TinyEdit';
 
 
 // redux

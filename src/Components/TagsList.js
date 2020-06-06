@@ -1,5 +1,5 @@
 import React from 'react'
-import TagPill from '../Components/TagPill'
+import TagPill from './TagPill'
 import { makeStyles } from '@material-ui/core'
 
 

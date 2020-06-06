@@ -1,9 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core';
 
 // redux
 import { connect } from 'react-redux';
-import { } from '../actionCreators'
+import { } from '../../actionCreators';
 
 
 const useStyles = makeStyles({

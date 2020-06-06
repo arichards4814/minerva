@@ -1,14 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core' 
-import CustomImage from '../Components/CustomImage'
+import CustomImage from '../components/CustomImage'
 import F3 from '../Typing/F3'
 import F4 from '../Typing/F4'
 import F5 from '../Typing/F5'
 import F6 from '../Typing/F6'
-import Button from '../Components/Button'
-import VideoIcon from '../Icons/VideoIcon'
-import BlogIcon from '../Icons/BlogIcon'
-import BookIcon from '../Icons/BookIcon'
+import Button from '../components/Button'
+import VideoIcon from '../icons/VideoIcon'
+import BlogIcon from '../icons/BlogIcon'
+import BookIcon from '../icons/BookIcon'
 
 const useStyles = makeStyles({
     root: {

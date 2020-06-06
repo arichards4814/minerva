@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import F3 from '../Typing/F3'
 import F5 from '../Typing/F5'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import { useHistory } from 'react-router-dom'
 
 

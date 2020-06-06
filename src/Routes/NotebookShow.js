@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import F2 from '../Typing/F2'
 import { useLocation, useHistory } from "react-router-dom";
-import NotesScroller from '../Container/NotesScroller'
-import Youtube from '../Components/Youtube'
+import NotesScroller from '../containers/NotesScroller'
+import Youtube from '../components/Youtube'
 import { makeStyles} from '@material-ui/core'
-import LeftBackIcon from '../Icons/leftBackIcon'
-import NotebooksDock from '../Components/NotebooksDock'
-import Button from '../Components/Button'
-import Tweet from '../ContentContainers/Tweet'
-import TikTok from '../ContentContainers/TikTok'
-import MaterialFrame from '../ContentContainers/MaterialFrame'
-import QuillEditorV2 from '../Components/QuillEditorV2'
+import LeftBackIcon from '../icons/leftBackIcon'
+import NotebooksDock from '../components/NotebooksDock'
+import Button from '../components/Button'
+import Tweet from '../containers/content/Tweet'
+import TikTok from '../containers/content/TikTok'
+import MaterialFrame from '../containers/content/MaterialFrame'
+import QuillEditorV2 from '../components/QuillEditorV2'
 
 
 // redux
 import { connect } from 'react-redux';
 import { patchNotebooks, hideNavling, showNavling, fetchNotebook, setCurrentNotepadContent, setCurrentNotepadDetails, postNotes } from '../actionCreators'
-import Material from '../Container/Material';
-import MinervaInput from '../Components/Forms/MinervaInput';
-import SpotifyFrame from '../ContentContainers/SpotifyFrame';
+import Material from '../containers/Material';
+import MinervaInput from '../components/Forms/MinervaInput';
+import SpotifyFrame from '../containers/content/SpotifyFrame';
 
 const useStyles = makeStyles({
     backIcon: {

@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import CreatorHeader from '../Icons/Headers/CreatorHeader'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import CreatorHeader from '../icons/Headers/CreatorHeader'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import F2 from '../Typing/F2'
 import { useLocation } from "react-router-dom";
-import MinervaInput from '../Components/Forms/MinervaInput'
-import Dropdown from '../Components/Forms/Dropdown'
-import SearchButton from '../Components/Forms/SeachButton'
-import EditExisting from '../Icons/EditExisting'
-import BackIcon from '../Icons/BackIcon'
-import AddNew from '../Icons/AddNew'
+import MinervaInput from '../components/Forms/MinervaInput'
+import Dropdown from '../components/Forms/Dropdown'
+import SearchButton from '../components/Forms/SeachButton'
+import EditExisting from '../icons/EditExisting'
+import BackIcon from '../icons/BackIcon'
+import AddNew from '../icons/AddNew'
 import { makeStyles } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
-import TagsList from '../Components/TagsList'
+import TagsList from '../components/TagsList'
 import CurriculumDashboard from './CurriculumDashboard'
 
 // redux
 import { connect } from 'react-redux';
 import { fetchCurriculum, setCurrentLesson, fetchUsersCurriculums, postCurriculums, postCurriculumsWImage} from '../actionCreators'
-import UploaderV2 from '../Components/UploaderV2'
+import UploaderV2 from '../components/UploaderV2'
 
 const useStyles = makeStyles({
     footer: {

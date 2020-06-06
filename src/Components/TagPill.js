@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import HandleScheme from '../Schemes/HandleScheme'
 import { HandleSchemeTextColor } from '../Schemes/HandleScheme'
 import { useHistory } from 'react-router-dom'
-import Ex from '../Icons/Tiny/Ex'
+import Ex from '../icons/Tiny/Ex'
 
 const useStyles = makeStyles({
     root:{

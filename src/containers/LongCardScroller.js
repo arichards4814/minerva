@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import F3 from '../Typing/F3'
-import NotesLongcard from '../Components/NotesLongcard'
+import LongCard from '../components/LongCard'
 
 const useStyles = makeStyles({
     root: {
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
             if (props.height){
                 return props.height
             } else {
-                return 900
+                return 800
             }
         },
         alignContent: "top",
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
             if (props.height) {
                 return props.height
             } else {
-                return 900
+                return 800
             }
         },
         borderStyle: "solid",
@@ -28,13 +28,11 @@ const useStyles = makeStyles({
     }
 })
 
-const NotesScroller = props => {
+const LongCardScroller = props => {
     const classes = useStyles(props)
 
     const renderCards = () => {
-        //filter here... 
-        const sortedNotes = props.info.sort((a, b) => (a.material_time_stamp > b.material_time_stamp) ? 1 : -1)
-        return sortedNotes.map(note => <NotesLongcard key={note.id} note={note} />)
+        return props.info.map(lesson => <LongCard key={lesson.id} lesson={lesson} editLessonOnClick={props.editLessonOnClick} deleteLessonOnClick={props.deleteLessonOnClick} style={props.style}/>)
     }
 
     return (
@@ -46,4 +44,4 @@ const NotesScroller = props => {
 }
 
 
-export default NotesScroller
+export default LongCardScroller

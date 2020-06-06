@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import NotebooksHeader from '../Icons/Headers/NotebooksHeader'
-import Row from '../Container/Row'
-import Layout from '../Container/Layout'
+import NotebooksHeader from '../icons/Headers/NotebooksHeader'
+import Row from '../containers/Row'
+import Layout from '../containers/Layout'
 import F2 from '../Typing/F2'
 import { useLocation, useHistory } from "react-router-dom";
-import HideIcon from '../Icons/HideIcon'
-import DropdownTile from '../Components/DropdownTile'
-import DropdownChild from '../Components/DropdownChild'
-import MinervaInput from '../Components/Forms/MinervaInput'
-import MinervaSelect from '../Components/Forms/MinervaSelect'
-import Button from '../Components/Button'
-import PinBar from '../Components/PinBar'
-import ShelfPanel from '../Container/ShelfPanel'
+import HideIcon from '../icons/HideIcon'
+import DropdownTile from '../components/DropdownTile'
+import DropdownChild from '../components/DropdownChild'
+import MinervaInput from '../components/Forms/MinervaInput'
+import MinervaSelect from '../components/Forms/MinervaSelect'
+import Button from '../components/Button'
+import PinBar from '../components/PinBar'
+import ShelfPanel from '../containers/ShelfPanel'
 
 // redux
 import { connect } from 'react-redux';
