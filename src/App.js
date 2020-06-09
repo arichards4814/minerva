@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'; 
 import './App.css';
 import Navling from './containers/Navling';
-import Home from './routes/Home';
-import Notebooks from './routes/Notebooks';
-import Creator from './routes/Creator';
-import Explore from './routes/Explore';
-import CurriculumShow from './routes/CurriculumShow';
-import CurriculumEdit from './routes/CurriculumEdit';
-import CurriculumCreator from './routes/CurriculumCreator';
-import CurriculumDashboard from './routes/CurriculumDashboard';
-import NotebookShow from './routes/NotebookShow';
-import Signup from './routes/Signup';
-import Login from './routes/Login';
-import Overlay from './components/Overlay'
-import Learn from './routes/Learn';
-import Profile from './routes/Profile';
+import Home from './views/Home';
+import Notebooks from './views/Notebooks';
+import Creator from './views/Creator';
+import Explore from './views/Explore';
+import CurriculumShow from './views/CurriculumShow';
+import CurriculumEdit from './views/CurriculumEdit';
+import CurriculumCreator from './views/CurriculumCreator';
+import CurriculumDashboard from './views/CurriculumDashboard';
+import NotebookShow from './views/NotebookShow';
+import Signup from './views/Signup';
+import Login from './views/Login';
+import Overlay from './components/Overlay';
+import Learn from './views/Learn';
+import Profile from './views/Profile';
 import history from './history.js';
 
 
