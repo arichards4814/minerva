@@ -4,6 +4,8 @@ import F5 from '../assets/typing/F5'
 import SearchCircle from '../icons/SearchCircle'
 import LoadingAnimation from './LoadingAnimation'
 
+import '../App.css';
+
 
 const useStyles = makeStyles({
     root2: {
