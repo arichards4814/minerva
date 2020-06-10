@@ -71,7 +71,7 @@ const useStyles = makeStyles({
 })
 const CurriculumCreator = props => {
     const classes = useStyles(props)
-    const location = useLocation().pathname.split("/")[2]
+    const location = useLocation().pathname.split("/")[3]
     const history = useHistory()
     const [formInfo, setFormInfo] = useState({
         title: "",
@@ -87,13 +87,37 @@ const CurriculumCreator = props => {
         setValue(newValue);
     };
 
+    const handleFormChange = (e) => {
+        setFormInfo({...formInfo, [e.target.name]: e.target.value})
+        console.log(formInfo)
+    }
+
 
     // Get All Curriculum information
     useEffect(() => {
-        if (parseInt(location) && props.fetchCurriculum) {
+        // if (parseInt(location)) {
             props.fetchCurriculum(parseInt(location))
-        }
+                // await setFormInfo({
+                //     title: props.currentCurriculum.title,
+                //     material_url: props.currentCurriculum.material_url,
+                //     description: props.currentCurriculum.description,
+                //     image_url: props.currentCurriculum.image_url,
+                //     lesson_type: props.currentCurriculum.lesson_type,
+                //     cost: props.currentCurriculum.cost
+                // })   
+        // }
     }, [])
+
+    useEffect(() => {
+            setFormInfo({
+                title: props.currentCurriculum.title,
+                material_url: props.currentCurriculum.material_url,
+                description: props.currentCurriculum.description,
+                image_url: props.currentCurriculum.image_url,
+                lesson_type: props.currentCurriculum.lesson_type,
+                cost: props.currentCurriculum.cost
+            })
+    }, [props.currentCurriculum])
 
     
     return (
@@ -124,7 +148,7 @@ const CurriculumCreator = props => {
                 <Layout width={2}></Layout>
                 <Layout width= {5}>
 
-                    {value === 0 && <CreatorEditCurrDetails />}
+                    {value === 0 && <CreatorEditCurrDetails handleChange={handleFormChange} formInfo={formInfo}/>}
                     {value === 1 && <CreatorAddLessons />}
                     {value === 2 && <CreatorPublish />}
                 </Layout>

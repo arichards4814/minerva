@@ -9,8 +9,6 @@ import VideoIcon from '../icons/VideoIcon'
 import BlogIcon from '../icons/BlogIcon'
 import BookIcon from '../icons/BookIcon'
 
-
-
 import { connect } from 'react-redux';
 import { setCurrentLesson, setCurrentNotebook } from '../actionCreators'
 

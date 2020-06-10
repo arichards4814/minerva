@@ -33,18 +33,17 @@ const CreatorAddLessons = props => {
             <UploaderV2 />
             <p>Curriculum Title:</p>
             <div>
-                
-                <MinervaInput type="text" name="title" theme="secondary" value={""} width={500} placeholder="Create Title..." />
+                <MinervaInput type="text" name="title" theme="secondary" onChange={props.handleChange} value={props.formInfo.title} width={500} placeholder="Create Title..." />
             </div>
             <p>Curriculum Description:</p>
             <div>
-                <MinervaTextArea type="text" name="description" theme="secondary" height={130}  width={500} placeholder="Create description..." />
+                <MinervaTextArea type="text" name="description" theme="secondary" onChange={props.handleChange} height={130}  width={500} placeholder="Create description..." />
             </div>
-
             <p>Tags:</p>
-                <MinervaInput width={500} height={75} fontSize={14} type="text" theme="secondary" onChange={handleChange} value={formTitle} placeholder="Choose tags for your curriculum..." />
+                <MinervaInput width={500} height={75} fontSize={14} type="text" theme="secondary" placeholder="Choose tags for your curriculum..." />
                 <SearchButton theme="secondary" onClick={addTag} value="Add"></SearchButton>
                 <TagsList tags={tags} exClick={removeTag} />
+                <SearchButton theme="secondary" onClick={props.save} value="Save"></SearchButton>
         </div>
     )
 
