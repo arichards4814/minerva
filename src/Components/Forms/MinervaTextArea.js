@@ -8,7 +8,9 @@ const useStyles = makeStyles({
         borderColor: props => HandleScheme(props),
         borderStyle: "solid",
         borderRadius: "40px",
+        paddingTop: 10,
         paddingLeft: 20,
+        resize: "none",
         width: props => {
             if(props.width){
                 return props.width
@@ -39,6 +41,6 @@ export default function MinervaTextArea(props){
     const classes = useStyles(props)
 
     return(
-        <input className={classes.root} name={props.name} cols={70} rows={50} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></input>
+        <textarea className={classes.root} name={props.name} cols={70} rows={50} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></textarea>
     )
 }

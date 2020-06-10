@@ -119,6 +119,9 @@ const CurriculumCreator = props => {
             })
     }, [props.currentCurriculum])
 
+    const saveCurriculum = () => {
+        props.updateCurrentCurriculum(formInfo, location)
+    }
     
     return (
         <div className="fade-in">
@@ -148,7 +151,7 @@ const CurriculumCreator = props => {
                 <Layout width={2}></Layout>
                 <Layout width= {5}>
 
-                    {value === 0 && <CreatorEditCurrDetails handleChange={handleFormChange} formInfo={formInfo}/>}
+                    {value === 0 && <CreatorEditCurrDetails handleChange={handleFormChange} formInfo={formInfo} save={saveCurriculum}/>}
                     {value === 1 && <CreatorAddLessons />}
                     {value === 2 && <CreatorPublish />}
                 </Layout>
