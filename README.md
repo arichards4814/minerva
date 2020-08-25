@@ -12,4 +12,9 @@ https://www.youtube.com/watch?v=gjDmYmrCqGs
 
 
 
+In order to run Minerva on your local machine, you will need to add a .env file.
+
+You will also need to clone and run the Rails backend:
+
+https://github.com/arichards4814/minerva-backend
 
