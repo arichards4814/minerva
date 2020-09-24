@@ -4,7 +4,6 @@ import Button from '../components/Button'
 import F4 from '../assets/typing/F4'
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
-
 // redux
 import { connect } from 'react-redux';
 import { patchMultipleLessons } from '../actionCreators'

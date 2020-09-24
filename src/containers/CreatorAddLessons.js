@@ -48,21 +48,16 @@ const useStyles = makeStyles({
 })
 
 
-
-
 const CreatorAddLessons = props => {
-    const classes = useStyles(props)
-    const [formInfo, setFormInfo] = useState({
-        title: "",
-        material_url: "",
-        description: "",
-        image_url: "",
-        lesson_type: "",
-        cost: "free"
-    }) 
-
-
-
+        const classes = useStyles(props)
+        const [formInfo, setFormInfo] = useState({
+            title: "",
+            material_url: "",
+            description: "",
+            image_url: "",
+            lesson_type: "",
+            cost: "free"
+        }) 
 
     const handleChangeCurriculumDetails = (e) => {
         setFormInfo({ ...formInfo, [e.target.name]: e.target.value })

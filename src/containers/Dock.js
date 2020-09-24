@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Underline from '../components/Underline'
-
 import SpaceshipIcon from '../icons/SpaceshipIcon'
 import NotebookIcon from '../icons/NotebookIcon'
 import AppleIcon from '../icons/AppleIcon'

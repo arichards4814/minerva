@@ -2,10 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core' 
 import CustomImage from '../components/CustomImage'
 import F3 from '../assets/typing/F3'
-import F4 from '../assets/typing/F4'
 import F5 from '../assets/typing/F5'
 import F6 from '../assets/typing/F6'
-import Button from '../components/Button'
 import VideoIcon from '../icons/VideoIcon'
 import BlogIcon from '../icons/BlogIcon'
 import BookIcon from '../icons/BookIcon'
@@ -44,7 +42,6 @@ const Display = props => {
         <div className={props.debug ? classes.debug : classes.root}>
             <CustomImage src={props.image_url ? props.image_url : props.curriculum.image_url} height={props.imgHeight} width={props.imgWidth}/>
            
-            {/* button */}
             <div className={classes.previewInfo}>
                 <div className={classes.body}>
                     <F3 font="secondary">{props.title ? 'Lesson Preview:' : 'Curriculum Info:'}</F3>
@@ -52,7 +49,6 @@ const Display = props => {
                     <F5>{props.description ? props.description : props.curriculum.description}</F5>
                 </div>
                 <div className={classes.footer} >
-                    {/* {props.title && <Button theme={"third"}onClick={props.onClick}>Start Lesson</Button>} */}
                     <span className={classes.zipText}> Created by: {props.curriculum.user && props.curriculum.user.username}</span>
                     <F6>Subscribe to this Curriculum to view this Lesson</F6>
                     {props.lesson_type && props.lesson_type === "video" || props.lesson_type === "Video" && <VideoIcon />}

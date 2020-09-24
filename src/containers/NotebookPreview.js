@@ -34,8 +34,6 @@ const NotebookPreview = props => {
     console.log("in notebook preview", props)
     return(
         <div className={props.debug ? classes.debug : classes.root}>
-           
-            {/* button */}
             <div className={classes.previewInfo}>
                 <div className={classes.body}>
                     <F3 font="secondary">Notebook Preview:</F3>
