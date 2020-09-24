@@ -46,9 +46,6 @@ export default function ContentCard(props){
     const [error, setError] = useState("")
 
     useEffect(() =>{
-        // if(props.videoid){
-        //     handleSearch(props.videoid)
-        // }
         if(props.videoURL){
             if(checkIfYoutube(props.videoURL)){
                 handleSearch(getYoutubeIDFromURL(props.videoURL))

@@ -127,7 +127,6 @@ export default function Card(props){
                     <div className={classes.bodyText}>{props.description}</div>
                 </div>
                 <div className={classes.cardFooter}>
-                    {/* <Button value="View" onClick={props.onClick}><F4 color="black" >View</F4></Button> */}
                     <div className={classes.searchIcon}>
                         <SearchCircle onClick={props.onClick}/>
                     </div>

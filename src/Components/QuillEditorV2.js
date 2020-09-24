@@ -110,11 +110,8 @@ const QuillEditorV2 = props => {
     }
 
     const setCurrentNotepadContentHelper = () => {
-        // console.log("currentnotepadcontent", props.currentNotepadContent)
         props.setCurrentNotepadContent({...props.currentNotepadContent, content: quillCopy.root.innerHTML })
     }
-
-    // console.log("current notepad contents", props.currentNotepadContent)
 
         return (
             <div className={classes.root}>
