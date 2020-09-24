@@ -74,8 +74,6 @@ export default class QuillEditor extends React.Component {
 
     changeHelper = () => {
         this.props.handleNotepadChange(quillCopy.root.innerHTML)
-        // console.log(this.props)
-        // quillCopy.setContents([{ insert: '\n' }]);
     }
 
 

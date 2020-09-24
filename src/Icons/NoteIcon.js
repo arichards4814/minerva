@@ -13,15 +13,6 @@ const useStyles = makeStyles({
 export default function NoteIcon(props){
     const classes = useStyles(props)
 
-    // needs to go to 155 on component did mount or on click or something.
-
-    useEffect(() => {
-      
-    }, []);
-
-
-
-
     return(
         <div >
             <svg

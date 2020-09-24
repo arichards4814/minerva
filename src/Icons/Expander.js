@@ -30,16 +30,6 @@ const useStyles = makeStyles({
 export default function (props) {
     const classes = useStyles(props)
 
-    const [hovered, setHovered] = useState(false)
-
-    // const handleHover = () => {
-    //     setHovered(true)
-    // }
-    // const handleMouseOut = () => {
-    //     setHovered(false)
-
-    // }
-
     return (
         <div className={classes.root} onClick={props.onClick}>
             <svg

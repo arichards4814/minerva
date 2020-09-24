@@ -36,20 +36,8 @@ const useStyles = makeStyles({
 export default function LeftBackIcon(props) {
     const classes = useStyles(props)
 
-    const [hovered, setHovered] = useState(false)
-
-    const handleHover = () => {
-        // setHovered(true)
-    }
-    const handleMouseOut = () => {
-        // setHovered(false)
-
-    }
-
-    // console.log(props)
-
     return (
-        <div className={props.navlingHidden ? classes.root: classes.root} onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={props.onClick}>
+        <div className={props.navlingHidden ? classes.root: classes.root} onClick={props.onClick}>
            <svg
                 width="100%"
                 height="100%"

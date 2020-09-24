@@ -36,17 +36,6 @@ const useStyles = makeStyles({
 export default function BackIcon(props) {
     const classes = useStyles(props)
 
-    const [hovered, setHovered] = useState(false)
-
-    const handleHover = () => {
-        // setHovered(true)
-    }
-    const handleMouseOut = () => {
-        // setHovered(false)
-
-    }
-
-    // console.log(props)
 
     return (
         <div className={props.navlingHidden ? classes.root: classes.root} onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={props.onClick}>
