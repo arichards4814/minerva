@@ -57,7 +57,7 @@ const TagPill = props => {
             history.push(`/explore?tag=${props.name}`)
         }
     }
-    // console.log(props)
+    
     return (
         <div className={hovered ? classes.rootHovered : classes.root} onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
             <div className={classes.exIcon}>{props.name ? props.name : "None"} </div> {props.exClick && <div className={classes.exIcon}><Ex onClick={() => props.exClick(props.name)} /></div> }

@@ -55,7 +55,6 @@ const Dropdown = props => {
             <option value="">Choose a Curriculum</option>
             {renderOptions()}
         </select>
-        // <input className={classes.root} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></input>
     )
 }
 

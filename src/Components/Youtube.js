@@ -65,13 +65,6 @@ class YouTube extends React.PureComponent {
         return Math.floor(this.player.getCurrentTime())
     }
 
-    // checkDuration = () => {
-        // if(this.player){
-        //     return this.player.getDuration()
-        // }
-        // console.log("total time", this.player.getDuration())
-    // }
-
     goToSpecifiedTime = (time, passUp) => {
         this.player.seekTo(time)
         passUp()

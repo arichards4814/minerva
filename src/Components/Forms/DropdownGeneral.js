@@ -94,9 +94,7 @@ const DropdownGeneral = props => {
             </select>}
             {chosenLesson && <Button onClick={handleSubmit} theme="minerva"> Add Lesson </Button>}
         </div>
-        
-        // <input className={classes.root} type={props.type} onChange={props.onChange} value={props.value} placeholder={props.placeholder}></input>
-    )
+   )
 }
 
 

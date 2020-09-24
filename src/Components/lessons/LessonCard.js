@@ -114,11 +114,9 @@ export default function Card(props) {
             <div className={hovered ? classes.hovered : classes.root} >
                 <div className={classes.cardHeader}>
                     Lesson from <b>{props.ccTitle}</b>
-                    {/* <Link to={"/curriculums/" + props.ccID}></Link> */}
                 </div>
                 <div className={classes.cardImage}>
                     {props.image_url && <img src={props.image_url} style={{ height: "100%", width: "100%" }}></img>}
-                    {/* {!props.image_url && <LoadingAnimation />} */}
                 </div>
                 <div className={classes.cardTitle}>
                     <F5>{props.title}</F5>
@@ -127,7 +125,6 @@ export default function Card(props) {
                     <div className={classes.bodyText}>{props.description}</div>
                 </div>
                 <div className={classes.cardFooter}>
-                    {/* <Button value="View" onClick={props.onClick}><F4 color="black" >View</F4></Button> */}
                     <div className={classes.searchIcon}>
                         <SearchCircle onClick={props.onClick} />
                     </div>

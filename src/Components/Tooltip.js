@@ -21,13 +21,6 @@ const useStyles = makeStyles({
                 return 0
             }
         },
-        // top: props => {
-        //     if (props.top) {
-        //         return props.top
-        //     } else {
-        //         return 0
-        //     }
-        // },
         paddingLeft: 4,
         paddingRight: 4,
         textAlign: "center",
