@@ -167,7 +167,6 @@ const NotesLongcard = props => {
             </div>
             <div className={classes.cardImage}>
                 <TinyNote theme={selected ? "minerva" : "secondary"} onClick={setSelectedFromIcon} />
-                {/* <HideIcon height={25} width={25} /> */}
             </div>
             <div className={classes.rightSide}>
                 <div className={classes.cardTitle}>
@@ -175,13 +174,11 @@ const NotesLongcard = props => {
                 </div>
                 <div className={classes.cardBody}>
                     {parseInfo()}
-                    {/* <F6>{props.note.description}</F6> */}
                 </div>
             </div>
 
             <div className={classes.cardFooter}>
                 {calcTimeStamp()}
-                {/* {props.note.material_time_stamp} */}
                 <div className={classes.tinyTrash} style={{ width: 20 }}>
                     {expanded && <TinyTrash onClick={() => props.deleteNote(props.note.id)} />}
                 </div>
