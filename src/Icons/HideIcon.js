@@ -38,7 +38,7 @@ export default function BackIcon(props) {
 
 
     return (
-        <div className={props.navlingHidden ? classes.root: classes.root} onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={props.onClick}>
+        <div className={props.navlingHidden ? classes.root: classes.root} onClick={props.onClick}>
            <svg
                 width="100%"
                 height="100%"

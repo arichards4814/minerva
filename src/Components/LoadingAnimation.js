@@ -29,10 +29,10 @@ export default function LoadingAnimation(props){
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
             >
-                <circle id="first-circle" class={classes.st0 + " load1"} cx="57" cy="166" r="34" />
-                <circle id="second-circle" class={classes.st1} cx="151.98" cy="166" r="34" />
-                <circle id="third-circle" class={classes.st2} cx="246.97" cy="166" r="34" />
-                <circle id="fourth-circle" class={classes.st3} cx="343" cy="166" r="34" />
+                <circle id="first-circle" className={classes.st0 + " load1"} cx="57" cy="166" r="34" />
+                <circle id="second-circle" className={classes.st1} cx="151.98" cy="166" r="34" />
+                <circle id="third-circle" className={classes.st2} cx="246.97" cy="166" r="34" />
+                <circle id="fourth-circle" className={classes.st3} cx="343" cy="166" r="34" />
 
                 <animate 
                     xlinkHref="#first-circle"
