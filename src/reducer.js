@@ -26,6 +26,8 @@ const initialState = {
     
 }
 
+// need to work on breaking this down into many files 
+
 export const reducer = (prevState = initialState, action) => {
     switch (action.type) {
         case 'POST_LOGIN':
