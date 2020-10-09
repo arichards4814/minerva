@@ -33,7 +33,7 @@
   "scripts": {
     "start": "env-cmd -f ./src/.env react-scripts start",
     "build": "env-cmd dev react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,6 +54,7 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "html-loader": "^1.0.0",
+    "jest": "^26.5.2",
     "raw-loader": "^4.0.0"
   }
 }
