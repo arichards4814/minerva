@@ -10,6 +10,7 @@ import CurriculumEdit from './views/CurriculumEdit';
 import CurriculumCreator from './views/CurriculumCreator';
 import CurriculumDashboard from './views/CurriculumDashboard';
 import NotebookShow from './views/NotebookShow';
+import Studybud from './views/Studybud/Studybud';
 import Signup from './views/Signup';
 import Login from './views/Login';
 import Overlay from './components/Overlay';
@@ -85,6 +86,9 @@ const App = props => {
             {props.currentUser && localStorage.user_id ?
               <CurriculumShow /> :
               <Redirect to="/signup" />}
+          </Route>
+          <Route path="/studybud">
+            <Studybud />
           </Route>
           <Route path="/learn">
             <Learn />
