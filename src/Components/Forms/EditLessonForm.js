@@ -23,7 +23,6 @@ export default function EditLessonForm(props) {
     
     const urlListener = (e) => {
         props.onChange(e)
-        console.log(e.target.value)
         setVideoURL(e.target.value)
     }
 
@@ -67,30 +66,28 @@ export default function EditLessonForm(props) {
         }
     }
 
-    const getNewLessonImage = (x) => {
-        //placeholder
-        console.log(x)
-    }
-
     
     return(
         <div>
-            {console.log(props.formInfo)}
             <F4>Edit Lesson {props.id}</F4>
-             {console.log(props)}
-            <F4 font="secondary">Lesson Title:</F4><MinervaInput name="title" theme="secondary" onChange={props.onChange} value={title}/>
+            <F4 font="secondary">Lesson Title:</F4>
+            <MinervaInput name="title" theme="secondary" onChange={props.onChange} value={title}/>
             <br></br>
             <F4 font="secondary">Type:</F4>
-            <Toggler value="Video" selected={typeSelector()} name="lesson_type" index={0} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Book" selected={typeSelector()} name="lesson_type" index={1} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Blog" selected={typeSelector()} name="lesson_type" index={2} onClick={setSelected1} onChange={props.onChange} /> <Toggler value="Tweet" selected={typeSelector()} name="lesson_type" index={3} onClick={setSelected1} onChange={props.onChange}/> 
-            <F4 font="secondary">Media Url:</F4><MinervaInput name="material_url" theme="secondary" width={400} onChange={urlListener} value={material_url}/>
+            <Toggler value="Video" selected={typeSelector()} name="lesson_type" index={0} onClick={setSelected1} onChange={props.onChange} /> 
+            <Toggler value="Book" selected={typeSelector()} name="lesson_type" index={1} onClick={setSelected1} onChange={props.onChange} /> 
+            <Toggler value="Blog" selected={typeSelector()} name="lesson_type" index={2} onClick={setSelected1} onChange={props.onChange} /> 
+            <Toggler value="Tweet" selected={typeSelector()} name="lesson_type" index={3} onClick={setSelected1} onChange={props.onChange}/> 
+            <F4 font="secondary">Media Url:</F4>
+            <MinervaInput name="material_url" theme="secondary" width={400} onChange={urlListener} value={material_url}/>
             <F4 font="secondary">Content Preview:</F4>
             {selectedToggle1 === 0 && <ContentCard videoURL={videoURL} getNewLessonImage={props.getNewLessonImage} type={props.formInfo && props.formInfo.lesson.lesson_type} />}
             {selectedToggle1 === 3 && <Tweet tweet_url={videoURL} />}
             <br></br>
             <F4 font="secondary">Price:</F4>
             <Toggler value="free" name="cost" selected={costSelector()} onClick={setSelected2} index={0} /> <Toggler value="$" selected={costSelector()} name="cost" onClick={setSelected2} index={1} /> <Toggler value="$$" selected={costSelector()} name="cost" onClick={setSelected2} index={2} /> <Toggler value="$$$" selected={costSelector()} name="cost" onClick={setSelected2} index={3}/> 
-            <F4 font="secondary">Description:</F4><MinervaInput name="description" theme="secondary" width={400} onChange={props.onChange} value={description}/>
-            {/* This will be the price toggle... */}
+            <F4 font="secondary">Description:</F4>
+            <MinervaInput name="description" theme="secondary" width={400} onChange={props.onChange} value={description}/>
             <MajesticButton color="third" onClick={() => props.onSubmit(id)}>Update</MajesticButton>
         </div>
     )

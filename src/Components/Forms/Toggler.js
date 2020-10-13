@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import HandleScheme from '../../assets/schemes/HandleScheme'
 import F4 from '../../assets/typing/F4'
 import "../../assets/scss/Button.scss";
 import * as color from '../../assets/schemes/ColorScheme'
@@ -61,9 +60,14 @@ const useStyles = makeStyles({
 export default function Toggler(props) {
     const classes = useStyles(props)
 
-
-
     return (
-        <button className={classes.root} onClick={() => props.onClick(props.value, props.index)}><F4 font="secondary">{props.value ? props.value : "Search"}</F4></button>
+        <button 
+            className={classes.root} 
+            onClick={() => props.onClick(props.value, props.index)}
+        >
+            <F4 font="secondary">
+                {props.value ? props.value : "Search"}
+            </F4>
+        </button>
     )
 }

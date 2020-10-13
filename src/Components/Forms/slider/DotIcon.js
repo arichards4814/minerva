@@ -48,9 +48,19 @@ export default function DotIcon(props) {
     }
 
     return (
-        <div className={classes.root} onClick={props.onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-
-            <SliderTooltip content={props.tooltip} showing={visible} width={100} right={50} top={0} />
+        <div 
+            className={classes.root} 
+            onClick={props.onClick} 
+            onMouseEnter={handleMouseEnter} 
+            onMouseLeave={handleMouseLeave}
+        >
+            <SliderTooltip 
+                content={props.tooltip} 
+                showing={visible} 
+                width={100} 
+                right={50} 
+                top={0} 
+            />
             <svg
                 width="100%"
                 height="100%"
@@ -58,7 +68,12 @@ export default function DotIcon(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
             >
-                <circle className={classes.st0} cx="25" cy="25" r="18.7" />
+                <circle 
+                    className={classes.st0} 
+                    cx="25" 
+                    cy="25" 
+                    r="18.7" 
+                />
             </svg>
         </div>
     )

@@ -41,6 +41,14 @@ export default function SearchButton(props) {
     const classes = useStyles(props)
 
     return (
-    <button className={classes.root} onClick={props.onClick} type={props.type}><F4 font="secondary">{props.value ? props.value : "Search"}</F4></button>
+        <button 
+            className={classes.root} 
+            onClick={props.onClick} 
+            type={props.type}
+        >
+            <F4 font="secondary">
+                {props.value ? props.value : "Search"}
+            </F4>
+        </button>
     )
 }

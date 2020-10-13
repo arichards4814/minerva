@@ -8,7 +8,6 @@ const useStyles = makeStyles({
         minHeight: 300,
         mixWidth: 400,
         maxWidth: 600,
-        // backgroundColor: "blue",
         position: "relative",
         boxShadow: "2px 2px 6px 2px",
         borderRadius: "4px",
@@ -33,11 +32,11 @@ const FormSlider = props => {
     const classes = useStyles(props)
     const [page, setPage] = useState(0)
 
-    //throw and error if the number of pages does not match the number of children
+    //throw an error if the number of pages does not match the number of children
 
     const handleClick = (e) => {
-            e.preventDefault()
-            setPage(page + 1)
+        e.preventDefault()
+        setPage(page + 1)
     }
 
     const handleBack = (e) => {
