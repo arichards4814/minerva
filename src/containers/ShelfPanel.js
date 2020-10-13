@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Shelf from '../components/Shelf'
 
-
 const useStyles = makeStyles({
     root: {
         position: "relative",

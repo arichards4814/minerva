@@ -49,7 +49,6 @@ const CurriculumInfo = props => {
                 <img className={classes.image} src={props.currentCurriculum.image_url}></img>
             </div>
             <div className={classes.right}>
-
             </div>
             <div className={classes.description}>
                 Description: {props.currentCurriculum.description}

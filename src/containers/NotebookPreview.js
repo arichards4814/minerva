@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core' 
-import CustomImage from '../components/CustomImage'
 import F3 from '../typing/F3'
 import F4 from '../typing/F4'
 import Button from '../components/Button'

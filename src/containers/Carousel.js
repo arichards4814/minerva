@@ -65,17 +65,26 @@ const Carousel = props => {
     return(
         <div className={classes.root}>
             <Row marginLeft="10%">
-                <TitleBox theme="secondary"><F4 font="secondary">{props.title}</F4></TitleBox>
+                <TitleBox theme="secondary">
+                    <F4 font="secondary">{props.title}</F4>
+                </TitleBox>
             </Row>
             <div className={classes.root}>
                 <div className={classes.leftChevron}>
-                    <LeftBackUnaltered theme="minerva" onMouseDown={scrollLeft} />
+                    <LeftBackUnaltered 
+                        theme="minerva" 
+                        onMouseDown={scrollLeft} 
+                    />
                 </div>
                 <div className={classes.leftToRightScroll} id={props.title}>
                     {props.curriculums && props.curriculums.length > 0 ? renderCurriculums() : <div style={{ paddingLeft: "40%", height: "325px" }}><LoadingAnimation /></div>}
                 </div>
                 <div className={classes.rightChevron}>
-                    <LeftBackUnaltered theme="minerva" pointing="right" onMouseDown={scrollRight} />
+                    <LeftBackUnaltered 
+                        theme="minerva" 
+                        pointing="right" 
+                        onMouseDown={scrollRight} 
+                    />
                 </div>
             </div>
         </div>

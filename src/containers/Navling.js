@@ -6,8 +6,6 @@ import LogoHolder from '../components/LogoHolder.js'
 import bottomLine from '../svgs/bottom_line.svg'
 import Expander from '../icons/Expander'
 import { Link } from 'react-router-dom'
-
-// redux
 import { connect } from 'react-redux';
 import { showNavling, logout } from '../actionCreators'
 

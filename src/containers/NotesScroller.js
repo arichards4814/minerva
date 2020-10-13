@@ -32,7 +32,6 @@ const NotesScroller = props => {
     const classes = useStyles(props)
 
     const renderCards = () => {
-        //filter here... 
         const sortedNotes = props.info.sort((a, b) => (a.material_time_stamp > b.material_time_stamp) ? 1 : -1)
         return sortedNotes.map(note => <NotesLongcard key={note.id} note={note} />)
     }

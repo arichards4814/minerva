@@ -72,11 +72,9 @@ const LessonsPanel = props => {
 
     const dragOver = (e) => {
         e.preventDefault()
-        // console.log(e.target.id)
     }
 
     const drop = async (e) => {
-        // console.log(e.target.id)
         let lessonsCopy  = [...lessons]
         // the id shouldnt be the index
         let newCurrent = {...currentlyDragging}

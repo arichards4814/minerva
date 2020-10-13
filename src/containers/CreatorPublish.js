@@ -6,7 +6,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '../components/Button'
 
-
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -17,14 +16,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
 const CreatorPublish = props => {
     const classes = useStyles();
     const [age, setAge] = React.useState('');
 
 
-    const handleChange1 = (event) => {
+    const handleChange = (event) => {
         setAge(event.target.value);
     };
 
@@ -36,7 +33,7 @@ const CreatorPublish = props => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={age}
-                    onChange={handleChange1}
+                    onChange={handleChange}
                 >
                     <MenuItem value={10}>Private</MenuItem>
                     <MenuItem value={20}>Public</MenuItem>

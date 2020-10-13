@@ -3,13 +3,9 @@ import {makeStyles} from "@material-ui/core"
 import MinervaInput from '../components/forms/MinervaInput'
 import Button from '../components/Button'
 import TinyEdit from '../icons/Tiny/TinyEdit'
-
 import DropdownGeneral from '../components/forms/DropdownGeneral'
-
-// redux
 import { connect } from 'react-redux';
 import { fetchNotebook, patchNotebooks, fetchUsersSubscriptions } from '../actionCreators'
-
 
 const useStyles = makeStyles({
     root:{
@@ -44,19 +40,34 @@ const Material = props => {
             {console.log(props.subscriptions)}
             {props.currentNotebook && props.currentNotebook.material_url ?
             <React.Fragment>
-            <div>
-                Link to Material: {props.currentNotebook && <a href={props.currentNotebook.material_url}>Here</a>}
-            </div>
-            <div>
-                        Description: {props.currentNotebook && props.currentNotebook.lessons && props.currentNotebook.lessons[0] && props.currentNotebook.lessons[0].description}
-                </div></React.Fragment>
+                <div>
+                    Link to Material: {props.currentNotebook && <a href={props.currentNotebook.material_url}>Here</a>}
+                </div>
+                <div>
+                    Description: {props.currentNotebook && 
+                    props.currentNotebook.lessons && 
+                    props.currentNotebook.lessons[0] && 
+                    props.currentNotebook.lessons[0].description}
+                </div>
+            </React.Fragment>
                 :
                 <div>
                     <TinyEdit onClick={() => props.setEditing(true)}></TinyEdit>
                     <br></br>
                     Add Material to this Notebook:
-                    <MinervaInput onChange={handleChange} width={400} theme="secondary" placeholder="Add URL Here" />
-                    {input && <Button onClick={handleSubmit} margin={10} theme="secondary" color="white">Create</Button>}
+                    <MinervaInput 
+                        onChange={handleChange} 
+                        width={400} 
+                        theme="secondary" 
+                        placeholder="Add URL Here" 
+                    />
+                    {input && 
+                    <Button 
+                        onClick={handleSubmit} 
+                        margin={10} 
+                        theme="secondary" 
+                        color="white"
+                    >Create</Button>}
                     <br></br>
                     <br></br>
                     OR Choose a lesson for this notebook:
@@ -67,8 +78,6 @@ const Material = props => {
         </div>
     )
 }
-
-
 
 const mapStateToProps = (state) => {
     return {

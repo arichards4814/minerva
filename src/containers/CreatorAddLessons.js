@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import F3 from '../assets/typing/F3'
 import FormSlider from '../components/forms/slider/FormSlider'
 import FormPage from '../components/forms/slider/FormPage'
-import { makeStyles, withStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import LessonCard from '../components/lessons/LessonCard'
 
 import MinervaInput from '../components/forms/MinervaInput'
@@ -12,7 +12,15 @@ import MinervaTextArea from '../components/forms/MinervaTextArea'
 
 // redux
 import { connect } from 'react-redux';
-import { fetchCurriculum, setCurrentLesson, updateCurrentCurriculum, postLessons, patchLesson, deleteLesson, deleteCurriculum } from '../actionCreators'
+import { 
+    fetchCurriculum, 
+    setCurrentLesson, 
+    updateCurrentCurriculum, 
+    postLessons, 
+    patchLesson, 
+    deleteLesson, 
+    deleteCurriculum 
+} from '../actionCreators'
 
 
 import materialManager from '../helpers/materialManager'
@@ -98,29 +106,66 @@ const CreatorAddLessons = props => {
                 <FormPage tooltip="Lesson Title">
                     <F3>Lesson Title</F3>
                     <div className={classes.lessonSubtitle}>Choose a name for this lesson...</div>
-                    <div className={classes.lessonInput}><MinervaInput type="text" name="title" theme="minerva" value={formInfo.title} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create title..." />
-                        {formInfo.title.length > 3 && <CheckCircle width={20} height={20} />}</div>
+                    <div className={classes.lessonInput}>
+                        <MinervaInput 
+                            type="text" 
+                            name="title" 
+                            theme="minerva" 
+                            value={formInfo.title} 
+                            onChange={handleChangeCurriculumDetails} 
+                            width={500} 
+                            placeholder="Create title..." 
+                        />
+                        {formInfo.title.length > 3 && <CheckCircle width={20} height={20} />}
+                    </div>
 
                 </FormPage>
                 <FormPage tooltip="Lesson Media">
                     <F3>Lesson Media</F3>
                     <div className={classes.lessonSubtitle}>Add Media to this Lesson...</div>
-                    <div className={classes.lessonInput}><MinervaInput type="text" name="material_url" theme="minerva" value={formInfo.material_url} onChange={handleUrl} width={500} placeholder="Paste media link here..." />
-                        {formInfo.image_url.length > 3 && <CheckCircle width={20} height={20} />}</div>
+                    <div className={classes.lessonInput}>
+                        <MinervaInput 
+                            type="text" 
+                            name="material_url" 
+                            theme="minerva" 
+                            value={formInfo.material_url} 
+                            onChange={handleUrl} 
+                            width={500} 
+                            placeholder="Paste media link here..." 
+                        />
+                        {formInfo.image_url.length > 3 && <CheckCircle width={20} height={20} />}
+                    </div>
                     <div className={classes.lessonHelp}>Media could be anything from a Youtube video, to a Tweet, article, blog or even a TikTok.</div>
                 </FormPage >
                 <FormPage tooltip="Lesson Description">
                     <F3>Lesson Description</F3>
                     <div className={classes.lessonSubtitle}>Write a Description</div>
-                    <div className={classes.lessonInput}><MinervaTextArea type="text" name="description" theme="minerva" height={130} value={formInfo.description} onChange={handleChangeCurriculumDetails} width={500} placeholder="Create description..." />
+                    <div className={classes.lessonInput}>
+                        <MinervaTextArea 
+                            type="text" 
+                            name="description" 
+                            theme="minerva" 
+                            height={130} 
+                            value={formInfo.description} 
+                            onChange={handleChangeCurriculumDetails} 
+                            width={500} 
+                            placeholder="Create description..." 
+                        />
                         {formInfo.description.length > 10 && formInfo.description.length < 240 && <CheckCircle width={20} height={20} />}</div>
                 </FormPage>
                 <FormPage tooltip="Finish">
                     <F3>Lesson Preview</F3>
                             How your lesson card will look to others.
                             <div className={classes.lessonCard}>
-                        <LessonCard user={props.currentUser} description={formInfo.description} title={formInfo.title} ccTitle={props.currentCurriculum.title} ccID={props.currentCurriculum.id} image_url={formInfo.image_url} />
-                    </div>
+                                <LessonCard 
+                                    user={props.currentUser} 
+                                    description={formInfo.description} 
+                                    title={formInfo.title} 
+                                    ccTitle={props.currentCurriculum.title} 
+                                    ccID={props.currentCurriculum.id} 
+                                    image_url={formInfo.image_url} 
+                                />
+                            </div>
                     <div className={classes.finalCheckmark}>
                         Ready: {isValidForm(formInfo) ? <CheckCircle width={20} height={20} /> : <CheckEx width={20} height={20} />}
                     </div>
