@@ -1,5 +1,17 @@
+const initialNotebookState = {
+    notebooks: [],
+    currentNotebook: {},
+    currentNote: {},
 
-const byNotebooks = (prevState = initialState, action) => {
+    navlingHidden: false,
+
+    currentNotepadContent: {},
+    currentNotepadDetails: {},
+
+    selectedNoteIndex: 0,
+}
+
+const byNotebooks = (prevState = initialNotebookState, action) => {
     switch (action.type) {
         case 'FETCH_USERS_NOTEBOOKS':
             return { ...prevState, notebooks: action.payload.notebooks }

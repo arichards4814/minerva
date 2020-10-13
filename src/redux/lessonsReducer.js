@@ -1,4 +1,7 @@
+const initialState = {
+    currentLesson: {}
 
+}
 const byLessons = (prevState = initialState, action) => {
     switch (action.type) {
         case 'SET_CURRENT_LESSON':

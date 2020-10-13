@@ -1,3 +1,10 @@
+const initialState = {
+    currentUser: {},
+    curriculums: [],
+    thisUsersCurriculums: [],
+    currentCurriculum: {},
+}
+
 const byCurriculum = (prevState = initialState, action) => {
     switch (action.type) {
         case 'POST_LOGIN':
