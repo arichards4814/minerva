@@ -1,11 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
-// redux
-import { connect } from 'react-redux';
-import { } from '../../actionCreators';
-
-
 const useStyles = makeStyles({
     root: {
         position: "absolute",
@@ -30,21 +25,17 @@ const SpotifyFrame = props => {
     
     return (
         <div>
-            <iframe src={embed_url()} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe 
+                src={embed_url()} 
+                width="300" 
+                height="80" 
+                frameborder="0" 
+                allowtransparency="true" 
+                allow="encrypted-media"
+            ></iframe>
         </div>
         
     );
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SpotifyFrame);
+export default SpotifyFrame

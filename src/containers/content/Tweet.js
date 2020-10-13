@@ -1,12 +1,6 @@
 import React, { useEffect } from 'react';
 import TweetEmbed from 'react-tweet-embed';
 
-// redux
-import { connect } from 'react-redux';
-import {  } from '../../actionCreators';
-
-
-
 const Tweet = props => {
 
     useEffect(() => {
@@ -23,14 +17,4 @@ const Tweet = props => {
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Tweet);
+export default Tweet;

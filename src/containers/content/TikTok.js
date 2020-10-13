@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../App.css';
 
-// redux
-import { connect } from 'react-redux';
-import { } from '../../actionCreators';
-
-
 
 const TikTok = props => {
     const [content, setContent] = useState({})
@@ -27,14 +22,4 @@ const TikTok = props => {
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TikTok);
+export default TikTok;

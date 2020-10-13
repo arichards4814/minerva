@@ -3,10 +3,6 @@ import { makeStyles } from '@material-ui/core'
 import AddNew from '../../icons/AddNew'
 import EditExisting from '../../icons/EditExisting'
 
-// redux
-import { connect } from 'react-redux';
-import { } from '../../actionCreators';
-
 
 const useStyles = makeStyles({
     tray: {
@@ -37,22 +33,19 @@ const MaterialFrame = props => {
     return (
         <div>
             <iframe id="iframeId" src={props.material_url} style={{ width: "95%", height: 400 }}></iframe>
-                
-                 {props.frameType && props.frameType === "fullscreen" && <React.Fragment><div className={classes.textInput}><textarea className={classes.input}></textarea></div>
-                <div className={classes.tray}><AddNew /><EditExisting /></div></React.Fragment>}
+            {props.frameType && 
+                props.frameType === "fullscreen" && 
+                <React.Fragment>
+                    <div className={classes.textInput}>
+                        <textarea className={classes.input}></textarea>
+                    </div>
+                    <div className={classes.tray}>
+                        <AddNew />
+                        <EditExisting />
+                    </div>
+                </React.Fragment>}
         </div>
     );
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MaterialFrame);
+export default MaterialFrame;
