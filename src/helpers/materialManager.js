@@ -33,7 +33,6 @@ if(!url) return null
 
 const isYoutubeUrl = (videoURL) => {
     if (videoURL.includes("youtube")) {
-        console.log("is youtube")
         return true
     } else {
         return false
@@ -49,7 +48,6 @@ const handleSearchAsync = async (youtubeid) =>{
                 part: "snippet",
                 key: process.env.REACT_APP_API_KEY
             }
-            //
         })
         console.log("Response", response)
         return response

@@ -45,8 +45,14 @@ export default function AddNew(props) {
 
     return (
         <div className={classes.root + " selected icon-hover"} onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={props.onClick}>
-            {props.tooltip === "top" && <div style={{ marginLeft: "32%" }}>
-                <Tooltip width={100} right={40} content={props.content} showing={hovered ? "visible" : "hidden"} />
+            {props.tooltip === "top" && 
+            <div style={{ marginLeft: "32%" }}>
+                <Tooltip 
+                    width={100} 
+                    right={40} 
+                    content={props.content} 
+                    showing={hovered ? "visible" : "hidden"} 
+                />
             </div>}
             <svg
                 width="100%"
@@ -61,7 +67,12 @@ export default function AddNew(props) {
                     <polygon className={classes.st1} points="175.3,109.47 66.99,109.47 66.99,132.57 174.9,132.57 	" />
                 </g>
             </svg>
-            {props.tooltip === "bottom" && <Tooltip width={100} content={props.content} showing={hovered ? "visible" : "hidden"} />}
+            {props.tooltip === "bottom" && 
+            <Tooltip 
+                width={100} 
+                content={props.content} 
+                showing={hovered ? "visible" : "hidden"} 
+            />}
         </div>
     )
 }
