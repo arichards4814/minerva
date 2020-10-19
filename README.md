@@ -15,3 +15,5 @@ https://www.youtube.com/watch?v=gjDmYmrCqGs
 
 https://github.com/arichards4814/minerva-backend
 
+Plans for Minerva:
+- Add a simple flashcard system for learning subjects.
